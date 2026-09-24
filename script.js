@@ -2273,3 +2273,796 @@ console.log(
 /* =========================================================
    PART 4 END
    ========================================================= */
+/* =========================================================
+   PART 5
+   INDIAN FESTIVALS + NATIONAL SYMBOLS
+   ========================================================= */
+
+
+/* =========================================================
+   INDIAN FESTIVALS
+   ========================================================= */
+
+const FESTIVALS = [
+
+    {
+        name: "Diwali",
+        hindi: "दीवाली",
+        icon: "🪔",
+        month: "October / November",
+        hindiMonth: "अक्टूबर / नवंबर",
+        pronunciation: "Di-wa-lee",
+        description:
+            "Diwali is the festival of lights. People light diyas, decorate homes, exchange sweets and celebrate with family.",
+        hindiDescription:
+            "दीवाली रोशनी का त्योहार है। लोग दीपक जलाते हैं, घर सजाते हैं, मिठाइयाँ बाँटते हैं और परिवार के साथ उत्सव मनाते हैं.",
+        example: "People light diyas during Diwali.",
+        hindiExample: "दीवाली पर लोग दीपक जलाते हैं."
+    },
+
+    {
+        name: "Holi",
+        hindi: "होली",
+        icon: "🎨",
+        month: "March",
+        hindiMonth: "मार्च",
+        pronunciation: "Ho-lee",
+        description:
+            "Holi is the festival of colours. People play with colours, meet friends and share sweets.",
+        hindiDescription:
+            "होली रंगों का त्योहार है। लोग एक-दूसरे को रंग लगाते हैं, दोस्तों और परिवार से मिलते हैं तथा मिठाइयाँ बाँटते हैं.",
+        example: "Children play with colours during Holi.",
+        hindiExample: "होली पर बच्चे रंगों से खेलते हैं."
+    },
+
+    {
+        name: "Dussehra",
+        hindi: "दशहरा",
+        icon: "🏹",
+        month: "September / October",
+        hindiMonth: "सितंबर / अक्टूबर",
+        pronunciation: "Dus-she-ra",
+        description:
+            "Dussehra marks the victory of good over evil and is associated with the story of Lord Rama and Ravana.",
+        hindiDescription:
+            "दशहरा बुराई पर अच्छाई की विजय का प्रतीक है और भगवान राम तथा रावण की कथा से जुड़ा हुआ है.",
+        example: "Ravana effigies are burned in many places on Dussehra.",
+        hindiExample: "दशहरे पर कई स्थानों पर रावण के पुतले जलाए जाते हैं."
+    },
+
+    {
+        name: "Navratri",
+        hindi: "नवरात्रि",
+        icon: "💃",
+        month: "September / October",
+        hindiMonth: "सितंबर / अक्टूबर",
+        pronunciation: "Na-v-ra-tri",
+        description:
+            "Navratri is a festival celebrated for nine nights with prayers, devotion, music and traditional dances.",
+        hindiDescription:
+            "नवरात्रि नौ रातों तक मनाया जाने वाला त्योहार है, जिसमें पूजा, भक्ति, संगीत और पारंपरिक नृत्य होते हैं.",
+        example: "Garba is popular during Navratri in Gujarat.",
+        hindiExample: "गुजरात में नवरात्रि के दौरान गरबा बहुत लोकप्रिय है."
+    },
+
+    {
+        name: "Janmashtami",
+        hindi: "जन्माष्टमी",
+        icon: "🦚",
+        month: "August",
+        hindiMonth: "अगस्त",
+        pronunciation: "Jan-mash-ta-mee",
+        description:
+            "Janmashtami celebrates the birth of Lord Krishna.",
+        hindiDescription:
+            "जन्माष्टमी भगवान श्री कृष्ण के जन्मोत्सव के रूप में मनाई जाती है.",
+        example: "People celebrate Krishna's birth on Janmashtami.",
+        hindiExample: "जन्माष्टमी पर लोग श्री कृष्ण के जन्म का उत्सव मनाते हैं."
+    },
+
+    {
+        name: "Ganesh Chaturthi",
+        hindi: "गणेश चतुर्थी",
+        icon: "🐘",
+        month: "August / September",
+        hindiMonth: "अगस्त / सितंबर",
+        pronunciation: "Ga-nesh Cha-tur-thi",
+        description:
+            "Ganesh Chaturthi celebrates Lord Ganesha with prayers, decorations and community celebrations.",
+        hindiDescription:
+            "गणेश चतुर्थी भगवान गणेश की पूजा, सजावट और सामुदायिक उत्सव के साथ मनाई जाती है.",
+        example: "People worship Lord Ganesha during Ganesh Chaturthi.",
+        hindiExample: "गणेश चतुर्थी पर लोग भगवान गणेश की पूजा करते हैं."
+    },
+
+    {
+        name: "Makar Sankranti",
+        hindi: "मकर संक्रांति",
+        icon: "🪁",
+        month: "January",
+        hindiMonth: "जनवरी",
+        pronunciation: "Ma-kar San-kraan-ti",
+        description:
+            "Makar Sankranti is a harvest festival associated with the Sun's movement into Makara.",
+        hindiDescription:
+            "मकर संक्रांति एक प्रमुख पर्व है जो सूर्य के मकर राशि में प्रवेश और फसल के मौसम से जुड़ा है.",
+        example: "Kite flying is popular during Makar Sankranti in many places.",
+        hindiExample: "कई स्थानों पर मकर संक्रांति के दौरान पतंग उड़ाना लोकप्रिय है."
+    },
+
+    {
+        name: "Raksha Bandhan",
+        hindi: "रक्षाबंधन",
+        icon: "🧵",
+        month: "August",
+        hindiMonth: "अगस्त",
+        pronunciation: "Rak-sha Ban-dhan",
+        description:
+            "Raksha Bandhan celebrates the bond between brothers and sisters. Sisters traditionally tie a rakhi.",
+        hindiDescription:
+            "रक्षाबंधन भाई-बहन के स्नेह और रिश्ते का त्योहार है। इस दिन बहनें परंपरागत रूप से भाई की कलाई पर राखी बाँधती हैं.",
+        example: "Sisters tie rakhi on Raksha Bandhan.",
+        hindiExample: "रक्षाबंधन पर बहनें भाई की कलाई पर राखी बाँधती हैं."
+    },
+
+    {
+        name: "Eid al-Fitr",
+        hindi: "ईद-उल-फितर",
+        icon: "🌙",
+        month: "Islamic Calendar",
+        hindiMonth: "इस्लामी कैलेंडर",
+        pronunciation: "Eed-ul-Fi-tr",
+        description:
+            "Eid al-Fitr marks the end of Ramadan and is celebrated with prayers, family gatherings and food.",
+        hindiDescription:
+            "ईद-उल-फितर रमज़ान के महीने के समापन का पर्व है। इसे नमाज़, परिवार के साथ मिलना और भोजन के साथ मनाया जाता है.",
+        example: "Families meet and share food on Eid.",
+        hindiExample: "ईद पर परिवार मिलते हैं और भोजन साझा करते हैं."
+    },
+
+    {
+        name: "Eid al-Adha",
+        hindi: "ईद-उल-अजहा",
+        icon: "🌙",
+        month: "Islamic Calendar",
+        hindiMonth: "इस्लामी कैलेंडर",
+        pronunciation: "Eed-ul-Ad-ha",
+        description:
+            "Eid al-Adha is an important Islamic festival associated with faith, sacrifice and charity.",
+        hindiDescription:
+            "ईद-उल-अजहा एक महत्वपूर्ण इस्लामी पर्व है जो आस्था, त्याग और दान से जुड़ा है.",
+        example: "People offer prayers and share with others on Eid al-Adha.",
+        hindiExample: "ईद-उल-अजहा पर लोग नमाज़ पढ़ते हैं और दूसरों के साथ बाँटते हैं."
+    },
+
+    {
+        name: "Christmas",
+        hindi: "क्रिसमस",
+        icon: "🎄",
+        month: "December",
+        hindiMonth: "दिसंबर",
+        pronunciation: "Kris-mas",
+        description:
+            "Christmas is celebrated by Christians around the world to commemorate the birth of Jesus Christ.",
+        hindiDescription:
+            "क्रिसमस दुनिया भर में ईसाई समुदाय द्वारा यीशु मसीह के जन्म की स्मृति में मनाया जाता है.",
+        example: "People decorate Christmas trees during Christmas.",
+        hindiExample: "क्रिसमस पर लोग क्रिसमस ट्री सजाते हैं."
+    },
+
+    {
+        name: "Guru Nanak Gurpurab",
+        hindi: "गुरु नानक गुरुपुरब",
+        icon: "🪯",
+        month: "November",
+        hindiMonth: "नवंबर",
+        pronunciation: "Gu-roo Na-nak Gur-pur-ab",
+        description:
+            "Guru Nanak Gurpurab commemorates the birth anniversary of Guru Nanak Dev Ji, the founder of Sikhism.",
+        hindiDescription:
+            "गुरु नानक गुरुपुरब सिख धर्म के संस्थापक गुरु नानक देव जी की जयंती के रूप में मनाया जाता है.",
+        example: "Gurdwaras are decorated during Gurpurab.",
+        hindiExample: "गुरुपुरब के दौरान गुरुद्वारों को सजाया जाता है."
+    },
+
+    {
+        name: "Mahavir Jayanti",
+        hindi: "महावीर जयंती",
+        icon: "🙏",
+        month: "March / April",
+        hindiMonth: "मार्च / अप्रैल",
+        pronunciation: "Ma-ha-veer Ja-yan-ti",
+        description:
+            "Mahavir Jayanti commemorates the birth of Lord Mahavira, the twenty-fourth Tirthankara of Jainism.",
+        hindiDescription:
+            "महावीर जयंती जैन धर्म के चौबीसवें तीर्थंकर भगवान महावीर के जन्मोत्सव के रूप में मनाई जाती है.",
+        example: "Devotees visit Jain temples on Mahavir Jayanti.",
+        hindiExample: "महावीर जयंती पर श्रद्धालु जैन मंदिरों में जाते हैं."
+    },
+
+    {
+        name: "Buddha Purnima",
+        hindi: "बुद्ध पूर्णिमा",
+        icon: "☸️",
+        month: "April / May",
+        hindiMonth: "अप्रैल / मई",
+        pronunciation: "Bud-dha Poor-ni-ma",
+        description:
+            "Buddha Purnima commemorates important events associated with Gautama Buddha.",
+        hindiDescription:
+            "बुद्ध पूर्णिमा गौतम बुद्ध से जुड़े महत्वपूर्ण घटनाक्रमों की स्मृति में मनाई जाती है.",
+        example: "People visit Buddhist temples on Buddha Purnima.",
+        hindiExample: "बुद्ध पूर्णिमा पर लोग बौद्ध मंदिरों में जाते हैं."
+    },
+
+    {
+        name: "Onam",
+        hindi: "ओणम",
+        icon: "🌸",
+        month: "August / September",
+        hindiMonth: "अगस्त / सितंबर",
+        pronunciation: "O-nam",
+        description:
+            "Onam is a major festival of Kerala associated with harvest, cultural traditions and celebrations.",
+        hindiDescription:
+            "ओणम केरल का प्रमुख त्योहार है जो फसल, सांस्कृतिक परंपराओं और उत्सव से जुड़ा है.",
+        example: "Pookalam flower designs are made during Onam.",
+        hindiExample: "ओणम के दौरान फूलों की पुक्कलम सजावट बनाई जाती है."
+    },
+
+    {
+        name: "Pongal",
+        hindi: "पोंगल",
+        icon: "🍚",
+        month: "January",
+        hindiMonth: "जनवरी",
+        pronunciation: "Pon-gal",
+        description:
+            "Pongal is a harvest festival celebrated especially in Tamil Nadu.",
+        hindiDescription:
+            "पोंगल एक प्रमुख फसल पर्व है जिसे विशेष रूप से तमिलनाडु में मनाया जाता है.",
+        example: "Families prepare Pongal dishes during the festival.",
+        hindiExample: "त्योहार के दौरान परिवार पोंगल का पारंपरिक भोजन बनाते हैं."
+    },
+
+    {
+        name: "Bihu",
+        hindi: "बिहू",
+        icon: "🌾",
+        month: "April / January / October",
+        hindiMonth: "अप्रैल / जनवरी / अक्टूबर",
+        pronunciation: "Bi-hoo",
+        description:
+            "Bihu is a group of important festivals celebrated in Assam and is closely connected with agriculture.",
+        hindiDescription:
+            "बिहू असम के प्रमुख त्योहारों का समूह है और इसका कृषि से गहरा संबंध है.",
+        example: "Bihu celebrations include traditional music and dance.",
+        hindiExample: "बिहू उत्सव में पारंपरिक संगीत और नृत्य शामिल होते हैं."
+    },
+
+    {
+        name: "Lohri",
+        hindi: "लोहड़ी",
+        icon: "🔥",
+        month: "January",
+        hindiMonth: "जनवरी",
+        pronunciation: "Lo-hri",
+        description:
+            "Lohri is a winter festival especially popular in Punjab and northern India.",
+        hindiDescription:
+            "लोहड़ी सर्दियों का प्रमुख त्योहार है जो विशेष रूप से पंजाब और उत्तर भारत में लोकप्रिय है.",
+        example: "People gather around a bonfire during Lohri.",
+        hindiExample: "लोहड़ी पर लोग अलाव के आसपास एकत्र होते हैं."
+    },
+
+    {
+        name: "Basant Panchami",
+        hindi: "बसंत पंचमी",
+        icon: "🌼",
+        month: "January / February",
+        hindiMonth: "जनवरी / फरवरी",
+        pronunciation: "Ba-sant Pan-cha-mi",
+        description:
+            "Basant Panchami marks the arrival of spring and is associated with Goddess Saraswati.",
+        hindiDescription:
+            "बसंत पंचमी वसंत ऋतु के आगमन का पर्व है और देवी सरस्वती की पूजा से जुड़ी है.",
+        example: "Students worship Goddess Saraswati on Basant Panchami.",
+        hindiExample: "बसंत पंचमी पर विद्यार्थी देवी सरस्वती की पूजा करते हैं."
+    },
+
+    {
+        name: "Gudi Padwa",
+        hindi: "गुड़ी पड़वा",
+        icon: "🚩",
+        month: "March / April",
+        hindiMonth: "मार्च / अप्रैल",
+        pronunciation: "Gu-di Pad-wa",
+        description:
+            "Gudi Padwa is a traditional New Year festival celebrated mainly in Maharashtra.",
+        hindiDescription:
+            "गुड़ी पड़वा महाराष्ट्र में मुख्य रूप से मनाया जाने वाला पारंपरिक नववर्ष पर्व है.",
+        example: "Families decorate their homes for Gudi Padwa.",
+        hindiExample: "गुड़ी पड़वा पर परिवार अपने घरों को सजाते हैं."
+    },
+
+    {
+        name: "Ugadi",
+        hindi: "उगादी",
+        icon: "🌿",
+        month: "March / April",
+        hindiMonth: "मार्च / अप्रैल",
+        pronunciation: "U-ga-di",
+        description:
+            "Ugadi is a traditional New Year festival celebrated in parts of southern India.",
+        hindiDescription:
+            "उगादी दक्षिण भारत के कुछ क्षेत्रों में मनाया जाने वाला पारंपरिक नववर्ष पर्व है.",
+        example: "Ugadi marks the beginning of a new year in several southern traditions.",
+        hindiExample: "उगादी कई दक्षिण भारतीय परंपराओं में नए वर्ष की शुरुआत का प्रतीक है."
+    },
+
+    {
+        name: "Vishu",
+        hindi: "विषु",
+        icon: "🌞",
+        month: "April",
+        hindiMonth: "अप्रैल",
+        pronunciation: "Vi-shu",
+        description:
+            "Vishu is a traditional New Year festival celebrated in Kerala.",
+        hindiDescription:
+            "विषु केरल में मनाया जाने वाला पारंपरिक नववर्ष पर्व है.",
+        example: "Vishukkani is an important tradition of Vishu.",
+        hindiExample: "विषुक्कणी विषु की एक महत्वपूर्ण परंपरा है."
+    },
+
+    {
+        name: "Puthandu",
+        hindi: "पुथांडु",
+        icon: "🌺",
+        month: "April",
+        hindiMonth: "अप्रैल",
+        pronunciation: "Pu-than-du",
+        description:
+            "Puthandu is the Tamil New Year festival.",
+        hindiDescription:
+            "पुथांडु तमिल नववर्ष के रूप में मनाया जाने वाला पारंपरिक पर्व है.",
+        example: "Families celebrate the Tamil New Year during Puthandu.",
+        hindiExample: "पुथांडु पर परिवार तमिल नववर्ष मनाते हैं."
+    },
+
+    {
+        name: "Durga Puja",
+        hindi: "दुर्गा पूजा",
+        icon: "🪷",
+        month: "September / October",
+        hindiMonth: "सितंबर / अक्टूबर",
+        pronunciation: "Dur-ga Poo-ja",
+        description:
+            "Durga Puja is a major festival dedicated to Goddess Durga and is especially prominent in West Bengal.",
+        hindiDescription:
+            "दुर्गा पूजा देवी दुर्गा को समर्पित प्रमुख पर्व है और पश्चिम बंगाल में विशेष रूप से प्रसिद्ध है.",
+        example: "Large Durga idols are worshipped during Durga Puja.",
+        hindiExample: "दुर्गा पूजा के दौरान देवी दुर्गा की बड़ी प्रतिमाओं की पूजा की जाती है."
+    },
+
+    {
+        name: "Chhath Puja",
+        hindi: "छठ पूजा",
+        icon: "🌅",
+        month: "October / November",
+        hindiMonth: "अक्टूबर / नवंबर",
+        pronunciation: "Chhath Poo-ja",
+        description:
+            "Chhath Puja is a traditional festival dedicated to the Sun and is especially important in Bihar and nearby regions.",
+        hindiDescription:
+            "छठ पूजा सूर्य देव को समर्पित पारंपरिक पर्व है और बिहार तथा आसपास के क्षेत्रों में विशेष रूप से महत्वपूर्ण है.",
+        example: "Devotees offer prayers to the Sun during Chhath Puja.",
+        hindiExample: "छठ पूजा में श्रद्धालु सूर्य देव को अर्घ्य देते हैं."
+    },
+
+    {
+        name: "Ganga Dussehra",
+        hindi: "गंगा दशहरा",
+        icon: "🌊",
+        month: "May / June",
+        hindiMonth: "मई / जून",
+        pronunciation: "Gan-ga Dus-she-ra",
+        description:
+            "Ganga Dussehra is associated with the descent of the River Ganga to Earth.",
+        hindiDescription:
+            "गंगा दशहरा पवित्र नदी गंगा के पृथ्वी पर अवतरण से जुड़ा पर्व है.",
+        example: "Devotees visit the Ganga during Ganga Dussehra.",
+        hindiExample: "गंगा दशहरा पर श्रद्धालु गंगा नदी के तट पर जाते हैं."
+    },
+
+    {
+        name: "Karwa Chauth",
+        hindi: "करवा चौथ",
+        icon: "🌕",
+        month: "October / November",
+        hindiMonth: "अक्टूबर / नवंबर",
+        pronunciation: "Kar-wa Chauth",
+        description:
+            "Karwa Chauth is a traditional festival observed by many married Hindu women.",
+        hindiDescription:
+            "करवा चौथ एक पारंपरिक पर्व है जिसे कई विवाहित हिंदू महिलाएँ मनाती हैं.",
+        example: "The moon is traditionally sighted during Karwa Chauth.",
+        hindiExample: "करवा चौथ पर पारंपरिक रूप से चंद्रमा के दर्शन किए जाते हैं."
+    },
+
+    {
+        name: "Bhai Dooj",
+        hindi: "भाई दूज",
+        icon: "👫",
+        month: "October / November",
+        hindiMonth: "अक्टूबर / नवंबर",
+        pronunciation: "Bhai Dooj",
+        description:
+            "Bhai Dooj celebrates the bond between brothers and sisters.",
+        hindiDescription:
+            "भाई दूज भाई-बहन के स्नेह और रिश्ते का त्योहार है.",
+        example: "Sisters apply a traditional tilak during Bhai Dooj.",
+        hindiExample: "भाई दूज पर बहनें भाई को पारंपरिक तिलक लगाती हैं."
+    }
+
+];
+
+
+
+/* =========================================================
+   FESTIVAL SEARCH
+   ========================================================= */
+
+function searchFestivals(query = "") {
+
+    const q = String(query).trim().toLowerCase();
+
+    if (!q) {
+        return FESTIVALS;
+    }
+
+    return FESTIVALS.filter(item => {
+
+        return (
+            item.name.toLowerCase().includes(q) ||
+            item.hindi.toLowerCase().includes(q) ||
+            item.month.toLowerCase().includes(q) ||
+            item.hindiMonth.toLowerCase().includes(q)
+        );
+
+    });
+
+}
+
+
+
+/* =========================================================
+   GET FESTIVAL
+   ========================================================= */
+
+function getFestivalData(festival) {
+
+    if (!festival) return null;
+
+    return FESTIVALS.find(item =>
+        item.name === festival.name ||
+        item.hindi === festival.hindi
+    ) || festival;
+
+}
+
+
+
+/* =========================================================
+   INDIAN NATIONAL SYMBOLS
+   ========================================================= */
+
+const NATIONAL_SYMBOLS = [
+
+    {
+        name: "National Flag",
+        hindi: "राष्ट्रीय ध्वज",
+        icon: "🇮🇳",
+        symbol: "🇮🇳",
+        pronunciation: "Na-shuh-nal Flag",
+        title: "Tiranga",
+        hindiTitle: "तिरंगा",
+        description:
+            "The national flag of India is called the Tiranga. It has three horizontal colours: saffron, white and green, with the Ashoka Chakra in the centre.",
+        hindiDescription:
+            "भारत के राष्ट्रीय ध्वज को तिरंगा कहा जाता है। इसमें केसरिया, सफेद और हरे रंग की तीन क्षैतिज पट्टियाँ तथा बीच में अशोक चक्र होता है.",
+        example: "The Indian national flag is called the Tiranga.",
+        hindiExample: "भारत के राष्ट्रीय ध्वज को तिरंगा कहा जाता है."
+    },
+
+    {
+        name: "National Emblem",
+        hindi: "राष्ट्रीय प्रतीक",
+        icon: "🦁",
+        symbol: "🦁",
+        pronunciation: "Na-shuh-nal Em-blem",
+        title: "Lion Capital of Ashoka",
+        hindiTitle: "अशोक की सिंह राजधानी",
+        description:
+            "India's State Emblem is adapted from the Lion Capital of Ashoka at Sarnath.",
+        hindiDescription:
+            "भारत का राजकीय प्रतीक सारनाथ स्थित अशोक की सिंह राजधानी से लिया गया है.",
+        example: "The Lion Capital is India's State Emblem.",
+        hindiExample: "सिंह राजधानी भारत का राजकीय प्रतीक है."
+    },
+
+    {
+        name: "National Anthem",
+        hindi: "राष्ट्रीय गान",
+        icon: "🎵",
+        symbol: "🎵",
+        pronunciation: "Na-shuh-nal An-them",
+        title: "Jana Gana Mana",
+        hindiTitle: "जन गण मन",
+        description:
+            "Jana Gana Mana is the national anthem of India.",
+        hindiDescription:
+            "जन गण मन भारत का राष्ट्रीय गान है.",
+        example: "Jana Gana Mana is sung on important national occasions.",
+        hindiExample: "जन गण मन महत्वपूर्ण राष्ट्रीय अवसरों पर गाया जाता है."
+    },
+
+    {
+        name: "National Song",
+        hindi: "राष्ट्रीय गीत",
+        icon: "🎶",
+        symbol: "🎶",
+        pronunciation: "Na-shuh-nal Song",
+        title: "Vande Mataram",
+        hindiTitle: "वंदे मातरम्",
+        description:
+            "Vande Mataram is the national song of India.",
+        hindiDescription:
+            "वंदे मातरम् भारत का राष्ट्रीय गीत है.",
+        example: "Vande Mataram is India's national song.",
+        hindiExample: "वंदे मातरम् भारत का राष्ट्रीय गीत है."
+    },
+
+    {
+        name: "National Animal",
+        hindi: "राष्ट्रीय पशु",
+        icon: "🐅",
+        symbol: "🐅",
+        pronunciation: "Na-shuh-nal An-i-mal",
+        title: "Royal Bengal Tiger",
+        hindiTitle: "रॉयल बंगाल टाइगर",
+        description:
+            "The Royal Bengal Tiger is the national animal of India.",
+        hindiDescription:
+            "रॉयल बंगाल टाइगर भारत का राष्ट्रीय पशु है.",
+        example: "The tiger is India's national animal.",
+        hindiExample: "बाघ भारत का राष्ट्रीय पशु है."
+    },
+
+    {
+        name: "National Bird",
+        hindi: "राष्ट्रीय पक्षी",
+        icon: "🦚",
+        symbol: "🦚",
+        pronunciation: "Na-shuh-nal Bird",
+        title: "Indian Peacock",
+        hindiTitle: "भारतीय मोर",
+        description:
+            "The Indian peacock is the national bird of India.",
+        hindiDescription:
+            "भारतीय मोर भारत का राष्ट्रीय पक्षी है.",
+        example: "The peacock is India's national bird.",
+        hindiExample: "मोर भारत का राष्ट्रीय पक्षी है."
+    },
+
+    {
+        name: "National Flower",
+        hindi: "राष्ट्रीय फूल",
+        icon: "🪷",
+        symbol: "🪷",
+        pronunciation: "Na-shuh-nal Flow-er",
+        title: "Lotus",
+        hindiTitle: "कमल",
+        description:
+            "The lotus is the national flower of India.",
+        hindiDescription:
+            "कमल भारत का राष्ट्रीय फूल है.",
+        example: "The lotus is India's national flower.",
+        hindiExample: "कमल भारत का राष्ट्रीय फूल है."
+    },
+
+    {
+        name: "National Tree",
+        hindi: "राष्ट्रीय वृक्ष",
+        icon: "🌳",
+        symbol: "🌳",
+        pronunciation: "Na-shuh-nal Tree",
+        title: "Banyan Tree",
+        hindiTitle: "बरगद",
+        description:
+            "The banyan tree is the national tree of India.",
+        hindiDescription:
+            "बरगद भारत का राष्ट्रीय वृक्ष है.",
+        example: "The banyan is India's national tree.",
+        hindiExample: "बरगद भारत का राष्ट्रीय वृक्ष है."
+    },
+
+    {
+        name: "National Fruit",
+        hindi: "राष्ट्रीय फल",
+        icon: "🥭",
+        symbol: "🥭",
+        pronunciation: "Na-shuh-nal Fruit",
+        title: "Mango",
+        hindiTitle: "आम",
+        description:
+            "Mango is recognized as the national fruit of India.",
+        hindiDescription:
+            "आम भारत का राष्ट्रीय फल है.",
+        example: "Mango is India's national fruit.",
+        hindiExample: "आम भारत का राष्ट्रीय फल है."
+    },
+
+    {
+        name: "National River",
+        hindi: "राष्ट्रीय नदी",
+        icon: "🌊",
+        symbol: "🌊",
+        pronunciation: "Na-shuh-nal Riv-er",
+        title: "Ganga",
+        hindiTitle: "गंगा",
+        description:
+            "The Ganga is recognized as India's national river.",
+        hindiDescription:
+            "गंगा को भारत की राष्ट्रीय नदी के रूप में मान्यता प्राप्त है.",
+        example: "The Ganga is India's national river.",
+        hindiExample: "गंगा भारत की राष्ट्रीय नदी है."
+    },
+
+    {
+        name: "National Aquatic Animal",
+        hindi: "राष्ट्रीय जलीय जीव",
+        icon: "🐬",
+        symbol: "🐬",
+        pronunciation: "Na-shuh-nal A-qua-tic An-i-mal",
+        title: "Ganges River Dolphin",
+        hindiTitle: "गंगा नदी डॉल्फिन",
+        description:
+            "The Ganges river dolphin is India's national aquatic animal.",
+        hindiDescription:
+            "गंगा नदी डॉल्फिन भारत का राष्ट्रीय जलीय जीव है.",
+        example: "The Ganges river dolphin is India's national aquatic animal.",
+        hindiExample: "गंगा नदी डॉल्फिन भारत का राष्ट्रीय जलीय जीव है."
+    },
+
+    {
+        name: "National Calendar",
+        hindi: "राष्ट्रीय कैलेंडर",
+        icon: "📅",
+        symbol: "📅",
+        pronunciation: "Na-shuh-nal Cal-en-dar",
+        title: "Saka Calendar",
+        hindiTitle: "शक कैलेंडर",
+        description:
+            "The Saka calendar is India's national calendar and is used along with the Gregorian calendar for official purposes.",
+        hindiDescription:
+            "शक कैलेंडर भारत का राष्ट्रीय कैलेंडर है और आधिकारिक कार्यों में ग्रेगोरियन कैलेंडर के साथ उपयोग किया जाता है.",
+        example: "The Saka calendar is India's national calendar.",
+        hindiExample: "शक कैलेंडर भारत का राष्ट्रीय कैलेंडर है."
+    },
+
+    {
+        name: "National Currency Symbol",
+        hindi: "राष्ट्रीय मुद्रा चिह्न",
+        icon: "₹",
+        symbol: "₹",
+        pronunciation: "Na-shuh-nal Cur-ren-cy Sym-bol",
+        title: "Indian Rupee Symbol",
+        hindiTitle: "भारतीय रुपया चिह्न",
+        description:
+            "₹ is the symbol used for the Indian rupee.",
+        hindiDescription:
+            "₹ भारतीय रुपये के लिए उपयोग किया जाने वाला मुद्रा चिह्न है.",
+        example: "₹ represents the Indian rupee.",
+        hindiExample: "₹ भारतीय रुपये को दर्शाता है."
+    },
+
+    {
+        name: "National Motto",
+        hindi: "राष्ट्रीय आदर्श वाक्य",
+        icon: "☸️",
+        symbol: "☸️",
+        pronunciation: "Na-shuh-nal Mot-to",
+        title: "Satyameva Jayate",
+        hindiTitle: "सत्यमेव जयते",
+        description:
+            "Satyameva Jayate means 'Truth Alone Triumphs' and is India's national motto.",
+        hindiDescription:
+            "सत्यमेव जयते का अर्थ है 'सत्य की ही विजय होती है' और यह भारत का राष्ट्रीय आदर्श वाक्य है.",
+        example: "Satyameva Jayate is written below the State Emblem.",
+        hindiExample: "सत्यमेव जयते राजकीय प्रतीक के नीचे लिखा जाता है."
+    },
+
+    {
+        name: "National Heritage Animal",
+        hindi: "राष्ट्रीय विरासत पशु",
+        icon: "🐘",
+        symbol: "🐘",
+        pronunciation: "Na-shuh-nal Her-i-tage An-i-mal",
+        title: "Indian Elephant",
+        hindiTitle: "भारतीय हाथी",
+        description:
+            "The Indian elephant has been designated as India's National Heritage Animal.",
+        hindiDescription:
+            "भारतीय हाथी को भारत का राष्ट्रीय विरासत पशु घोषित किया गया है.",
+        example: "The Indian elephant is a National Heritage Animal.",
+        hindiExample: "भारतीय हाथी राष्ट्रीय विरासत पशु है."
+    }
+
+];
+
+
+
+/* =========================================================
+   NATIONAL SYMBOL SEARCH
+   ========================================================= */
+
+function searchNationalSymbols(query = "") {
+
+    const q = String(query).trim().toLowerCase();
+
+    if (!q) {
+        return NATIONAL_SYMBOLS;
+    }
+
+    return NATIONAL_SYMBOLS.filter(item => {
+
+        return (
+            item.name.toLowerCase().includes(q) ||
+            item.hindi.toLowerCase().includes(q) ||
+            item.title.toLowerCase().includes(q) ||
+            item.hindiTitle.toLowerCase().includes(q)
+        );
+
+    });
+
+}
+
+
+
+/* =========================================================
+   GET NATIONAL SYMBOL
+   ========================================================= */
+
+function getNationalSymbolData(symbol) {
+
+    if (!symbol) return null;
+
+    return NATIONAL_SYMBOLS.find(item =>
+        item.name === symbol.name ||
+        item.hindi === symbol.hindi ||
+        item.title === symbol.title
+    ) || symbol;
+
+}
+
+
+
+/* =========================================================
+   DEBUG COUNTS
+   ========================================================= */
+
+console.log(
+    "Indian Festivals:",
+    FESTIVALS.length
+);
+
+console.log(
+    "National Symbols:",
+    NATIONAL_SYMBOLS.length
+);
+
+
+/* =========================================================
+   PART 5 END
+   ========================================================= */
