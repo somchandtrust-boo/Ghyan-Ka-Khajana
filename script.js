@@ -958,3 +958,569 @@ const BIRDS = [
 /* =========================================================
    PART 2 END
    ========================================================= */
+/* =========================================================
+   PART 3
+   COUNTRIES + FLAGS
+   ========================================================= */
+
+
+/* =========================================================
+   CONVERT COUNTRY DATABASE
+   ========================================================= */
+
+const COUNTRIES = COUNTRY_DATABASE
+    .trim()
+    .split("\n")
+    .map(line => {
+
+        const [
+            name,
+            hindi,
+            code,
+            currencyCode,
+            currencySymbol,
+            currencyName
+        ] = line.split("|");
+
+        return {
+            name: name.trim(),
+            hindi: hindi.trim(),
+            code: code.trim(),
+            currencyCode: currencyCode.trim(),
+            currencySymbol: currencySymbol.trim(),
+            currencyName: currencyName.trim(),
+
+            flag: `https://flagcdn.com/w320/${code.toLowerCase()}.png`,
+
+            icon: "🌍",
+
+            pronunciation: name,
+
+            description:
+                `${name} is a country with its own culture, geography and national identity.`,
+
+            hindiDescription:
+                `${hindi} एक स्वतंत्र देश है जिसकी अपनी संस्कृति, भौगोलिक विशेषताएँ और राष्ट्रीय पहचान है।`,
+
+            example:
+                `The country is ${name}.`,
+
+            hindiExample:
+                `इस देश का नाम ${hindi} है।`
+        };
+
+    });
+
+
+/* =========================================================
+   ADD MORE COUNTRY DATA
+   ========================================================= */
+
+const MORE_COUNTRIES = [
+
+    ["Cambodia", "कंबोडिया", "KH", "KHR", "៛", "Cambodian Riel"],
+    ["Cameroon", "कैमरून", "CM", "XAF", "FCFA", "Central African CFA Franc"],
+    ["Canada", "कनाडा", "CA", "CAD", "$", "Canadian Dollar"],
+    ["Central African Republic", "मध्य अफ्रीकी गणराज्य", "CF", "XAF", "FCFA", "Central African CFA Franc"],
+    ["Chad", "चाड", "TD", "XAF", "FCFA", "Central African CFA Franc"],
+    ["Chile", "चिली", "CL", "CLP", "$", "Chilean Peso"],
+    ["China", "चीन", "CN", "CNY", "¥", "Chinese Yuan"],
+    ["Colombia", "कोलंबिया", "CO", "COP", "$", "Colombian Peso"],
+    ["Comoros", "कोमोरोस", "KM", "KMF", "CF", "Comorian Franc"],
+    ["Congo", "कांगो", "CG", "XAF", "FCFA", "Central African CFA Franc"],
+    ["Costa Rica", "कोस्टा रिका", "CR", "CRC", "₡", "Costa Rican Colón"],
+    ["Croatia", "क्रोएशिया", "HR", "EUR", "€", "Euro"],
+    ["Cuba", "क्यूबा", "CU", "CUP", "$", "Cuban Peso"],
+    ["Cyprus", "साइप्रस", "CY", "EUR", "€", "Euro"],
+    ["Czechia", "चेकिया", "CZ", "CZK", "Kč", "Czech Koruna"],
+
+    ["Denmark", "डेनमार्क", "DK", "DKK", "kr", "Danish Krone"],
+    ["Djibouti", "जिबूती", "DJ", "DJF", "Fdj", "Djiboutian Franc"],
+    ["Dominica", "डोमिनिका", "DM", "XCD", "$", "East Caribbean Dollar"],
+    ["Dominican Republic", "डोमिनिकन गणराज्य", "DO", "DOP", "$", "Dominican Peso"],
+
+    ["Ecuador", "इक्वाडोर", "EC", "USD", "$", "United States Dollar"],
+    ["Egypt", "मिस्र", "EG", "EGP", "£", "Egyptian Pound"],
+    ["El Salvador", "अल साल्वाडोर", "SV", "USD", "$", "United States Dollar"],
+    ["Equatorial Guinea", "इक्वेटोरियल गिनी", "GQ", "XAF", "FCFA", "Central African CFA Franc"],
+    ["Eritrea", "इरिट्रिया", "ER", "ERN", "Nfk", "Eritrean Nakfa"],
+    ["Estonia", "एस्टोनिया", "EE", "EUR", "€", "Euro"],
+    ["Eswatini", "एस्वातिनी", "SZ", "SZL", "L", "Swazi Lilangeni"],
+    ["Ethiopia", "इथियोपिया", "ET", "ETB", "Br", "Ethiopian Birr"],
+
+    ["Fiji", "फ़िजी", "FJ", "FJD", "$", "Fijian Dollar"],
+    ["Finland", "फ़िनलैंड", "FI", "EUR", "€", "Euro"],
+    ["France", "फ्रांस", "FR", "EUR", "€", "Euro"],
+
+    ["Gabon", "गैबॉन", "GA", "XAF", "FCFA", "Central African CFA Franc"],
+    ["Gambia", "गाम्बिया", "GM", "GMD", "D", "Gambian Dalasi"],
+    ["Georgia", "जॉर्जिया", "GE", "GEL", "₾", "Georgian Lari"],
+    ["Germany", "जर्मनी", "DE", "EUR", "€", "Euro"],
+    ["Ghana", "घाना", "GH", "GHS", "₵", "Ghanaian Cedi"],
+    ["Greece", "ग्रीस", "GR", "EUR", "€", "Euro"],
+    ["Grenada", "ग्रेनाडा", "GD", "XCD", "$", "East Caribbean Dollar"],
+    ["Guatemala", "ग्वाटेमाला", "GT", "GTQ", "Q", "Guatemalan Quetzal"],
+    ["Guinea", "गिनी", "GN", "GNF", "FG", "Guinean Franc"],
+    ["Guyana", "गुयाना", "GY", "GYD", "$", "Guyanese Dollar"],
+
+    ["Haiti", "हैती", "HT", "HTG", "G", "Haitian Gourde"],
+    ["Honduras", "होंडुरास", "HN", "HNL", "L", "Honduran Lempira"],
+    ["Hungary", "हंगरी", "HU", "HUF", "Ft", "Hungarian Forint"],
+
+    ["Iceland", "आइसलैंड", "IS", "ISK", "kr", "Icelandic Króna"],
+    ["India", "भारत", "IN", "INR", "₹", "Indian Rupee"],
+    ["Indonesia", "इंडोनेशिया", "ID", "IDR", "Rp", "Indonesian Rupiah"],
+    ["Iran", "ईरान", "IR", "IRR", "﷼", "Iranian Rial"],
+    ["Iraq", "इराक", "IQ", "IQD", "ع.د", "Iraqi Dinar"],
+    ["Ireland", "आयरलैंड", "IE", "EUR", "€", "Euro"],
+    ["Israel", "इज़राइल", "IL", "ILS", "₪", "Israeli New Shekel"],
+    ["Italy", "इटली", "IT", "EUR", "€", "Euro"],
+
+    ["Jamaica", "जमैका", "JM", "JMD", "$", "Jamaican Dollar"],
+    ["Japan", "जापान", "JP", "JPY", "¥", "Japanese Yen"],
+    ["Jordan", "जॉर्डन", "JO", "JOD", "د.ا", "Jordanian Dinar"],
+
+    ["Kazakhstan", "कज़ाख़स्तान", "KZ", "KZT", "₸", "Kazakhstani Tenge"],
+    ["Kenya", "केन्या", "KE", "KES", "KSh", "Kenyan Shilling"],
+    ["Kiribati", "किरिबाती", "KI", "AUD", "$", "Australian Dollar"],
+    ["Kuwait", "कुवैत", "KW", "KWD", "د.ك", "Kuwaiti Dinar"],
+    ["Kyrgyzstan", "किर्गिज़स्तान", "KG", "KGS", "с", "Kyrgyzstani Som"],
+
+    ["Laos", "लाओस", "LA", "LAK", "₭", "Lao Kip"],
+    ["Latvia", "लातविया", "LV", "EUR", "€", "Euro"],
+    ["Lebanon", "लेबनान", "LB", "LBP", "ل.ل", "Lebanese Pound"],
+    ["Lesotho", "लेसोथो", "LS", "LSL", "L", "Lesotho Loti"],
+    ["Liberia", "लाइबेरिया", "LR", "LRD", "$", "Liberian Dollar"],
+    ["Libya", "लीबिया", "LY", "LYD", "ل.د", "Libyan Dinar"],
+    ["Liechtenstein", "लिकटेंस्टीन", "LI", "CHF", "Fr", "Swiss Franc"],
+    ["Lithuania", "लिथुआनिया", "LT", "EUR", "€", "Euro"],
+    ["Luxembourg", "लक्ज़मबर्ग", "LU", "EUR", "€", "Euro"],
+
+    ["Madagascar", "मेडागास्कर", "MG", "MGA", "Ar", "Malagasy Ariary"],
+    ["Malawi", "मलावी", "MW", "MWK", "MK", "Malawian Kwacha"],
+    ["Malaysia", "मलेशिया", "MY", "MYR", "RM", "Malaysian Ringgit"],
+    ["Maldives", "मालदीव", "MV", "MVR", "Rf", "Maldivian Rufiyaa"],
+    ["Mali", "माली", "ML", "XOF", "CFA", "West African CFA Franc"],
+    ["Malta", "माल्टा", "MT", "EUR", "€", "Euro"],
+    ["Marshall Islands", "मार्शल द्वीपसमूह", "MH", "USD", "$", "United States Dollar"],
+    ["Mauritania", "मॉरिटानिया", "MR", "MRU", "UM", "Mauritanian Ouguiya"],
+    ["Mauritius", "मॉरीशस", "MU", "MUR", "₨", "Mauritian Rupee"],
+    ["Mexico", "मेक्सिको", "MX", "MXN", "$", "Mexican Peso"],
+    ["Micronesia", "माइक्रोनेशिया", "FM", "USD", "$", "United States Dollar"],
+    ["Moldova", "मोल्दोवा", "MD", "MDL", "L", "Moldovan Leu"],
+    ["Monaco", "मोनाको", "MC", "EUR", "€", "Euro"],
+    ["Mongolia", "मंगोलिया", "MN", "MNT", "₮", "Mongolian Tögrög"],
+    ["Montenegro", "मोंटेनेग्रो", "ME", "EUR", "€", "Euro"],
+    ["Morocco", "मोरक्को", "MA", "MAD", "د.م.", "Moroccan Dirham"],
+    ["Mozambique", "मोज़ाम्बिक", "MZ", "MZN", "MT", "Mozambican Metical"],
+
+    ["Myanmar", "म्यांमार", "MM", "MMK", "K", "Myanmar Kyat"],
+
+    ["Namibia", "नामीबिया", "NA", "NAD", "$", "Namibian Dollar"],
+    ["Nauru", "नाउरू", "NR", "AUD", "$", "Australian Dollar"],
+    ["Nepal", "नेपाल", "NP", "NPR", "₨", "Nepalese Rupee"],
+    ["Netherlands", "नीदरलैंड", "NL", "EUR", "€", "Euro"],
+    ["New Zealand", "न्यूज़ीलैंड", "NZ", "NZD", "$", "New Zealand Dollar"],
+    ["Nicaragua", "निकारागुआ", "NI", "NIO", "C$", "Nicaraguan Córdoba"],
+    ["Niger", "नाइजर", "NE", "XOF", "CFA", "West African CFA Franc"],
+    ["Nigeria", "नाइजीरिया", "NG", "NGN", "₦", "Nigerian Naira"],
+    ["North Korea", "उत्तर कोरिया", "KP", "KPW", "₩", "North Korean Won"],
+    ["North Macedonia", "उत्तर मैसेडोनिया", "MK", "MKD", "ден", "Macedonian Denar"],
+    ["Norway", "नॉर्वे", "NO", "NOK", "kr", "Norwegian Krone"],
+
+    ["Oman", "ओमान", "OM", "OMR", "ر.ع.", "Omani Rial"],
+
+    ["Pakistan", "पाकिस्तान", "PK", "PKR", "₨", "Pakistani Rupee"],
+    ["Palau", "पलाऊ", "PW", "USD", "$", "United States Dollar"],
+    ["Panama", "पनामा", "PA", "PAB", "B/.", "Panamanian Balboa"],
+    ["Papua New Guinea", "पापुआ न्यू गिनी", "PG", "PGK", "K", "Papua New Guinean Kina"],
+    ["Paraguay", "पैराग्वे", "PY", "PYG", "₲", "Paraguayan Guaraní"],
+    ["Peru", "पेरू", "PE", "PEN", "S/", "Peruvian Sol"],
+    ["Philippines", "फ़िलीपींस", "PH", "PHP", "₱", "Philippine Peso"],
+    ["Poland", "पोलैंड", "PL", "PLN", "zł", "Polish Złoty"],
+    ["Portugal", "पुर्तगाल", "PT", "EUR", "€", "Euro"],
+
+    ["Qatar", "क़तर", "QA", "QAR", "ر.ق", "Qatari Riyal"],
+
+    ["Romania", "रोमानिया", "RO", "RON", "lei", "Romanian Leu"],
+    ["Russia", "रूस", "RU", "RUB", "₽", "Russian Ruble"],
+    ["Rwanda", "रवांडा", "RW", "RWF", "FRw", "Rwandan Franc"],
+
+    ["Saint Kitts and Nevis", "सेंट किट्स और नेविस", "KN", "XCD", "$", "East Caribbean Dollar"],
+    ["Saint Lucia", "सेंट लूसिया", "LC", "XCD", "$", "East Caribbean Dollar"],
+    ["Saint Vincent and the Grenadines", "सेंट विंसेंट और ग्रेनेडाइंस", "VC", "XCD", "$", "East Caribbean Dollar"],
+    ["Samoa", "समोआ", "WS", "WST", "T", "Samoan Tālā"],
+    ["San Marino", "सैन मैरिनो", "SM", "EUR", "€", "Euro"],
+    ["Sao Tome and Principe", "साओ टोमे और प्रिंसिपे", "ST", "STN", "Db", "São Tomé and Príncipe Dobra"],
+    ["Saudi Arabia", "सऊदी अरब", "SA", "SAR", "﷼", "Saudi Riyal"],
+    ["Senegal", "सेनेगल", "SN", "XOF", "CFA", "West African CFA Franc"],
+    ["Serbia", "सर्बिया", "RS", "RSD", "дин.", "Serbian Dinar"],
+    ["Seychelles", "सेशेल्स", "SC", "SCR", "₨", "Seychellois Rupee"],
+    ["Sierra Leone", "सिएरा लियोन", "SL", "SLE", "Le", "Sierra Leonean Leone"],
+    ["Singapore", "सिंगापुर", "SG", "SGD", "$", "Singapore Dollar"],
+    ["Slovakia", "स्लोवाकिया", "SK", "EUR", "€", "Euro"],
+    ["Slovenia", "स्लोवेनिया", "SI", "EUR", "€", "Euro"],
+    ["Solomon Islands", "सोलोमन द्वीपसमूह", "SB", "SBD", "$", "Solomon Islands Dollar"],
+    ["Somalia", "सोमालिया", "SO", "SOS", "Sh", "Somali Shilling"],
+    ["South Africa", "दक्षिण अफ्रीका", "ZA", "ZAR", "R", "South African Rand"],
+    ["South Korea", "दक्षिण कोरिया", "KR", "KRW", "₩", "South Korean Won"],
+    ["South Sudan", "दक्षिण सूडान", "SS", "SSP", "£", "South Sudanese Pound"],
+    ["Spain", "स्पेन", "ES", "EUR", "€", "Euro"],
+    ["Sri Lanka", "श्रीलंका", "LK", "LKR", "₨", "Sri Lankan Rupee"],
+    ["Sudan", "सूडान", "SD", "SDG", "ج.س.", "Sudanese Pound"],
+    ["Suriname", "सूरीनाम", "SR", "SRD", "$", "Surinamese Dollar"],
+    ["Sweden", "स्वीडन", "SE", "SEK", "kr", "Swedish Krona"],
+    ["Switzerland", "स्विट्ज़रलैंड", "CH", "CHF", "Fr", "Swiss Franc"],
+    ["Syria", "सीरिया", "SY", "SYP", "£", "Syrian Pound"],
+
+    ["Taiwan", "ताइवान", "TW", "TWD", "NT$", "New Taiwan Dollar"],
+    ["Tajikistan", "ताजिकिस्तान", "TJ", "TJS", "SM", "Tajikistani Somoni"],
+    ["Tanzania", "तंज़ानिया", "TZ", "TZS", "TSh", "Tanzanian Shilling"],
+    ["Thailand", "थाईलैंड", "TH", "THB", "฿", "Thai Baht"],
+    ["Timor-Leste", "तिमोर-लेस्ते", "TL", "USD", "$", "United States Dollar"],
+    ["Togo", "टोगो", "TG", "XOF", "CFA", "West African CFA Franc"],
+    ["Tonga", "टोंगा", "TO", "TOP", "T$", "Tongan Paʻanga"],
+    ["Trinidad and Tobago", "त्रिनिदाद और टोबैगो", "TT", "TTD", "$", "Trinidad and Tobago Dollar"],
+    ["Tunisia", "ट्यूनीशिया", "TN", "TND", "د.ت", "Tunisian Dinar"],
+    ["Türkiye", "तुर्किये", "TR", "TRY", "₺", "Turkish Lira"],
+    ["Turkmenistan", "तुर्कमेनिस्तान", "TM", "TMT", "m", "Turkmenistani Manat"],
+    ["Tuvalu", "तुवालु", "TV", "AUD", "$", "Australian Dollar"],
+
+    ["Uganda", "युगांडा", "UG", "UGX", "USh", "Ugandan Shilling"],
+    ["Ukraine", "यूक्रेन", "UA", "UAH", "₴", "Ukrainian Hryvnia"],
+    ["United Arab Emirates", "संयुक्त अरब अमीरात", "AE", "AED", "د.إ", "UAE Dirham"],
+    ["United Kingdom", "यूनाइटेड किंगडम", "GB", "GBP", "£", "Pound Sterling"],
+    ["United States", "संयुक्त राज्य अमेरिका", "US", "USD", "$", "United States Dollar"],
+    ["Uruguay", "उरुग्वे", "UY", "UYU", "$U", "Uruguayan Peso"],
+    ["Uzbekistan", "उज़्बेकिस्तान", "UZ", "UZS", "so'm", "Uzbekistani Som"],
+
+    ["Vanuatu", "वानुआतु", "VU", "VUV", "VT", "Vanuatu Vatu"],
+    ["Vatican City", "वेटिकन सिटी", "VA", "EUR", "€", "Euro"],
+    ["Venezuela", "वेनेज़ुएला", "VE", "VES", "Bs.S", "Venezuelan Bolívar"],
+    ["Vietnam", "वियतनाम", "VN", "VND", "₫", "Vietnamese Đồng"],
+
+    ["Yemen", "यमन", "YE", "YER", "﷼", "Yemeni Rial"],
+
+    ["Zambia", "ज़ाम्बिया", "ZM", "ZMW", "ZK", "Zambian Kwacha"],
+    ["Zimbabwe", "ज़िम्बाब्वे", "ZW", "ZWG", "ZiG", "Zimbabwe Gold"]
+
+];
+
+
+/* =========================================================
+   ADD MORE COUNTRIES TO MAIN DATABASE
+   ========================================================= */
+
+MORE_COUNTRIES.forEach(item => {
+
+    const [
+        name,
+        hindi,
+        code,
+        currencyCode,
+        currencySymbol,
+        currencyName
+    ] = item;
+
+    COUNTRIES.push({
+
+        name,
+        hindi,
+        code,
+        currencyCode,
+        currencySymbol,
+        currencyName,
+
+        flag:
+            `https://flagcdn.com/w320/${code.toLowerCase()}.png`,
+
+        icon: "🌍",
+
+        pronunciation: name,
+
+        description:
+            `${name} is a country with its own culture, geography and national identity.`,
+
+        hindiDescription:
+            `${hindi} एक देश है जिसकी अपनी संस्कृति, भौगोलिक विशेषताएँ और राष्ट्रीय पहचान है।`,
+
+        example:
+            `The country is ${name}.`,
+
+        hindiExample:
+            `इस देश का नाम ${hindi} है।`
+    });
+
+});
+
+
+/* =========================================================
+   REMOVE DUPLICATES
+   ========================================================= */
+
+const UNIQUE_COUNTRIES = [];
+
+const COUNTRY_CODES = new Set();
+
+COUNTRIES.forEach(country => {
+
+    if (!COUNTRY_CODES.has(country.code)) {
+
+        COUNTRY_CODES.add(country.code);
+
+        UNIQUE_COUNTRIES.push(country);
+
+    }
+
+});
+
+
+/* =========================================================
+   FINAL COUNTRY ARRAY
+   ========================================================= */
+
+COUNTRIES.length = 0;
+
+UNIQUE_COUNTRIES.forEach(country => {
+    COUNTRIES.push(country);
+});
+
+
+/* =========================================================
+   FLAG DATA
+   ========================================================= */
+
+const FLAGS = COUNTRIES.map(country => ({
+
+    name: country.name,
+
+    hindi: country.hindi,
+
+    code: country.code,
+
+    flag:
+        `https://flagcdn.com/w320/${country.code.toLowerCase()}.png`,
+
+    icon: "🚩",
+
+    description:
+        `${country.name} का national flag.`,
+
+    hindiDescription:
+        `${country.hindi} का राष्ट्रीय ध्वज।`
+
+}));
+
+
+/* =========================================================
+   COUNTRY CARD DATA
+   ========================================================= */
+
+function getCountryData(country) {
+
+    if (!country) {
+        return null;
+    }
+
+    return {
+
+        title:
+            `${country.name} — ${country.hindi}`,
+
+        icon:
+            country.flag,
+
+        isFlag:
+            true,
+
+        pronunciation:
+            country.pronunciation,
+
+        description:
+            country.description,
+
+        hindiDescription:
+            country.hindiDescription,
+
+        example:
+            country.example,
+
+        hindiExample:
+            country.hindiExample,
+
+        extra: {
+
+            "Country Code":
+                country.code,
+
+            "Currency":
+                `${country.currencyName} (${country.currencyCode})`,
+
+            "Currency Symbol":
+                country.currencySymbol
+
+        }
+
+    };
+
+}
+
+
+/* =========================================================
+   COUNTRY SEARCH
+   ========================================================= */
+
+function searchCountries(query) {
+
+    if (!query) {
+        return COUNTRIES;
+    }
+
+    const q =
+        query
+            .toLowerCase()
+            .trim();
+
+    return COUNTRIES.filter(country =>
+
+        country.name
+            .toLowerCase()
+            .includes(q)
+
+        ||
+
+        country.hindi
+            .includes(query)
+
+        ||
+
+        country.code
+            .toLowerCase()
+            .includes(q)
+
+        ||
+
+        country.currencyName
+            .toLowerCase()
+            .includes(q)
+
+        ||
+
+        country.currencyCode
+            .toLowerCase()
+            .includes(q)
+
+    );
+
+}
+
+
+/* =========================================================
+   FLAG SEARCH
+   ========================================================= */
+
+function searchFlags(query) {
+
+    if (!query) {
+        return FLAGS;
+    }
+
+    const q =
+        query
+            .toLowerCase()
+            .trim();
+
+    return FLAGS.filter(flag =>
+
+        flag.name
+            .toLowerCase()
+            .includes(q)
+
+        ||
+
+        flag.hindi
+            .includes(query)
+
+        ||
+
+        flag.code
+            .toLowerCase()
+            .includes(q)
+
+    );
+
+}
+
+
+/* =========================================================
+   FLAG IMAGE ERROR FIX
+   ========================================================= */
+
+function createFlagImage(country) {
+
+    const img =
+        document.createElement("img");
+
+    img.src =
+        country.flag;
+
+    img.alt =
+        `${country.name} flag`;
+
+    img.className =
+        "country-flag-image";
+
+    img.loading =
+        "lazy";
+
+    img.decoding =
+        "async";
+
+    img.style.width =
+        "100%";
+
+    img.style.height =
+        "auto";
+
+    img.style.maxWidth =
+        "220px";
+
+    img.style.objectFit =
+        "contain";
+
+    img.style.display =
+        "block";
+
+    img.style.margin =
+        "0 auto";
+
+    img.onerror = function () {
+
+        this.style.display =
+            "none";
+
+    };
+
+    return img;
+
+}
+
+
+/* =========================================================
+   COUNTRY COUNT
+   ========================================================= */
+
+console.log(
+    "ALL LEARNING HUB — Countries:",
+    COUNTRIES.length
+);
+
+console.log(
+    "ALL LEARNING HUB — Flags:",
+    FLAGS.length
+);
+
+
+/* =========================================================
+   PART 3 END
+   ========================================================= */
