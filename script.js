@@ -1524,3 +1524,752 @@ console.log(
 /* =========================================================
    PART 3 END
    ========================================================= */
+/* =========================================================
+   PART 4
+   INDIAN STATES + STATE FOODS
+   ========================================================= */
+
+
+/* =========================================================
+   ALL 28 INDIAN STATES
+   ========================================================= */
+
+const STATES = [
+
+    {
+        name: "Andhra Pradesh",
+        hindi: "आंध्र प्रदेश",
+        capital: "Amaravati",
+        hindiCapital: "अमरावती",
+        icon: "🌾",
+        description: "Andhra Pradesh is a state in southern India known for its long coastline, agriculture and Telugu culture.",
+        hindiDescription: "आंध्र प्रदेश दक्षिण भारत का एक राज्य है जो अपने लंबे समुद्री तट, कृषि और तेलुगु संस्कृति के लिए जाना जाता है।"
+    },
+
+    {
+        name: "Arunachal Pradesh",
+        hindi: "अरुणाचल प्रदेश",
+        capital: "Itanagar",
+        hindiCapital: "ईटानगर",
+        icon: "🏔️",
+        description: "Arunachal Pradesh is a northeastern state known for mountains, forests and diverse tribal cultures.",
+        hindiDescription: "अरुणाचल प्रदेश उत्तर-पूर्व भारत का एक राज्य है जो पहाड़ों, जंगलों और विविध जनजातीय संस्कृतियों के लिए जाना जाता है।"
+    },
+
+    {
+        name: "Assam",
+        hindi: "असम",
+        capital: "Dispur",
+        hindiCapital: "दिसपुर",
+        icon: "🫖",
+        description: "Assam is a northeastern state famous for tea gardens, the Brahmaputra River and rich biodiversity.",
+        hindiDescription: "असम उत्तर-पूर्व भारत का एक राज्य है जो चाय के बागानों, ब्रह्मपुत्र नदी और समृद्ध जैव विविधता के लिए प्रसिद्ध है।"
+    },
+
+    {
+        name: "Bihar",
+        hindi: "बिहार",
+        capital: "Patna",
+        hindiCapital: "पटना",
+        icon: "🏛️",
+        description: "Bihar is an eastern Indian state with an important history connected with ancient learning and Buddhism.",
+        hindiDescription: "बिहार पूर्वी भारत का एक राज्य है जिसका प्राचीन शिक्षा, इतिहास और बौद्ध धर्म से महत्वपूर्ण संबंध है।"
+    },
+
+    {
+        name: "Chhattisgarh",
+        hindi: "छत्तीसगढ़",
+        capital: "Raipur",
+        hindiCapital: "रायपुर",
+        icon: "🌳",
+        description: "Chhattisgarh is a central Indian state known for forests, waterfalls, agriculture and tribal traditions.",
+        hindiDescription: "छत्तीसगढ़ मध्य भारत का एक राज्य है जो जंगलों, झरनों, कृषि और जनजातीय परंपराओं के लिए जाना जाता है।"
+    },
+
+    {
+        name: "Goa",
+        hindi: "गोवा",
+        capital: "Panaji",
+        hindiCapital: "पणजी",
+        icon: "🏖️",
+        description: "Goa is a coastal state known for beaches, Portuguese-influenced heritage and tourism.",
+        hindiDescription: "गोवा एक तटीय राज्य है जो समुद्र तटों, पुर्तगाली प्रभाव वाली विरासत और पर्यटन के लिए प्रसिद्ध है।"
+    },
+
+    {
+        name: "Gujarat",
+        hindi: "गुजरात",
+        capital: "Gandhinagar",
+        hindiCapital: "गांधीनगर",
+        icon: "🦁",
+        description: "Gujarat is a western Indian state known for its coastline, business, crafts, wildlife and diverse food traditions.",
+        hindiDescription: "गुजरात पश्चिमी भारत का एक राज्य है जो अपने समुद्री तट, व्यापार, हस्तशिल्प, वन्यजीव और विविध खान-पान के लिए जाना जाता है।"
+    },
+
+    {
+        name: "Haryana",
+        hindi: "हरियाणा",
+        capital: "Chandigarh",
+        hindiCapital: "चंडीगढ़",
+        icon: "🌾",
+        description: "Haryana is a northern Indian state known for agriculture, sports and its proximity to Delhi.",
+        hindiDescription: "हरियाणा उत्तर भारत का एक राज्य है जो कृषि, खेल और दिल्ली के निकट होने के लिए जाना जाता है।"
+    },
+
+    {
+        name: "Himachal Pradesh",
+        hindi: "हिमाचल प्रदेश",
+        capital: "Shimla",
+        hindiCapital: "शिमला",
+        icon: "🏔️",
+        description: "Himachal Pradesh is a Himalayan state known for mountains, valleys, forests and hill stations.",
+        hindiDescription: "हिमाचल प्रदेश हिमालयी राज्य है जो पहाड़ों, घाटियों, जंगलों और हिल स्टेशनों के लिए प्रसिद्ध है।"
+    },
+
+    {
+        name: "Jharkhand",
+        hindi: "झारखंड",
+        capital: "Ranchi",
+        hindiCapital: "रांची",
+        icon: "🌳",
+        description: "Jharkhand is a mineral-rich eastern Indian state known for forests, waterfalls and tribal heritage.",
+        hindiDescription: "झारखंड पूर्वी भारत का खनिज-संपन्न राज्य है जो जंगलों, झरनों और जनजातीय विरासत के लिए जाना जाता है।"
+    },
+
+    {
+        name: "Karnataka",
+        hindi: "कर्नाटक",
+        capital: "Bengaluru",
+        hindiCapital: "बेंगलुरु",
+        icon: "🏛️",
+        description: "Karnataka is a southern Indian state known for technology, heritage sites, coffee and diverse landscapes.",
+        hindiDescription: "कर्नाटक दक्षिण भारत का राज्य है जो तकनीक, ऐतिहासिक स्थलों, कॉफी और विविध भौगोलिक क्षेत्रों के लिए जाना जाता है।"
+    },
+
+    {
+        name: "Kerala",
+        hindi: "केरल",
+        capital: "Thiruvananthapuram",
+        hindiCapital: "तिरुवनंतपुरम",
+        icon: "🥥",
+        description: "Kerala is a southwestern coastal state known for backwaters, greenery, Ayurveda and Malayalam culture.",
+        hindiDescription: "केरल दक्षिण-पश्चिमी तटीय राज्य है जो बैकवाटर, हरियाली, आयुर्वेद और मलयालम संस्कृति के लिए प्रसिद्ध है।"
+    },
+
+    {
+        name: "Madhya Pradesh",
+        hindi: "मध्य प्रदेश",
+        capital: "Bhopal",
+        hindiCapital: "भोपाल",
+        icon: "🐅",
+        description: "Madhya Pradesh is a central Indian state known for forests, wildlife, heritage sites and historical cities.",
+        hindiDescription: "मध्य प्रदेश मध्य भारत का राज्य है जो जंगलों, वन्यजीवों, ऐतिहासिक स्थलों और प्राचीन नगरों के लिए जाना जाता है।"
+    },
+
+    {
+        name: "Maharashtra",
+        hindi: "महाराष्ट्र",
+        capital: "Mumbai",
+        hindiCapital: "मुंबई",
+        icon: "🏙️",
+        description: "Maharashtra is a large western Indian state known for Mumbai, industry, agriculture and cultural heritage.",
+        hindiDescription: "महाराष्ट्र पश्चिमी भारत का बड़ा राज्य है जो मुंबई, उद्योग, कृषि और सांस्कृतिक विरासत के लिए जाना जाता है।"
+    },
+
+    {
+        name: "Manipur",
+        hindi: "मणिपुर",
+        capital: "Imphal",
+        hindiCapital: "इंफाल",
+        icon: "🌺",
+        description: "Manipur is a northeastern state known for its hills, Loktak Lake and distinctive cultural traditions.",
+        hindiDescription: "मणिपुर उत्तर-पूर्व भारत का राज्य है जो अपनी पहाड़ियों, लोकटक झील और विशिष्ट सांस्कृतिक परंपराओं के लिए जाना जाता है।"
+    },
+
+    {
+        name: "Meghalaya",
+        hindi: "मेघालय",
+        capital: "Shillong",
+        hindiCapital: "शिलांग",
+        icon: "🌧️",
+        description: "Meghalaya is a northeastern state known for hills, caves, waterfalls and high rainfall.",
+        hindiDescription: "मेघालय उत्तर-पूर्व भारत का राज्य है जो पहाड़ियों, गुफाओं, झरनों और अधिक वर्षा के लिए प्रसिद्ध है।"
+    },
+
+    {
+        name: "Mizoram",
+        hindi: "मिज़ोरम",
+        capital: "Aizawl",
+        hindiCapital: "आइज़ोल",
+        icon: "⛰️",
+        description: "Mizoram is a northeastern state known for green hills, forests and Mizo cultural traditions.",
+        hindiDescription: "मिज़ोरम उत्तर-पूर्व भारत का राज्य है जो हरी पहाड़ियों, जंगलों और मिज़ो सांस्कृतिक परंपराओं के लिए जाना जाता है।"
+    },
+
+    {
+        name: "Nagaland",
+        hindi: "नागालैंड",
+        capital: "Kohima",
+        hindiCapital: "कोहिमा",
+        icon: "🌄",
+        description: "Nagaland is a northeastern state known for mountainous landscapes and diverse Naga cultures.",
+        hindiDescription: "नागालैंड उत्तर-पूर्व भारत का राज्य है जो पहाड़ी क्षेत्रों और विविध नागा संस्कृतियों के लिए जाना जाता है।"
+    },
+
+    {
+        name: "Odisha",
+        hindi: "ओडिशा",
+        capital: "Bhubaneswar",
+        hindiCapital: "भुवनेश्वर",
+        icon: "🛕",
+        description: "Odisha is an eastern coastal state known for temples, classical dance, crafts and its coastline.",
+        hindiDescription: "ओडिशा पूर्वी तटीय राज्य है जो मंदिरों, शास्त्रीय नृत्य, हस्तशिल्प और समुद्री तट के लिए प्रसिद्ध है।"
+    },
+
+    {
+        name: "Punjab",
+        hindi: "पंजाब",
+        capital: "Chandigarh",
+        hindiCapital: "चंडीगढ़",
+        icon: "🌾",
+        description: "Punjab is a northern Indian state known for agriculture, Sikh heritage, music and food.",
+        hindiDescription: "पंजाब उत्तर भारत का राज्य है जो कृषि, सिख विरासत, संगीत और खान-पान के लिए प्रसिद्ध है।"
+    },
+
+    {
+        name: "Rajasthan",
+        hindi: "राजस्थान",
+        capital: "Jaipur",
+        hindiCapital: "जयपुर",
+        icon: "🏰",
+        description: "Rajasthan is India's largest state by area and is known for deserts, forts, palaces and colorful traditions.",
+        hindiDescription: "राजस्थान क्षेत्रफल के आधार पर भारत का सबसे बड़ा राज्य है और रेगिस्तान, किलों, महलों तथा रंगीन परंपराओं के लिए प्रसिद्ध है।"
+    },
+
+    {
+        name: "Sikkim",
+        hindi: "सिक्किम",
+        capital: "Gangtok",
+        hindiCapital: "गंगटोक",
+        icon: "🏔️",
+        description: "Sikkim is a Himalayan state known for mountain landscapes, monasteries and biodiversity.",
+        hindiDescription: "सिक्किम हिमालयी राज्य है जो पर्वतीय दृश्यों, मठों और जैव विविधता के लिए जाना जाता है।"
+    },
+
+    {
+        name: "Tamil Nadu",
+        hindi: "तमिलनाडु",
+        capital: "Chennai",
+        hindiCapital: "चेन्नई",
+        icon: "🛕",
+        description: "Tamil Nadu is a southern state known for temples, classical arts, literature and Tamil culture.",
+        hindiDescription: "तमिलनाडु दक्षिण भारत का राज्य है जो मंदिरों, शास्त्रीय कलाओं, साहित्य और तमिल संस्कृति के लिए प्रसिद्ध है।"
+    },
+
+    {
+        name: "Telangana",
+        hindi: "तेलंगाना",
+        capital: "Hyderabad",
+        hindiCapital: "हैदराबाद",
+        icon: "🏙️",
+        description: "Telangana is a southern Indian state known for Hyderabad, technology, historic monuments and Telugu culture.",
+        hindiDescription: "तेलंगाना दक्षिण भारत का राज्य है जो हैदराबाद, तकनीक, ऐतिहासिक स्मारकों और तेलुगु संस्कृति के लिए जाना जाता है।"
+    },
+
+    {
+        name: "Tripura",
+        hindi: "त्रिपुरा",
+        capital: "Agartala",
+        hindiCapital: "अगरतला",
+        icon: "🌳",
+        description: "Tripura is a northeastern state known for forests, palaces and diverse cultural traditions.",
+        hindiDescription: "त्रिपुरा उत्तर-पूर्व भारत का राज्य है जो जंगलों, महलों और विविध सांस्कृतिक परंपराओं के लिए जाना जाता है।"
+    },
+
+    {
+        name: "Uttar Pradesh",
+        hindi: "उत्तर प्रदेश",
+        capital: "Lucknow",
+        hindiCapital: "लखनऊ",
+        icon: "🕌",
+        description: "Uttar Pradesh is a large northern Indian state known for historical cities, culture, agriculture and major heritage sites.",
+        hindiDescription: "उत्तर प्रदेश उत्तर भारत का बड़ा राज्य है जो ऐतिहासिक नगरों, संस्कृति, कृषि और महत्वपूर्ण विरासत स्थलों के लिए जाना जाता है।"
+    },
+
+    {
+        name: "Uttarakhand",
+        hindi: "उत्तराखंड",
+        capital: "Dehradun",
+        hindiCapital: "देहरादून",
+        icon: "🏔️",
+        description: "Uttarakhand is a Himalayan state known for mountains, rivers, forests and pilgrimage destinations.",
+        hindiDescription: "उत्तराखंड हिमालयी राज्य है जो पहाड़ों, नदियों, जंगलों और तीर्थ स्थलों के लिए प्रसिद्ध है।"
+    },
+
+    {
+        name: "West Bengal",
+        hindi: "पश्चिम बंगाल",
+        capital: "Kolkata",
+        hindiCapital: "कोलकाता",
+        icon: "🐯",
+        description: "West Bengal is an eastern Indian state known for literature, arts, Kolkata, the Sundarbans and Bengali culture.",
+        hindiDescription: "पश्चिम बंगाल पूर्वी भारत का राज्य है जो साहित्य, कला, कोलकाता, सुंदरबन और बंगाली संस्कृति के लिए जाना जाता है।"
+    }
+
+];
+
+
+/* =========================================================
+   STATE FOODS
+   ========================================================= */
+
+const STATE_FOODS = [
+
+    {
+        state: "Andhra Pradesh",
+        hindiState: "आंध्र प्रदेश",
+        food: "Pulihora",
+        hindiFood: "पुलिहोरा",
+        icon: "🍚",
+        description: "Pulihora is a tangy rice preparation popular in Andhra cuisine.",
+        hindiDescription: "पुलिहोरा इमली के स्वाद वाला चावल का प्रसिद्ध आंध्र व्यंजन है।"
+    },
+
+    {
+        state: "Arunachal Pradesh",
+        hindiState: "अरुणाचल प्रदेश",
+        food: "Thukpa",
+        hindiFood: "थुकपा",
+        icon: "🍜",
+        description: "Thukpa is a warm noodle soup popular in Himalayan regions.",
+        hindiDescription: "थुकपा हिमालयी क्षेत्रों में लोकप्रिय गरम नूडल सूप है।"
+    },
+
+    {
+        state: "Assam",
+        hindiState: "असम",
+        food: "Khar",
+        hindiFood: "खार",
+        icon: "🍲",
+        description: "Khar is a traditional Assamese preparation made with alkaline ingredients.",
+        hindiDescription: "खार असम का पारंपरिक व्यंजन है जिसमें क्षारीय सामग्री का उपयोग किया जाता है।"
+    },
+
+    {
+        state: "Bihar",
+        hindiState: "बिहार",
+        food: "Litti Chokha",
+        hindiFood: "लिट्टी चोखा",
+        icon: "🥘",
+        description: "Litti Chokha is a popular traditional food of Bihar.",
+        hindiDescription: "लिट्टी चोखा बिहार का प्रसिद्ध पारंपरिक भोजन है।"
+    },
+
+    {
+        state: "Chhattisgarh",
+        hindiState: "छत्तीसगढ़",
+        food: "Fara",
+        hindiFood: "फरा",
+        icon: "🥟",
+        description: "Fara is a traditional steamed rice-based dish of Chhattisgarh.",
+        hindiDescription: "फरा छत्तीसगढ़ का पारंपरिक चावल से बना भाप में पकाया जाने वाला व्यंजन है।"
+    },
+
+    {
+        state: "Goa",
+        hindiState: "गोवा",
+        food: "Goan Fish Curry",
+        hindiFood: "गोअन फिश करी",
+        icon: "🐟",
+        description: "Goan fish curry is a well-known coastal dish prepared with fish and spices.",
+        hindiDescription: "गोअन फिश करी मछली और मसालों से बनाया जाने वाला प्रसिद्ध तटीय व्यंजन है।"
+    },
+
+    {
+        state: "Gujarat",
+        hindiState: "गुजरात",
+        food: "Dhokla",
+        hindiFood: "ढोकला",
+        icon: "🟨",
+        description: "Dhokla is a popular steamed savory snack associated with Gujarati cuisine.",
+        hindiDescription: "ढोकला गुजरात के खान-पान से जुड़ा प्रसिद्ध भाप में पकाया जाने वाला स्वादिष्ट नाश्ता है।"
+    },
+
+    {
+        state: "Haryana",
+        hindiState: "हरियाणा",
+        food: "Bajra Khichdi",
+        hindiFood: "बाजरे की खिचड़ी",
+        icon: "🍲",
+        description: "Bajra Khichdi is a traditional rural food prepared with pearl millet.",
+        hindiDescription: "बाजरे की खिचड़ी बाजरे से बनाया जाने वाला पारंपरिक भोजन है।"
+    },
+
+    {
+        state: "Himachal Pradesh",
+        hindiState: "हिमाचल प्रदेश",
+        food: "Dham",
+        hindiFood: "धाम",
+        icon: "🍛",
+        description: "Dham is a traditional festive meal from Himachal Pradesh.",
+        hindiDescription: "धाम हिमाचल प्रदेश का पारंपरिक उत्सवी भोजन है।"
+    },
+
+    {
+        state: "Jharkhand",
+        hindiState: "झारखंड",
+        food: "Dhuska",
+        hindiFood: "धुस्का",
+        icon: "🥞",
+        description: "Dhuska is a traditional fried rice-and-lentil preparation.",
+        hindiDescription: "धुस्का चावल और दाल से बनाया जाने वाला पारंपरिक तला हुआ व्यंजन है।"
+    },
+
+    {
+        state: "Karnataka",
+        hindiState: "कर्नाटक",
+        food: "Bisi Bele Bath",
+        hindiFood: "बिसी बेले भात",
+        icon: "🍛",
+        description: "Bisi Bele Bath is a popular rice, lentil and vegetable dish from Karnataka.",
+        hindiDescription: "बिसी बेले भात चावल, दाल और सब्जियों से बना कर्नाटक का प्रसिद्ध व्यंजन है।"
+    },
+
+    {
+        state: "Kerala",
+        hindiState: "केरल",
+        food: "Sadya",
+        hindiFood: "सद्या",
+        icon: "🍃",
+        description: "Sadya is a traditional Kerala feast served on a banana leaf.",
+        hindiDescription: "सद्या केरल का पारंपरिक भोज है जिसे केले के पत्ते पर परोसा जाता है।"
+    },
+
+    {
+        state: "Madhya Pradesh",
+        hindiState: "मध्य प्रदेश",
+        food: "Poha",
+        hindiFood: "पोहा",
+        icon: "🍚",
+        description: "Poha is a popular breakfast dish widely enjoyed in Madhya Pradesh.",
+        hindiDescription: "पोहा मध्य प्रदेश में बहुत पसंद किया जाने वाला लोकप्रिय नाश्ता है।"
+    },
+
+    {
+        state: "Maharashtra",
+        hindiState: "महाराष्ट्र",
+        food: "Vada Pav",
+        hindiFood: "वड़ा पाव",
+        icon: "🍔",
+        description: "Vada Pav is a famous street food associated with Maharashtra.",
+        hindiDescription: "वड़ा पाव महाराष्ट्र से जुड़ा प्रसिद्ध स्ट्रीट फूड है।"
+    },
+
+    {
+        state: "Manipur",
+        hindiState: "मणिपुर",
+        food: "Eromba",
+        hindiFood: "एरोम्बा",
+        icon: "🌶️",
+        description: "Eromba is a traditional Manipuri preparation often made with vegetables and fermented ingredients.",
+        hindiDescription: "एरोम्बा मणिपुर का पारंपरिक व्यंजन है जिसमें अक्सर सब्जियों और किण्वित सामग्री का उपयोग होता है।"
+    },
+
+    {
+        state: "Meghalaya",
+        hindiState: "मेघालय",
+        food: "Jadoh",
+        hindiFood: "जादोह",
+        icon: "🍚",
+        description: "Jadoh is a traditional rice-based dish of Meghalaya.",
+        hindiDescription: "जादोह मेघालय का पारंपरिक चावल आधारित व्यंजन है।"
+    },
+
+    {
+        state: "Mizoram",
+        hindiState: "मिज़ोरम",
+        food: "Bai",
+        hindiFood: "बाई",
+        icon: "🥬",
+        description: "Bai is a traditional Mizo dish prepared with vegetables and other ingredients.",
+        hindiDescription: "बाई मिज़ो समुदाय का पारंपरिक व्यंजन है जिसमें सब्जियों और अन्य सामग्री का उपयोग किया जाता है।"
+    },
+
+    {
+        state: "Nagaland",
+        hindiState: "नागालैंड",
+        food: "Smoked Pork",
+        hindiFood: "स्मोक्ड पोर्क",
+        icon: "🍖",
+        description: "Smoked pork is a well-known traditional food in Nagaland.",
+        hindiDescription: "स्मोक्ड पोर्क नागालैंड के पारंपरिक खान-पान में प्रसिद्ध है।"
+    },
+
+    {
+        state: "Odisha",
+        hindiState: "ओडिशा",
+        food: "Pakhala Bhata",
+        hindiFood: "पखाला भात",
+        icon: "🍚",
+        description: "Pakhala Bhata is a traditional fermented rice preparation from Odisha.",
+        hindiDescription: "पखाला भात ओडिशा का पारंपरिक किण्वित चावल का व्यंजन है।"
+    },
+
+    {
+        state: "Punjab",
+        hindiState: "पंजाब",
+        food: "Makki di Roti and Sarson da Saag",
+        hindiFood: "मक्की दी रोटी और सरसों दा साग",
+        icon: "🌽",
+        description: "Makki di Roti and Sarson da Saag are iconic foods associated with Punjabi cuisine.",
+        hindiDescription: "मक्की दी रोटी और सरसों दा साग पंजाबी खान-पान से जुड़े प्रसिद्ध पारंपरिक भोजन हैं।"
+    },
+
+    {
+        state: "Rajasthan",
+        hindiState: "राजस्थान",
+        food: "Dal Baati Churma",
+        hindiFood: "दाल बाटी चूरमा",
+        icon: "🥘",
+        description: "Dal Baati Churma is a famous traditional Rajasthani meal.",
+        hindiDescription: "दाल बाटी चूरमा राजस्थान का प्रसिद्ध पारंपरिक भोजन है।"
+    },
+
+    {
+        state: "Sikkim",
+        hindiState: "सिक्किम",
+        food: "Momos",
+        hindiFood: "मोमो",
+        icon: "🥟",
+        description: "Momos are popular dumplings widely enjoyed in Sikkim and the Himalayan region.",
+        hindiDescription: "मोमो सिक्किम और हिमालयी क्षेत्र में बहुत पसंद किए जाने वाले पकौड़े जैसे व्यंजन हैं।"
+    },
+
+    {
+        state: "Tamil Nadu",
+        hindiState: "तमिलनाडु",
+        food: "Pongal",
+        hindiFood: "पोंगल",
+        icon: "🍚",
+        description: "Pongal is a traditional rice and lentil preparation strongly associated with Tamil Nadu.",
+        hindiDescription: "पोंगल चावल और दाल से बना तमिलनाडु का प्रसिद्ध पारंपरिक व्यंजन है।"
+    },
+
+    {
+        state: "Telangana",
+        hindiState: "तेलंगाना",
+        food: "Hyderabadi Biryani",
+        hindiFood: "हैदराबादी बिरयानी",
+        icon: "🍛",
+        description: "Hyderabadi Biryani is a famous rice dish associated with Hyderabad and Telangana.",
+        hindiDescription: "हैदराबादी बिरयानी हैदराबाद और तेलंगाना से जुड़ा प्रसिद्ध चावल का व्यंजन है।"
+    },
+
+    {
+        state: "Tripura",
+        hindiState: "त्रिपुरा",
+        food: "Mui Borok",
+        hindiFood: "मुई बोरोक",
+        icon: "🍲",
+        description: "Mui Borok refers to traditional Tripuri cuisine and foods.",
+        hindiDescription: "मुई बोरोक त्रिपुरा की पारंपरिक भोजन संस्कृति को दर्शाता है।"
+    },
+
+    {
+        state: "Uttar Pradesh",
+        hindiState: "उत्तर प्रदेश",
+        food: "Awadhi Biryani",
+        hindiFood: "अवधी बिरयानी",
+        icon: "🍛",
+        description: "Awadhi cuisine is known for aromatic rice dishes and rich culinary traditions.",
+        hindiDescription: "अवधी खान-पान अपने सुगंधित चावल के व्यंजनों और समृद्ध पाक परंपरा के लिए प्रसिद्ध है।"
+    },
+
+    {
+        state: "Uttarakhand",
+        hindiState: "उत्तराखंड",
+        food: "Kafuli",
+        hindiFood: "काफुली",
+        icon: "🥬",
+        description: "Kafuli is a traditional Uttarakhand dish prepared mainly with leafy greens.",
+        hindiDescription: "काफुली उत्तराखंड का पारंपरिक व्यंजन है जिसे मुख्य रूप से हरी पत्तेदार सब्जियों से बनाया जाता है।"
+    },
+
+    {
+        state: "West Bengal",
+        hindiState: "पश्चिम बंगाल",
+        food: "Macher Jhol",
+        hindiFood: "माछेर झोल",
+        icon: "🐟",
+        description: "Macher Jhol is a traditional Bengali fish curry.",
+        hindiDescription: "माछेर झोल बंगाली खान-पान की पारंपरिक मछली की करी है।"
+    }
+
+];
+
+
+/* =========================================================
+   STATE SEARCH
+   ========================================================= */
+
+function searchStates(query) {
+
+    if (!query) {
+        return STATES;
+    }
+
+    const q =
+        query
+            .toLowerCase()
+            .trim();
+
+    return STATES.filter(state =>
+
+        state.name
+            .toLowerCase()
+            .includes(q)
+
+        ||
+
+        state.hindi
+            .includes(query)
+
+        ||
+
+        state.capital
+            .toLowerCase()
+            .includes(q)
+
+        ||
+
+        state.hindiCapital
+            .includes(query)
+
+    );
+
+}
+
+
+/* =========================================================
+   STATE FOOD SEARCH
+   ========================================================= */
+
+function searchStateFoods(query) {
+
+    if (!query) {
+        return STATE_FOODS;
+    }
+
+    const q =
+        query
+            .toLowerCase()
+            .trim();
+
+    return STATE_FOODS.filter(item =>
+
+        item.state
+            .toLowerCase()
+            .includes(q)
+
+        ||
+
+        item.hindiState
+            .includes(query)
+
+        ||
+
+        item.food
+            .toLowerCase()
+            .includes(q)
+
+        ||
+
+        item.hindiFood
+            .includes(query)
+
+    );
+
+}
+
+
+/* =========================================================
+   STATE DATA FORMATTER
+   ========================================================= */
+
+function getStateData(state) {
+
+    return {
+
+        title:
+            `${state.name} — ${state.hindi}`,
+
+        icon:
+            state.icon,
+
+        description:
+            state.description,
+
+        hindiDescription:
+            state.hindiDescription,
+
+        extra: {
+
+            "Capital":
+                state.capital,
+
+            "राजधानी":
+                state.hindiCapital
+
+        }
+
+    };
+
+}
+
+
+/* =========================================================
+   STATE FOOD DATA FORMATTER
+   ========================================================= */
+
+function getStateFoodData(item) {
+
+    return {
+
+        title:
+            `${item.state} — ${item.food}`,
+
+        hindi:
+            `${item.hindiState} — ${item.hindiFood}`,
+
+        icon:
+            item.icon,
+
+        description:
+            item.description,
+
+        hindiDescription:
+            item.hindiDescription
+
+    };
+
+}
+
+
+/* =========================================================
+   CHECK COUNTS
+   ========================================================= */
+
+console.log(
+    "ALL LEARNING HUB — Indian States:",
+    STATES.length
+);
+
+console.log(
+    "ALL LEARNING HUB — State Foods:",
+    STATE_FOODS.length
+);
+
+
+/* =========================================================
+   PART 4 END
+   ========================================================= */
