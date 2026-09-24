@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ALL LEARNING HUB</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="main-header">
+
+    <div class="logo-area">
+        <div class="logo-icon">📚</div>
+
+        <div>
+            <h1>ALL LEARNING HUB</h1>
+            <p>Learn • Explore • Discover</p>
+        </div>
+    </div>
+
+    <button id="languageBtn" class="language-btn">
+        हिंदी
+    </button>
+
+</header>
+
+
+<!-- =====================================================
+     SEARCH
+===================================================== -->
+
+<section class="search-section">
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search any topic..."
+        autocomplete="off"
+    >
+
+</section>
+
+
+<!-- =====================================================
+     HOME DASHBOARD
+===================================================== -->
+
+<main id="homePage">
+
+    <div class="welcome-section">
+
+        <h2 id="welcomeTitle">
+            Welcome to All Learning Hub
+        </h2>
+
+        <p id="welcomeText">
+            Learn important knowledge in Hindi and English.
+        </p>
+
+    </div>
+
+
+    <!-- =================================================
+         LEARNING BOXES
+    ================================================== -->
+
+    <section class="learning-grid">
+
+
+        <!-- HUMAN BODY -->
+
+        <button
+            class="learning-card"
+            data-topic="humanBody"
+        >
+
+            <span class="card-icon">🧍</span>
+
+            <span class="card-title">
+                Human Body
+            </span>
+
+            <span class="card-subtitle">
+                मानव शरीर
+            </span>
+
+        </button>
+
+
+        <!-- ANIMALS -->
+
+        <button
+            class="learning-card"
+            data-topic="animals"
+        >
+
+            <span class="card-icon">🐕</span>
+
+            <span class="card-title">
+                Animals
+            </span>
+
+            <span class="card-subtitle">
+                जानवर
+            </span>
+
+        </button>
+
+
+        <!-- BIRDS -->
+
+        <button
+            class="learning-card"
+            data-topic="birds"
+        >
+
+            <span class="card-icon">🐦</span>
+
+            <span class="card-title">
+                Birds
+            </span>
+
+            <span class="card-subtitle">
+                पक्षी
+            </span>
+
+        </button>
+
+
+        <!-- COUNTRIES -->
+
+        <button
+            class="learning-card"
+            data-topic="countries"
+        >
+
+            <span class="card-icon">🌍</span>
+
+            <span class="card-title">
+                Countries
+            </span>
+
+            <span class="card-subtitle">
+                देश
+            </span>
+
+        </button>
+
+
+        <!-- FLAGS -->
+
+        <button
+            class="learning-card"
+            data-topic="flags"
+        >
+
+            <span class="card-icon">🚩</span>
+
+            <span class="card-title">
+                World Flags
+            </span>
+
+            <span class="card-subtitle">
+                विश्व के झंडे
+            </span>
+
+        </button>
+
+
+        <!-- INDIAN STATES -->
+
+        <button
+            class="learning-card"
+            data-topic="states"
+        >
+
+            <span class="card-icon">🇮🇳</span>
+
+            <span class="card-title">
+                Indian States
+            </span>
+
+            <span class="card-subtitle">
+                भारत के राज्य
+            </span>
+
+        </button>
+
+
+        <!-- STATE FOODS -->
+
+        <button
+            class="learning-card"
+            data-topic="stateFoods"
+        >
+
+            <span class="card-icon">🍛</span>
+
+            <span class="card-title">
+                State Foods
+            </span>
+
+            <span class="card-subtitle">
+                राज्यों के प्रमुख भोजन
+            </span>
+
+        </button>
+
+
+        <!-- FESTIVALS -->
+
+        <button
+            class="learning-card"
+            data-topic="festivals"
+        >
+
+            <span class="card-icon">🎉</span>
+
+            <span class="card-title">
+                Indian Festivals
+            </span>
+
+            <span class="card-subtitle">
+                भारतीय त्योहार
+            </span>
+
+        </button>
+
+
+        <!-- NATIONAL SYMBOLS -->
+
+        <button
+            class="learning-card"
+            data-topic="nationalSymbols"
+        >
+
+            <span class="card-icon">🇮🇳</span>
+
+            <span class="card-title">
+                National Symbols
+            </span>
+
+            <span class="card-subtitle">
+                राष्ट्रीय प्रतीक
+            </span>
+
+        </button>
+
+
+        <!-- SEASONS -->
+
+        <button
+            class="learning-card"
+            data-topic="seasons"
+        >
+
+            <span class="card-icon">🌦️</span>
+
+            <span class="card-title">
+                Seasons
+            </span>
+
+            <span class="card-subtitle">
+                ऋतुएँ
+            </span>
+
+        </button>
+
+
+        <!-- MONTHS -->
+
+        <button
+            class="learning-card"
+            data-topic="months"
+        >
+
+            <span class="card-icon">📅</span>
+
+            <span class="card-title">
+                Months
+            </span>
+
+            <span class="card-subtitle">
+                महीने
+            </span>
+
+        </button>
+
+
+        <!-- DAYS -->
+
+        <button
+            class="learning-card"
+            data-topic="days"
+        >
+
+            <span class="card-icon">🗓️</span>
+
+            <span class="card-title">
+                Days of Week
+            </span>
+
+            <span class="card-subtitle">
+                सप्ताह के दिन
+            </span>
+
+        </button>
+
+
+        <!-- CALENDAR -->
+
+        <button
+            class="learning-card"
+            data-topic="calendar"
+        >
+
+            <span class="card-icon">🔢</span>
+
+            <span class="card-title">
+                Time & Calendar
+            </span>
+
+            <span class="card-subtitle">
+                समय और कैलेंडर
+            </span>
+
+        </button>
+
+
+        <!-- LANGUAGES -->
+
+        <button
+            class="learning-card"
+            data-topic="languages"
+        >
+
+            <span class="card-icon">🗣️</span>
+
+            <span class="card-title">
+                Languages
+            </span>
+
+            <span class="card-subtitle">
+                भाषाएँ
+            </span>
+
+        </button>
+
+
+        <!-- NUMBERS -->
+
+        <button
+            class="learning-card"
+            data-topic="numbers"
+        >
+
+            <span class="card-icon">🔢</span>
+
+            <span class="card-title">
+                Numbers
+            </span>
+
+            <span class="card-subtitle">
+                संख्याएँ
+            </span>
+
+        </button>
+
+
+        <!-- GENERAL KNOWLEDGE -->
+
+        <button
+            class="learning-card"
+            data-topic="generalKnowledge"
+        >
+
+            <span class="card-icon">🧠</span>
+
+            <span class="card-title">
+                General Knowledge
+            </span>
+
+            <span class="card-subtitle">
+                सामान्य ज्ञान
+            </span>
+
+        </button>
+
+
+    </section>
+
+</main>
+
+
+
+<!-- =====================================================
+     DEDICATED LEARNING PANEL
+===================================================== -->
+
+<section
+    id="learningPage"
+    class="learning-page"
+    hidden
+>
+
+
+    <!-- BACK BUTTON -->
+
+    <button
+        id="backBtn"
+        class="back-btn"
+    >
+
+        ←
+        <span id="backText">
+            Back
+        </span>
+
+    </button>
+
+
+    <!-- TOPIC HEADER -->
+
+    <div class="topic-header">
+
+        <div
+            id="topicIcon"
+            class="topic-icon"
+        >
+            📚
+        </div>
+
+        <div>
+
+            <h2 id="topicTitle">
+                Learning Topic
+            </h2>
+
+            <p id="topicSubtitle">
+                सीखने का विषय
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- TOPIC SEARCH -->
+
+    <div class="topic-search">
+
+        <input
+            type="text"
+            id="topicSearch"
+            placeholder="Search in this topic..."
+        >
+
+    </div>
+
+
+    <!-- TOPIC CONTENT -->
+
+    <div
+        id="topicContent"
+        class="topic-content"
+    >
+
+        <!-- JavaScript will load topic information here -->
+
+    </div>
+
+
+    <!-- PREVIOUS / NEXT -->
+
+    <div class="navigation-buttons">
+
+        <button id="previousBtn">
+            ← Previous
+        </button>
+
+        <button id="nextBtn">
+            Next →
+        </button>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+        © 2026 ALL LEARNING HUB
+    </p>
+
+    <p>
+        Learn Every Day • ज्ञान ही शक्ति है
+    </p>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
