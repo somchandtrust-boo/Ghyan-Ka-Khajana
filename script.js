@@ -5992,3 +5992,989 @@ console.log(
 /* =========================================================
    PART 8 END
    ========================================================= */
+/* =========================================================
+   PART 9 — HINDI VARNAMALA
+   पूर्ण हिंदी वर्णमाला
+   ========================================================= */
+
+const HINDI_VARNAMALA = [
+
+    /* =========================
+       स्वर — VOWELS
+       ========================= */
+
+    {
+        letter: "अ",
+        name: "A",
+        hindi: "अ",
+        icon: "🅰️",
+        pronunciation: "a",
+        word: "अनार",
+        hindiWord: "अनार",
+        example: "अ से अनार",
+        hindiExample: "अ से अनार",
+        description: "अ is the first vowel sound in Hindi. It is used in many Hindi words.",
+        hindiDescription: "अ हिंदी का पहला स्वर है। इसका प्रयोग बहुत से हिंदी शब्दों में होता है।",
+        group: "Vowels",
+        hindiGroup: "स्वर"
+    },
+
+    {
+        letter: "आ",
+        name: "Aa",
+        hindi: "आ",
+        icon: "🥭",
+        pronunciation: "aa",
+        word: "आम",
+        hindiWord: "आम",
+        example: "आ से आम",
+        hindiExample: "आ से आम",
+        description: "आ is a long vowel sound.",
+        hindiDescription: "आ एक दीर्घ स्वर है।",
+        group: "Vowels",
+        hindiGroup: "स्वर"
+    },
+
+    {
+        letter: "इ",
+        name: "I",
+        hindi: "इ",
+        icon: "🦋",
+        pronunciation: "i",
+        word: "इमली",
+        hindiWord: "इमली",
+        example: "इ से इमली",
+        hindiExample: "इ से इमली",
+        description: "इ is a short vowel sound.",
+        hindiDescription: "इ एक ह्रस्व स्वर है।",
+        group: "Vowels",
+        hindiGroup: "स्वर"
+    },
+
+    {
+        letter: "ई",
+        name: "Ee",
+        hindi: "ई",
+        icon: "🍬",
+        pronunciation: "ee",
+        word: "ईख",
+        hindiWord: "ईख",
+        example: "ई से ईख",
+        hindiExample: "ई से ईख",
+        description: "ई is a long vowel sound.",
+        hindiDescription: "ई एक दीर्घ स्वर है।",
+        group: "Vowels",
+        hindiGroup: "स्वर"
+    },
+
+    {
+        letter: "उ",
+        name: "U",
+        hindi: "उ",
+        icon: "🦉",
+        pronunciation: "u",
+        word: "उल्लू",
+        hindiWord: "उल्लू",
+        example: "उ से उल्लू",
+        hindiExample: "उ से उल्लू",
+        description: "उ is a short vowel sound.",
+        hindiDescription: "उ एक ह्रस्व स्वर है।",
+        group: "Vowels",
+        hindiGroup: "स्वर"
+    },
+
+    {
+        letter: "ऊ",
+        name: "Oo",
+        hindi: "ऊ",
+        icon: "🐪",
+        pronunciation: "oo",
+        word: "ऊन",
+        hindiWord: "ऊन",
+        example: "ऊ से ऊन",
+        hindiExample: "ऊ से ऊन",
+        description: "ऊ is a long vowel sound.",
+        hindiDescription: "ऊ एक दीर्घ स्वर है।",
+        group: "Vowels",
+        hindiGroup: "स्वर"
+    },
+
+    {
+        letter: "ऋ",
+        name: "Ri",
+        hindi: "ऋ",
+        icon: "📖",
+        pronunciation: "ri",
+        word: "ऋषि",
+        hindiWord: "ऋषि",
+        example: "ऋ से ऋषि",
+        hindiExample: "ऋ से ऋषि",
+        description: "ऋ is a special vowel used in Sanskrit-derived Hindi words.",
+        hindiDescription: "ऋ एक विशेष स्वर है, जिसका प्रयोग संस्कृत से आए हिंदी शब्दों में होता है।",
+        group: "Vowels",
+        hindiGroup: "स्वर"
+    },
+
+    {
+        letter: "ए",
+        name: "E",
+        hindi: "ए",
+        icon: "🦏",
+        pronunciation: "e",
+        word: "एड़ी",
+        hindiWord: "एड़ी",
+        example: "ए से एड़ी",
+        hindiExample: "ए से एड़ी",
+        description: "ए is a vowel sound used in many Hindi words.",
+        hindiDescription: "ए एक स्वर है, जिसका प्रयोग अनेक हिंदी शब्दों में होता है।",
+        group: "Vowels",
+        hindiGroup: "स्वर"
+    },
+
+    {
+        letter: "ऐ",
+        name: "Ai",
+        hindi: "ऐ",
+        icon: "🪁",
+        pronunciation: "ai",
+        word: "ऐनक",
+        hindiWord: "ऐनक",
+        example: "ऐ से ऐनक",
+        hindiExample: "ऐ से ऐनक",
+        description: "ऐ is a combined vowel sound.",
+        hindiDescription: "ऐ एक संयुक्त स्वर ध्वनि है।",
+        group: "Vowels",
+        hindiGroup: "स्वर"
+    },
+
+    {
+        letter: "ओ",
+        name: "O",
+        hindi: "ओ",
+        icon: "🦜",
+        pronunciation: "o",
+        word: "ओस",
+        hindiWord: "ओस",
+        example: "ओ से ओस",
+        hindiExample: "ओ से ओस",
+        description: "ओ is a vowel sound used frequently in Hindi.",
+        hindiDescription: "ओ हिंदी में सामान्य रूप से प्रयोग होने वाला स्वर है।",
+        group: "Vowels",
+        hindiGroup: "स्वर"
+    },
+
+    {
+        letter: "औ",
+        name: "Au",
+        hindi: "औ",
+        icon: "🐦",
+        pronunciation: "au",
+        word: "औरत",
+        hindiWord: "औरत",
+        example: "औ से औरत",
+        hindiExample: "औ से औरत",
+        description: "औ is a combined vowel sound.",
+        hindiDescription: "औ एक संयुक्त स्वर ध्वनि है।",
+        group: "Vowels",
+        hindiGroup: "स्वर"
+    },
+
+    {
+        letter: "अं",
+        name: "Anusvara",
+        hindi: "अं",
+        icon: "🔤",
+        pronunciation: "an",
+        word: "अंगूर",
+        hindiWord: "अंगूर",
+        example: "अं से अंगूर",
+        hindiExample: "अं से अंगूर",
+        description: "अं is called Anusvara and represents a nasal sound.",
+        hindiDescription: "अं को अनुस्वार कहा जाता है और यह नासिक्य ध्वनि को दर्शाता है।",
+        group: "Vowels",
+        hindiGroup: "स्वर"
+    },
+
+    {
+        letter: "अः",
+        name: "Visarga",
+        hindi: "अः",
+        icon: "📚",
+        pronunciation: "ah",
+        word: "दुःख",
+        hindiWord: "दुःख",
+        example: "अः का प्रयोग दुःख जैसे शब्दों में मिलता है।",
+        hindiExample: "अः का प्रयोग दुःख जैसे शब्दों में मिलता है।",
+        description: "अः is called Visarga and is mostly seen in Sanskrit-derived words.",
+        hindiDescription: "अः को विसर्ग कहा जाता है और इसका प्रयोग मुख्यतः संस्कृत मूल के शब्दों में होता है।",
+        group: "Vowels",
+        hindiGroup: "स्वर"
+    },
+
+
+    /* =========================
+       क-वर्ग
+       ========================= */
+
+    {
+        letter: "क",
+        name: "Ka",
+        hindi: "क",
+        icon: "🪁",
+        pronunciation: "ka",
+        word: "कमल",
+        hindiWord: "कमल",
+        example: "क से कमल",
+        hindiExample: "क से कमल",
+        description: "क is the first consonant of the Ka-varga.",
+        hindiDescription: "क क-वर्ग का पहला व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "ख",
+        name: "Kha",
+        hindi: "ख",
+        icon: "🐰",
+        pronunciation: "kha",
+        word: "खरगोश",
+        hindiWord: "खरगोश",
+        example: "ख से खरगोश",
+        hindiExample: "ख से खरगोश",
+        description: "ख is an aspirated consonant.",
+        hindiDescription: "ख एक महाप्राण व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "ग",
+        name: "Ga",
+        hindi: "ग",
+        icon: "🐄",
+        pronunciation: "ga",
+        word: "गाय",
+        hindiWord: "गाय",
+        example: "ग से गाय",
+        hindiExample: "ग से गाय",
+        description: "ग is a common Hindi consonant.",
+        hindiDescription: "ग हिंदी का एक सामान्य व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "घ",
+        name: "Gha",
+        hindi: "घ",
+        icon: "🏠",
+        pronunciation: "gha",
+        word: "घर",
+        hindiWord: "घर",
+        example: "घ से घर",
+        hindiExample: "घ से घर",
+        description: "घ is an aspirated consonant.",
+        hindiDescription: "घ एक महाप्राण व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "ङ",
+        name: "Nga",
+        hindi: "ङ",
+        icon: "🔤",
+        pronunciation: "nga",
+        word: "गंगा",
+        hindiWord: "गंगा",
+        example: "ङ की ध्वनि गंगा जैसे शब्दों में सुनाई देती है।",
+        hindiExample: "ङ की ध्वनि गंगा जैसे शब्दों में सुनाई देती है।",
+        description: "ङ represents a nasal sound.",
+        hindiDescription: "ङ एक नासिक्य व्यंजन ध्वनि को दर्शाता है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+
+    /* =========================
+       च-वर्ग
+       ========================= */
+
+    {
+        letter: "च",
+        name: "Cha",
+        hindi: "च",
+        icon: "🦅",
+        pronunciation: "cha",
+        word: "चम्मच",
+        hindiWord: "चम्मच",
+        example: "च से चम्मच",
+        hindiExample: "च से चम्मच",
+        description: "च is the first consonant of the Cha-varga.",
+        hindiDescription: "च च-वर्ग का पहला व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "छ",
+        name: "Chha",
+        hindi: "छ",
+        icon: "☂️",
+        pronunciation: "chha",
+        word: "छाता",
+        hindiWord: "छाता",
+        example: "छ से छाता",
+        hindiExample: "छ से छाता",
+        description: "छ is an aspirated consonant.",
+        hindiDescription: "छ एक महाप्राण व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "ज",
+        name: "Ja",
+        hindi: "ज",
+        icon: "🦒",
+        pronunciation: "ja",
+        word: "जहाज",
+        hindiWord: "जहाज",
+        example: "ज से जहाज",
+        hindiExample: "ज से जहाज",
+        description: "ज is a common Hindi consonant.",
+        hindiDescription: "ज हिंदी का एक सामान्य व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "झ",
+        name: "Jha",
+        hindi: "झ",
+        icon: "💧",
+        pronunciation: "jha",
+        word: "झरना",
+        hindiWord: "झरना",
+        example: "झ से झरना",
+        hindiExample: "झ से झरना",
+        description: "झ is an aspirated consonant.",
+        hindiDescription: "झ एक महाप्राण व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "ञ",
+        name: "Nya",
+        hindi: "ञ",
+        icon: "🔤",
+        pronunciation: "nya",
+        word: "ज्ञान",
+        hindiWord: "ज्ञान",
+        example: "ञ की ध्वनि कुछ संयुक्त शब्दों में मिलती है।",
+        hindiExample: "ञ की ध्वनि कुछ संयुक्त शब्दों में मिलती है।",
+        description: "ञ is a nasal consonant.",
+        hindiDescription: "ञ एक नासिक्य व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+
+    /* =========================
+       ट-वर्ग
+       ========================= */
+
+    {
+        letter: "ट",
+        name: "Ta",
+        hindi: "ट",
+        icon: "🪵",
+        pronunciation: "ta",
+        word: "टमाटर",
+        hindiWord: "टमाटर",
+        example: "ट से टमाटर",
+        hindiExample: "ट से टमाटर",
+        description: "ट is a retroflex consonant.",
+        hindiDescription: "ट एक मूर्धन्य व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "ठ",
+        name: "Tha",
+        hindi: "ठ",
+        icon: "🪑",
+        pronunciation: "tha",
+        word: "ठेला",
+        hindiWord: "ठेला",
+        example: "ठ से ठेला",
+        hindiExample: "ठ से ठेला",
+        description: "ठ is an aspirated retroflex consonant.",
+        hindiDescription: "ठ एक महाप्राण मूर्धन्य व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "ड",
+        name: "Da",
+        hindi: "ड",
+        icon: "🥁",
+        pronunciation: "da",
+        word: "डमरू",
+        hindiWord: "डमरू",
+        example: "ड से डमरू",
+        hindiExample: "ड से डमरू",
+        description: "ड is a retroflex consonant.",
+        hindiDescription: "ड एक मूर्धन्य व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "ढ",
+        name: "Dha",
+        hindi: "ढ",
+        icon: "🛢️",
+        pronunciation: "dha",
+        word: "ढक्कन",
+        hindiWord: "ढक्कन",
+        example: "ढ से ढक्कन",
+        hindiExample: "ढ से ढक्कन",
+        description: "ढ is an aspirated retroflex consonant.",
+        hindiDescription: "ढ एक महाप्राण मूर्धन्य व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "ण",
+        name: "Na",
+        hindi: "ण",
+        icon: "🔤",
+        pronunciation: "na",
+        word: "गण",
+        hindiWord: "गण",
+        example: "ण की ध्वनि गण जैसे शब्दों में आती है।",
+        hindiExample: "ण की ध्वनि गण जैसे शब्दों में आती है।",
+        description: "ण is a retroflex nasal consonant.",
+        hindiDescription: "ण एक मूर्धन्य नासिक्य व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+
+    /* =========================
+       त-वर्ग
+       ========================= */
+
+    {
+        letter: "त",
+        name: "Ta",
+        hindi: "त",
+        icon: "🌟",
+        pronunciation: "ta",
+        word: "तरबूज",
+        hindiWord: "तरबूज",
+        example: "त से तरबूज",
+        hindiExample: "त से तरबूज",
+        description: "त is a dental consonant.",
+        hindiDescription: "त एक दंत्य व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "थ",
+        name: "Tha",
+        hindi: "थ",
+        icon: "🌳",
+        pronunciation: "tha",
+        word: "थर्मस",
+        hindiWord: "थर्मस",
+        example: "थ से थर्मस",
+        hindiExample: "थ से थर्मस",
+        description: "थ is an aspirated dental consonant.",
+        hindiDescription: "थ एक महाप्राण दंत्य व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "द",
+        name: "Da",
+        hindi: "द",
+        icon: "दिन",
+        pronunciation: "da",
+        word: "दिन",
+        hindiWord: "दिन",
+        example: "द से दिन",
+        hindiExample: "द से दिन",
+        description: "द is a dental consonant.",
+        hindiDescription: "द एक दंत्य व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "ध",
+        name: "Dha",
+        hindi: "ध",
+        icon: "धन",
+        pronunciation: "dha",
+        word: "धन",
+        hindiWord: "धन",
+        example: "ध से धन",
+        hindiExample: "ध से धन",
+        description: "ध is an aspirated dental consonant.",
+        hindiDescription: "ध एक महाप्राण दंत्य व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "न",
+        name: "Na",
+        hindi: "न",
+        icon: "👃",
+        pronunciation: "na",
+        word: "नल",
+        hindiWord: "नल",
+        example: "न से नल",
+        hindiExample: "न से नल",
+        description: "न is a common nasal consonant.",
+        hindiDescription: "न एक सामान्य नासिक्य व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+
+    /* =========================
+       प-वर्ग
+       ========================= */
+
+    {
+        letter: "प",
+        name: "Pa",
+        hindi: "प",
+        icon: "🦜",
+        pronunciation: "pa",
+        word: "पतंग",
+        hindiWord: "पतंग",
+        example: "प से पतंग",
+        hindiExample: "प से पतंग",
+        description: "प is the first consonant of the Pa-varga.",
+        hindiDescription: "प प-वर्ग का पहला व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "फ",
+        name: "Pha",
+        hindi: "फ",
+        icon: "🌸",
+        pronunciation: "pha",
+        word: "फूल",
+        hindiWord: "फूल",
+        example: "फ से फूल",
+        hindiExample: "फ से फूल",
+        description: "फ is an aspirated consonant.",
+        hindiDescription: "फ एक महाप्राण व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "ब",
+        name: "Ba",
+        hindi: "ब",
+        icon: "🐦",
+        pronunciation: "ba",
+        word: "बत्तख",
+        hindiWord: "बत्तख",
+        example: "ब से बत्तख",
+        hindiExample: "ब से बत्तख",
+        description: "ब is a common Hindi consonant.",
+        hindiDescription: "ब हिंदी का एक सामान्य व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "भ",
+        name: "Bha",
+        hindi: "भ",
+        icon: "🐻",
+        pronunciation: "bha",
+        word: "भालू",
+        hindiWord: "भालू",
+        example: "भ से भालू",
+        hindiExample: "भ से भालू",
+        description: "भ is an aspirated consonant.",
+        hindiDescription: "भ एक महाप्राण व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "म",
+        name: "Ma",
+        hindi: "म",
+        icon: "🐒",
+        pronunciation: "ma",
+        word: "मोर",
+        hindiWord: "मोर",
+        example: "म से मोर",
+        hindiExample: "म से मोर",
+        description: "म is a bilabial nasal consonant.",
+        hindiDescription: "म एक नासिक्य व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+
+    /* =========================
+       अन्तःस्थ व्यंजन
+       ========================= */
+
+    {
+        letter: "य",
+        name: "Ya",
+        hindi: "य",
+        icon: "🧘",
+        pronunciation: "ya",
+        word: "यज्ञ",
+        hindiWord: "यज्ञ",
+        example: "य से यज्ञ",
+        hindiExample: "य से यज्ञ",
+        description: "य is a semivowel consonant.",
+        hindiDescription: "य एक अंतःस्थ व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "र",
+        name: "Ra",
+        hindi: "र",
+        icon: "🚂",
+        pronunciation: "ra",
+        word: "रथ",
+        hindiWord: "रथ",
+        example: "र से रथ",
+        hindiExample: "र से रथ",
+        description: "र is a semivowel consonant.",
+        hindiDescription: "र एक अंतःस्थ व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "ल",
+        name: "La",
+        hindi: "ल",
+        icon: "🍋",
+        pronunciation: "la",
+        word: "लड्डू",
+        hindiWord: "लड्डू",
+        example: "ल से लड्डू",
+        hindiExample: "ल से लड्डू",
+        description: "ल is a semivowel consonant.",
+        hindiDescription: "ल एक अंतःस्थ व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "व",
+        name: "Va",
+        hindi: "व",
+        icon: "🌳",
+        pronunciation: "va",
+        word: "वन",
+        hindiWord: "वन",
+        example: "व से वन",
+        hindiExample: "व से वन",
+        description: "व is a semivowel consonant.",
+        hindiDescription: "व एक अंतःस्थ व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+
+    /* =========================
+       ऊष्म व्यंजन
+       ========================= */
+
+    {
+        letter: "श",
+        name: "Sha",
+        hindi: "श",
+        icon: "🦋",
+        pronunciation: "sha",
+        word: "शेर",
+        hindiWord: "शेर",
+        example: "श से शेर",
+        hindiExample: "श से शेर",
+        description: "श is a palatal sibilant consonant.",
+        hindiDescription: "श एक तालव्य ऊष्म व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "ष",
+        name: "Sha",
+        hindi: "ष",
+        icon: "📖",
+        pronunciation: "sha",
+        word: "षट्कोण",
+        hindiWord: "षट्कोण",
+        example: "ष से षट्कोण",
+        hindiExample: "ष से षट्कोण",
+        description: "ष is a retroflex sibilant consonant.",
+        hindiDescription: "ष एक मूर्धन्य ऊष्म व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "स",
+        name: "Sa",
+        hindi: "स",
+        icon: "☀️",
+        pronunciation: "sa",
+        word: "सूरज",
+        hindiWord: "सूरज",
+        example: "स से सूरज",
+        hindiExample: "स से सूरज",
+        description: "स is a common sibilant consonant.",
+        hindiDescription: "स एक सामान्य ऊष्म व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+    {
+        letter: "ह",
+        name: "Ha",
+        hindi: "ह",
+        icon: "ह",
+        pronunciation: "ha",
+        word: "हाथी",
+        hindiWord: "हाथी",
+        example: "ह से हाथी",
+        hindiExample: "ह से हाथी",
+        description: "ह is a breath consonant.",
+        hindiDescription: "ह एक ऊष्म व्यंजन है।",
+        group: "Consonants",
+        hindiGroup: "व्यंजन"
+    },
+
+
+    /* =========================
+       संयुक्त अक्षर
+       ========================= */
+
+    {
+        letter: "क्ष",
+        name: "Ksha",
+        hindi: "क्ष",
+        icon: "📚",
+        pronunciation: "ksha",
+        word: "क्षमा",
+        hindiWord: "क्षमा",
+        example: "क्ष से क्षमा",
+        hindiExample: "क्ष से क्षमा",
+        description: "क्ष is a conjunct letter formed from क + ष.",
+        hindiDescription: "क्ष क + ष से बना एक संयुक्त अक्षर है।",
+        group: "Conjuncts",
+        hindiGroup: "संयुक्त अक्षर"
+    },
+
+    {
+        letter: "त्र",
+        name: "Tra",
+        hindi: "त्र",
+        icon: "🚩",
+        pronunciation: "tra",
+        word: "त्रिशूल",
+        hindiWord: "त्रिशूल",
+        example: "त्र से त्रिशूल",
+        hindiExample: "त्र से त्रिशूल",
+        description: "त्र is a conjunct letter formed from त + र.",
+        hindiDescription: "त्र त + र से बना एक संयुक्त अक्षर है।",
+        group: "Conjuncts",
+        hindiGroup: "संयुक्त अक्षर"
+    },
+
+    {
+        letter: "ज्ञ",
+        name: "Gya",
+        hindi: "ज्ञ",
+        icon: "🧠",
+        pronunciation: "gya",
+        word: "ज्ञान",
+        hindiWord: "ज्ञान",
+        example: "ज्ञ से ज्ञान",
+        hindiExample: "ज्ञ से ज्ञान",
+        description: "ज्ञ is a common conjunct letter.",
+        hindiDescription: "ज्ञ एक सामान्य संयुक्त अक्षर है।",
+        group: "Conjuncts",
+        hindiGroup: "संयुक्त अक्षर"
+    },
+
+    {
+        letter: "श्र",
+        name: "Shra",
+        hindi: "श्र",
+        icon: "📜",
+        pronunciation: "shra",
+        word: "श्रम",
+        hindiWord: "श्रम",
+        example: "श्र से श्रम",
+        hindiExample: "श्र से श्रम",
+        description: "श्र is a conjunct letter formed from श + र.",
+        hindiDescription: "श्र श + र से बना एक संयुक्त अक्षर है।",
+        group: "Conjuncts",
+        hindiGroup: "संयुक्त अक्षर"
+    }
+
+];
+
+
+/* =========================================================
+   HINDI VARNAMALA SEARCH
+   ========================================================= */
+
+function searchHindiVarnamala(query) {
+
+    const q = String(query || "")
+        .trim()
+        .toLowerCase();
+
+    if (!q) {
+        return HINDI_VARNAMALA;
+    }
+
+    return HINDI_VARNAMALA.filter(item => {
+
+        return (
+            item.letter.toLowerCase().includes(q) ||
+            item.name.toLowerCase().includes(q) ||
+            item.hindi.toLowerCase().includes(q) ||
+            item.word.toLowerCase().includes(q) ||
+            item.hindiWord.toLowerCase().includes(q) ||
+            item.pronunciation.toLowerCase().includes(q) ||
+            item.group.toLowerCase().includes(q) ||
+            item.hindiGroup.toLowerCase().includes(q)
+        );
+
+    });
+}
+
+
+/* =========================================================
+   GET HINDI VARNAMALA DATA
+   ========================================================= */
+
+function getHindiVarnamalaData(item) {
+
+    if (!item) return null;
+
+    if (typeof item === "object") {
+        return item;
+    }
+
+    return HINDI_VARNAMALA.find(x => {
+
+        return (
+            x.letter === item ||
+            x.name === item ||
+            x.hindi === item ||
+            x.word === item ||
+            x.hindiWord === item
+        );
+
+    }) || null;
+}
+
+
+/* =========================================================
+   HINDI VARNAMALA GROUPS
+   ========================================================= */
+
+const HINDI_VARNAMALA_GROUPS = {
+
+    vowels: {
+        name: "Vowels",
+        hindi: "स्वर",
+        icon: "🔤",
+        description: "Hindi vowels are called Swar.",
+        hindiDescription: "हिंदी के स्वरों को स्वर कहा जाता है।"
+    },
+
+    consonants: {
+        name: "Consonants",
+        hindi: "व्यंजन",
+        icon: "📖",
+        description: "Hindi consonants are called Vyanjan.",
+        hindiDescription: "हिंदी के व्यंजनों को व्यंजन कहा जाता है।"
+    },
+
+    conjuncts: {
+        name: "Conjunct Letters",
+        hindi: "संयुक्त अक्षर",
+        icon: "🔗",
+        description: "Conjunct letters are formed by combining consonants.",
+        hindiDescription: "संयुक्त अक्षर दो या अधिक व्यंजनों के मेल से बनते हैं।"
+    }
+
+};
+
+
+/* =========================================================
+   HINDI VARNAMALA COUNTS
+   ========================================================= */
+
+const HINDI_VOWELS = HINDI_VARNAMALA.filter(
+    item => item.group === "Vowels"
+);
+
+const HINDI_CONSONANTS = HINDI_VARNAMALA.filter(
+    item => item.group === "Consonants"
+);
+
+const HINDI_CONJUNCTS = HINDI_VARNAMALA.filter(
+    item => item.group === "Conjuncts"
+);
+
+
+console.log(
+    "Hindi Varnamala:",
+    HINDI_VARNAMALA.length,
+    "entries"
+);
+
+console.log(
+    "Hindi Vowels:",
+    HINDI_VOWELS.length
+);
+
+console.log(
+    "Hindi Consonants:",
+    HINDI_CONSONANTS.length
+);
+
+console.log(
+    "Hindi Conjuncts:",
+    HINDI_CONJUNCTS.length
+);
+
+
+/* =========================================================
+   PART 9 END
+   ========================================================= */
