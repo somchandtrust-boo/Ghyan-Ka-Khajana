@@ -1937,6 +1937,71 @@ function renderCountries(countries = COUNTRIES) {
    SPEECH
    ========================================================= */
 
+function getPreferredFemaleVoice(lang) {
+
+    if (!("speechSynthesis" in window)) return null;
+
+    const voices = window.speechSynthesis.getVoices() || [];
+    if (!voices.length) return null;
+
+    const language = String(lang || "en-US").toLowerCase();
+    const baseLang = language.split("-")[0];
+
+    const femaleNames = [
+        "female",
+        "zira",
+        "samantha",
+        "susan",
+        "karen",
+        "moira",
+        "victoria",
+        "aria",
+        "jenny",
+        "heera",
+        "kalpana",
+        "swara",
+        "google हिन्दी",
+        "google hindi",
+        "google uk english female",
+        "microsoft swara",
+        "microsoft heera"
+    ];
+
+    const sameLanguage = voices.filter(v => {
+        const voiceLang = String(v.lang || "").toLowerCase();
+        return voiceLang === language || voiceLang.startsWith(baseLang + "-");
+    });
+
+    const pool = sameLanguage.length ? sameLanguage : voices;
+
+    let best = null;
+    let bestScore = -1;
+
+    pool.forEach(voice => {
+
+        const name = String(voice.name || "").toLowerCase();
+        const voiceLang = String(voice.lang || "").toLowerCase();
+        let score = 0;
+
+        if (voiceLang === language) score += 40;
+        else if (voiceLang.startsWith(baseLang + "-")) score += 25;
+
+        femaleNames.forEach(keyword => {
+            if (name.includes(keyword)) score += 30;
+        });
+
+        if (voice.localService) score += 5;
+
+        if (score > bestScore) {
+            bestScore = score;
+            best = voice;
+        }
+    });
+
+    return best;
+}
+
+
 function speakText(text, lang) {
 
     if (!("speechSynthesis" in window)) {
@@ -1953,25 +2018,52 @@ function speakText(text, lang) {
 
     return new Promise(resolve => {
 
-        const utterance =
-            new SpeechSynthesisUtterance(text);
+        const speakNow = () => {
 
-        utterance.lang = lang;
-        utterance.rate = 0.9;
-        utterance.pitch = 1;
-        utterance.volume = 1;
+            const utterance =
+                new SpeechSynthesisUtterance(text);
 
-        utterance.onend = resolve;
-        utterance.onerror = resolve;
+            const femaleVoice =
+                getPreferredFemaleVoice(lang);
 
-        window.speechSynthesis.speak(
-            utterance
-        );
+            if (femaleVoice) {
+                utterance.voice = femaleVoice;
+                utterance.lang = femaleVoice.lang || lang;
+            } else {
+                utterance.lang = lang;
+            }
+
+            utterance.rate = 0.88;
+            utterance.pitch = 1.08;
+            utterance.volume = 1;
+
+            utterance.onend = resolve;
+            utterance.onerror = resolve;
+
+            window.speechSynthesis.speak(utterance);
+        };
+
+        const voices = window.speechSynthesis.getVoices();
+
+        if (voices && voices.length) {
+            speakNow();
+        } else {
+            window.speechSynthesis.onvoiceschanged = () => {
+                window.speechSynthesis.onvoiceschanged = null;
+                speakNow();
+            };
+
+            setTimeout(() => {
+                if (!window.speechSynthesis.speaking) {
+                    window.speechSynthesis.onvoiceschanged = null;
+                    speakNow();
+                }
+            }, 250);
+        }
 
     });
 
 }
-
 
 async function speakFullInformation(
     englishName,
