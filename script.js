@@ -6978,3 +6978,1309 @@ console.log(
 /* =========================================================
    PART 9 END
    ========================================================= */
+/* =========================================================
+   PART 10 — FINAL RENDERING ENGINE
+   ALL LEARNING HUB
+   ========================================================= */
+
+
+/* =========================================================
+   DOM REFERENCES
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    homePage = document.getElementById("homePage");
+    learningPage = document.getElementById("learningPage");
+
+    backBtn = document.getElementById("backBtn");
+
+    topicIcon = document.getElementById("topicIcon");
+    topicTitle = document.getElementById("topicTitle");
+    topicSubtitle = document.getElementById("topicSubtitle");
+
+    topicSearch = document.getElementById("topicSearch");
+    topicContent = document.getElementById("topicContent");
+
+    previousBtn = document.getElementById("previousBtn");
+    nextBtn = document.getElementById("nextBtn");
+
+    searchInput = document.getElementById("searchInput");
+    languageBtn = document.getElementById("languageBtn");
+
+
+    /* =====================================================
+       TOPIC INFORMATION
+       ===================================================== */
+
+    const TOPIC_INFO = {
+
+        humanBody: {
+            icon: "🧍",
+            title: "Human Body",
+            hindi: "मानव शरीर",
+            description: "Learn about important parts of the human body.",
+            hindiDescription: "मानव शरीर के महत्वपूर्ण अंगों के बारे में सीखें।"
+        },
+
+        animals: {
+            icon: "🦁",
+            title: "Animals",
+            hindi: "जानवर",
+            description: "Learn about animals, their names and characteristics.",
+            hindiDescription: "जानवरों के नाम और उनकी विशेषताओं के बारे में सीखें।"
+        },
+
+        birds: {
+            icon: "🦜",
+            title: "Birds",
+            hindi: "पक्षी",
+            description: "Explore different birds and their features.",
+            hindiDescription: "अलग-अलग पक्षियों और उनकी विशेषताओं के बारे में जानें।"
+        },
+
+        countries: {
+            icon: "🌍",
+            title: "Countries",
+            hindi: "देश",
+            description: "Explore countries around the world.",
+            hindiDescription: "दुनिया के अलग-अलग देशों के बारे में जानें।"
+        },
+
+        flags: {
+            icon: "🚩",
+            title: "World Flags",
+            hindi: "विश्व के झंडे",
+            description: "Learn about countries through their national flags.",
+            hindiDescription: "देशों के राष्ट्रीय झंडों के माध्यम से देशों को जानें।"
+        },
+
+        states: {
+            icon: "🇮🇳",
+            title: "Indian States",
+            hindi: "भारत के राज्य",
+            description: "Explore all 28 Indian states and their capitals.",
+            hindiDescription: "भारत के सभी 28 राज्यों और उनकी राजधानियों के बारे में जानें।"
+        },
+
+        stateFoods: {
+            icon: "🍛",
+            title: "State Foods",
+            hindi: "राज्यों के प्रमुख भोजन",
+            description: "Discover popular foods from Indian states.",
+            hindiDescription: "भारत के अलग-अलग राज्यों के लोकप्रिय भोजन जानें।"
+        },
+
+        festivals: {
+            icon: "🎉",
+            title: "Indian Festivals",
+            hindi: "भारतीय त्योहार",
+            description: "Learn about important Indian festivals.",
+            hindiDescription: "भारत के प्रमुख त्योहारों के बारे में जानें।"
+        },
+
+        nationalSymbols: {
+            icon: "🇮🇳",
+            title: "National Symbols",
+            hindi: "राष्ट्रीय प्रतीक",
+            description: "Learn about important national symbols.",
+            hindiDescription: "भारत के महत्वपूर्ण राष्ट्रीय प्रतीकों के बारे में जानें।"
+        },
+
+        seasons: {
+            icon: "🌦️",
+            title: "Seasons",
+            hindi: "ऋतुएँ",
+            description: "Learn about different seasons.",
+            hindiDescription: "अलग-अलग ऋतुओं के बारे में सीखें।"
+        },
+
+        months: {
+            icon: "📅",
+            title: "Months",
+            hindi: "महीने",
+            description: "Learn the months of the year.",
+            hindiDescription: "साल के सभी महीनों के बारे में सीखें।"
+        },
+
+        days: {
+            icon: "📆",
+            title: "Days of Week",
+            hindi: "सप्ताह के दिन",
+            description: "Learn all seven days of the week.",
+            hindiDescription: "सप्ताह के सभी सात दिनों के बारे में सीखें।"
+        },
+
+        calendar: {
+            icon: "🗓️",
+            title: "Time & Calendar",
+            hindi: "समय और कैलेंडर",
+            description: "Learn basic concepts of time and calendar.",
+            hindiDescription: "समय और कैलेंडर की मूल बातें सीखें।"
+        },
+
+        languages: {
+            icon: "🗣️",
+            title: "Languages",
+            hindi: "भाषाएँ",
+            description: "Explore languages spoken around the world.",
+            hindiDescription: "दुनिया में बोली जाने वाली भाषाओं के बारे में जानें।"
+        },
+
+        numbers: {
+            icon: "🔢",
+            title: "Numbers",
+            hindi: "संख्याएँ",
+            description: "Learn numbers and counting.",
+            hindiDescription: "संख्याएँ और गिनती सीखें।"
+        },
+
+        foodVegetables: {
+            icon: "🥕",
+            title: "Food & Vegetables",
+            hindi: "भोजन और सब्जियाँ",
+            description: "Learn about fruits, vegetables and common foods.",
+            hindiDescription: "फलों, सब्जियों और सामान्य खाद्य पदार्थों के बारे में सीखें।"
+        },
+
+        generalKnowledge: {
+            icon: "🧠",
+            title: "General Knowledge",
+            hindi: "सामान्य ज्ञान",
+            description: "Explore useful general knowledge.",
+            hindiDescription: "उपयोगी सामान्य ज्ञान के बारे में जानें।"
+        },
+
+        alphabet: {
+            icon: "🔤",
+            title: "A–Z Alphabet",
+            hindi: "अंग्रेज़ी वर्णमाला",
+            description: "Learn English letters from A to Z.",
+            hindiDescription: "A से Z तक अंग्रेज़ी के अक्षर सीखें।"
+        },
+
+        hindiVarnamala: {
+            icon: "अ",
+            title: "Hindi Varnamala",
+            hindi: "हिंदी वर्णमाला",
+            description: "Learn Hindi vowels, consonants and conjunct letters.",
+            hindiDescription: "हिंदी के स्वर, व्यंजन और संयुक्त अक्षर सीखें।"
+        }
+
+    };
+
+
+    /* =====================================================
+       COMPLETE DATA CONNECTION
+       ===================================================== */
+
+    const LEARNING_DATA = {
+
+        humanBody:
+            typeof HUMAN_BODY !== "undefined"
+                ? HUMAN_BODY
+                : [],
+
+        animals:
+            typeof ANIMALS !== "undefined"
+                ? ANIMALS
+                : [],
+
+        birds:
+            typeof BIRDS !== "undefined"
+                ? BIRDS
+                : [],
+
+        countries:
+            typeof COUNTRIES !== "undefined"
+                ? COUNTRIES
+                : [],
+
+        flags:
+            typeof FLAGS !== "undefined"
+                ? FLAGS
+                : [],
+
+        states:
+            typeof STATES !== "undefined"
+                ? STATES
+                : [],
+
+        stateFoods:
+            typeof STATE_FOODS !== "undefined"
+                ? STATE_FOODS
+                : [],
+
+        festivals:
+            typeof FESTIVALS !== "undefined"
+                ? FESTIVALS
+                : [],
+
+        nationalSymbols:
+            typeof NATIONAL_SYMBOLS !== "undefined"
+                ? NATIONAL_SYMBOLS
+                : [],
+
+        seasons:
+            typeof SEASONS !== "undefined"
+                ? SEASONS
+                : [],
+
+        months:
+            typeof MONTHS !== "undefined"
+                ? MONTHS
+                : [],
+
+        days:
+            typeof DAYS !== "undefined"
+                ? DAYS
+                : [],
+
+        calendar:
+            typeof CALENDAR_DATA !== "undefined"
+                ? CALENDAR_DATA
+                : [],
+
+        languages:
+            typeof LANGUAGES !== "undefined"
+                ? LANGUAGES
+                : [],
+
+        numbers:
+            typeof NUMBERS !== "undefined"
+                ? NUMBERS
+                : [],
+
+        foodVegetables:
+            typeof FOOD_VEGETABLES !== "undefined"
+                ? FOOD_VEGETABLES
+                : [],
+
+        generalKnowledge:
+            typeof GENERAL_KNOWLEDGE !== "undefined"
+                ? GENERAL_KNOWLEDGE
+                : [],
+
+        alphabet:
+            typeof ALPHABET !== "undefined"
+                ? ALPHABET
+                : [],
+
+        hindiVarnamala:
+            typeof HINDI_VARNAMALA !== "undefined"
+                ? HINDI_VARNAMALA
+                : []
+
+    };
+
+
+    /* =====================================================
+       TOPIC CARD CREATION
+       ===================================================== */
+
+    function createTopicCard(topicKey) {
+
+        if (!homePage) return;
+
+        const info = TOPIC_INFO[topicKey];
+
+        if (!info) return;
+
+        const existing = document.querySelector(
+            `[data-topic="${topicKey}"]`
+        );
+
+        if (existing) return;
+
+        const grid =
+            homePage.querySelector(".learning-grid") ||
+            homePage.querySelector(".topic-grid");
+
+        if (!grid) return;
+
+        const card = document.createElement("div");
+
+        card.className = "learning-card";
+
+        card.dataset.topic = topicKey;
+
+        card.innerHTML = `
+            <div class="card-icon">
+                ${info.icon}
+            </div>
+
+            <div class="card-title">
+                ${info.title}
+            </div>
+
+            <div class="card-hindi">
+                ${info.hindi}
+            </div>
+
+            <div class="card-description">
+                ${info.description}
+            </div>
+        `;
+
+        card.addEventListener("click", () => {
+            openTopic(topicKey);
+        });
+
+        grid.appendChild(card);
+    }
+
+
+    /* =====================================================
+       ADD MISSING TOPICS
+       ===================================================== */
+
+    function addAllMissingTopics() {
+
+        Object.keys(TOPIC_INFO).forEach(topicKey => {
+
+            createTopicCard(topicKey);
+
+        });
+
+    }
+
+
+    /* =====================================================
+       DATA SEARCH
+       ===================================================== */
+
+    function genericSearch(data, query) {
+
+        if (!Array.isArray(data)) {
+            return [];
+        }
+
+        const q = String(query || "")
+            .trim()
+            .toLowerCase();
+
+        if (!q) {
+            return data;
+        }
+
+        return data.filter(item => {
+
+            if (!item) return false;
+
+            const values = Object.values(item);
+
+            return values.some(value => {
+
+                if (
+                    typeof value !== "string" &&
+                    typeof value !== "number"
+                ) {
+                    return false;
+                }
+
+                return String(value)
+                    .toLowerCase()
+                    .includes(q);
+
+            });
+
+        });
+
+    }
+
+
+    /* =====================================================
+       GET TOPIC DATA
+       ===================================================== */
+
+    function getTopicData(topicKey, query = "") {
+
+        const data = LEARNING_DATA[topicKey] || [];
+
+        if (!query.trim()) {
+            return data;
+        }
+
+        switch (topicKey) {
+
+            case "countries":
+                if (typeof searchCountries === "function") {
+                    return searchCountries(query);
+                }
+                break;
+
+            case "flags":
+                if (typeof searchFlags === "function") {
+                    return searchFlags(query);
+                }
+                break;
+
+            case "states":
+                if (typeof searchStates === "function") {
+                    return searchStates(query);
+                }
+                break;
+
+            case "stateFoods":
+                if (typeof searchStateFoods === "function") {
+                    return searchStateFoods(query);
+                }
+                break;
+
+            case "foodVegetables":
+                if (typeof searchFoodVegetables === "function") {
+                    return searchFoodVegetables(query);
+                }
+                break;
+
+            case "alphabet":
+                if (typeof searchAlphabet === "function") {
+                    return searchAlphabet(query);
+                }
+                break;
+
+            case "hindiVarnamala":
+                if (typeof searchHindiVarnamala === "function") {
+                    return searchHindiVarnamala(query);
+                }
+                break;
+
+        }
+
+        return genericSearch(data, query);
+    }
+
+
+    /* =====================================================
+       ESCAPE HTML
+       ===================================================== */
+
+    function escapeHTML(value) {
+
+        return String(value ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+
+    }
+
+
+    /* =====================================================
+       RENDER ONE LEARNING CARD
+       ===================================================== */
+
+    function renderLearningCard(item, topicKey) {
+
+        if (!item) return "";
+
+        const icon =
+            item.icon ||
+            "📚";
+
+        const name =
+            item.name ||
+            item.title ||
+            item.letter ||
+            "";
+
+        const hindi =
+            item.hindi ||
+            item.hindiName ||
+            "";
+
+        const description =
+            currentLanguage === "hi"
+                ? (
+                    item.hindiDescription ||
+                    item.description ||
+                    ""
+                )
+                : (
+                    item.description ||
+                    item.hindiDescription ||
+                    ""
+                );
+
+        const pronunciation =
+            item.pronunciation ||
+            "";
+
+        const example =
+            currentLanguage === "hi"
+                ? (
+                    item.hindiExample ||
+                    item.example ||
+                    item.word ||
+                    ""
+                )
+                : (
+                    item.example ||
+                    item.hindiExample ||
+                    item.word ||
+                    ""
+                );
+
+
+        /* =================================================
+           SPECIAL FLAG CARD
+           ================================================= */
+
+        if (
+            topicKey === "flags" &&
+            item.code
+        ) {
+
+            const flagURL =
+                `https://flagcdn.com/w320/${String(item.code).toLowerCase()}.png`;
+
+            return `
+                <article class="learning-item flag-item">
+
+                    <div class="learning-item-icon">
+                        ${icon}
+                    </div>
+
+                    <div class="flag-image-wrap">
+                        <img
+                            src="${flagURL}"
+                            alt="${escapeHTML(name)} flag"
+                            loading="lazy"
+                            style="
+                                width:100%;
+                                max-width:220px;
+                                height:130px;
+                                object-fit:contain;
+                                display:block;
+                                margin:auto;
+                            "
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+
+                    <h3>
+                        ${escapeHTML(name)}
+                    </h3>
+
+                    <div class="item-hindi">
+                        ${escapeHTML(hindi)}
+                    </div>
+
+                    ${
+                        item.currencyName
+                            ? `
+                                <div class="item-info">
+                                    💰 ${escapeHTML(item.currencyName)}
+                                    ${
+                                        item.currencySymbol
+                                            ? ` (${escapeHTML(item.currencySymbol)})`
+                                            : ""
+                                    }
+                                </div>
+                              `
+                            : ""
+                    }
+
+                    ${
+                        description
+                            ? `
+                                <p>
+                                    ${escapeHTML(description)}
+                                </p>
+                              `
+                            : ""
+                    }
+
+                </article>
+            `;
+
+        }
+
+
+        return `
+            <article
+                class="learning-item"
+                data-item-name="${escapeHTML(name)}"
+            >
+
+                <div class="learning-item-icon">
+                    ${icon}
+                </div>
+
+                ${
+                    item.letter
+                        ? `
+                            <div class="big-letter">
+                                ${escapeHTML(item.letter)}
+                            </div>
+                          `
+                        : ""
+                }
+
+                <h3>
+                    ${escapeHTML(name)}
+                </h3>
+
+                ${
+                    hindi
+                        ? `
+                            <div class="item-hindi">
+                                ${escapeHTML(hindi)}
+                            </div>
+                          `
+                        : ""
+                }
+
+                ${
+                    item.capital
+                        ? `
+                            <div class="item-info">
+                                🏛️
+                                ${
+                                    currentLanguage === "hi"
+                                        ? "राजधानी"
+                                        : "Capital"
+                                }:
+                                ${escapeHTML(
+                                    currentLanguage === "hi"
+                                        ? (
+                                            item.hindiCapital ||
+                                            item.capital
+                                        )
+                                        : item.capital
+                                )}
+                            </div>
+                          `
+                        : ""
+                }
+
+                ${
+                    item.category
+                        ? `
+                            <div class="item-info">
+                                📂 ${escapeHTML(
+                                    currentLanguage === "hi"
+                                        ? (
+                                            item.hindiCategory ||
+                                            item.category
+                                        )
+                                        : item.category
+                                )}
+                            </div>
+                          `
+                        : ""
+                }
+
+                ${
+                    pronunciation
+                        ? `
+                            <div class="item-info">
+                                🔊
+                                ${
+                                    currentLanguage === "hi"
+                                        ? "उच्चारण"
+                                        : "Pronunciation"
+                                }:
+                                ${escapeHTML(pronunciation)}
+                            </div>
+                          `
+                        : ""
+                }
+
+                ${
+                    description
+                        ? `
+                            <p>
+                                ${escapeHTML(description)}
+                            </p>
+                          `
+                        : ""
+                }
+
+                ${
+                    example
+                        ? `
+                            <div class="example-box">
+                                <strong>
+                                    ${
+                                        currentLanguage === "hi"
+                                            ? "उदाहरण"
+                                            : "Example"
+                                    }
+                                </strong>
+
+                                <span>
+                                    ${escapeHTML(example)}
+                                </span>
+                            </div>
+                          `
+                        : ""
+                }
+
+                <button
+                    class="listen-btn"
+                    type="button"
+                    data-speak="${escapeHTML(
+                        `${name}. ${hindi}. ${description}. ${example}`
+                    )}"
+                >
+                    🔊
+                    ${
+                        currentLanguage === "hi"
+                            ? "सुनें"
+                            : "Listen"
+                    }
+                </button>
+
+            </article>
+        `;
+
+    }
+
+
+    /* =====================================================
+       RENDER TOPIC
+       ===================================================== */
+
+    function renderTopic(topicKey, query = "") {
+
+        if (!topicContent) return;
+
+        const info = TOPIC_INFO[topicKey];
+
+        if (!info) return;
+
+        const data =
+            getTopicData(topicKey, query);
+
+
+        topicIcon.textContent =
+            info.icon;
+
+        topicTitle.textContent =
+            currentLanguage === "hi"
+                ? info.hindi
+                : info.title;
+
+        topicSubtitle.textContent =
+            currentLanguage === "hi"
+                ? info.hindiDescription
+                : info.description;
+
+
+        if (!data.length) {
+
+            topicContent.innerHTML = `
+                <div class="no-results">
+
+                    <div class="no-results-icon">
+                        🔎
+                    </div>
+
+                    <h3>
+                        ${
+                            currentLanguage === "hi"
+                                ? "कोई परिणाम नहीं मिला"
+                                : "No results found"
+                        }
+                    </h3>
+
+                    <p>
+                        ${
+                            currentLanguage === "hi"
+                                ? "कृपया दूसरा शब्द खोजें।"
+                                : "Please try another search."
+                        }
+                    </p>
+
+                </div>
+            `;
+
+            return;
+        }
+
+
+        topicContent.innerHTML =
+            data
+                .map(item =>
+                    renderLearningCard(item, topicKey)
+                )
+                .join("");
+
+
+        attachListenButtons();
+
+    }
+
+
+    /* =====================================================
+       OPEN TOPIC
+       ===================================================== */
+
+    function openTopic(topicKey) {
+
+        currentTopic = topicKey;
+
+        if (homePage) {
+            homePage.style.display = "none";
+        }
+
+        if (learningPage) {
+            learningPage.style.display = "block";
+        }
+
+        if (topicSearch) {
+            topicSearch.value = "";
+        }
+
+        renderTopic(topicKey);
+
+        updateNavigation();
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    /* =====================================================
+       CLOSE TOPIC
+       ===================================================== */
+
+    function closeTopic() {
+
+        currentTopic = null;
+
+        if (learningPage) {
+            learningPage.style.display = "none";
+        }
+
+        if (homePage) {
+            homePage.style.display = "";
+        }
+
+        if (topicSearch) {
+            topicSearch.value = "";
+        }
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    /* =====================================================
+       PREVIOUS / NEXT TOPIC
+       ===================================================== */
+
+    function updateNavigation() {
+
+        if (!currentTopic) return;
+
+        const index =
+            topicOrder.indexOf(currentTopic);
+
+        if (index === -1) return;
+
+        if (previousBtn) {
+
+            previousBtn.disabled =
+                index <= 0;
+
+        }
+
+        if (nextBtn) {
+
+            nextBtn.disabled =
+                index >= topicOrder.length - 1;
+
+        }
+
+    }
+
+
+    function openPreviousTopic() {
+
+        if (!currentTopic) return;
+
+        const index =
+            topicOrder.indexOf(currentTopic);
+
+        if (index > 0) {
+
+            openTopic(
+                topicOrder[index - 1]
+            );
+
+        }
+
+    }
+
+
+    function openNextTopic() {
+
+        if (!currentTopic) return;
+
+        const index =
+            topicOrder.indexOf(currentTopic);
+
+        if (
+            index !== -1 &&
+            index < topicOrder.length - 1
+        ) {
+
+            openTopic(
+                topicOrder[index + 1]
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       VOICE / TEXT TO SPEECH
+       ===================================================== */
+
+    function speakText(text) {
+
+        if (
+            !text ||
+            !("speechSynthesis" in window)
+        ) {
+            return;
+        }
+
+        window.speechSynthesis.cancel();
+
+        const utterance =
+            new SpeechSynthesisUtterance(text);
+
+        utterance.lang =
+            currentLanguage === "hi"
+                ? "hi-IN"
+                : "en-US";
+
+        utterance.rate = 0.9;
+
+        utterance.pitch = 1;
+
+        window.speechSynthesis.speak(
+            utterance
+        );
+
+    }
+
+
+    function attachListenButtons() {
+
+        document
+            .querySelectorAll(".listen-btn")
+            .forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    event => {
+
+                        event.stopPropagation();
+
+                        speakText(
+                            button.dataset.speak
+                        );
+
+                    }
+                );
+
+            });
+
+    }
+
+
+    /* =====================================================
+       HOME SEARCH
+       ===================================================== */
+
+    function searchHome(query) {
+
+        if (!homePage) return;
+
+        const q =
+            String(query || "")
+                .trim()
+                .toLowerCase();
+
+        const cards =
+            homePage.querySelectorAll(
+                ".learning-card"
+            );
+
+        cards.forEach(card => {
+
+            if (!q) {
+
+                card.style.display = "";
+
+                return;
+
+            }
+
+            const text =
+                card.innerText
+                    .toLowerCase();
+
+            card.style.display =
+                text.includes(q)
+                    ? ""
+                    : "none";
+
+        });
+
+    }
+
+
+    /* =====================================================
+       TOPIC SEARCH
+       ===================================================== */
+
+    if (topicSearch) {
+
+        topicSearch.addEventListener(
+            "input",
+            () => {
+
+                if (!currentTopic) return;
+
+                renderTopic(
+                    currentTopic,
+                    topicSearch.value
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       MAIN SEARCH
+       ===================================================== */
+
+    if (searchInput) {
+
+        searchInput.addEventListener(
+            "input",
+            () => {
+
+                searchHome(
+                    searchInput.value
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       BACK BUTTON
+       ===================================================== */
+
+    if (backBtn) {
+
+        backBtn.addEventListener(
+            "click",
+            closeTopic
+        );
+
+    }
+
+
+    /* =====================================================
+       PREVIOUS BUTTON
+       ===================================================== */
+
+    if (previousBtn) {
+
+        previousBtn.addEventListener(
+            "click",
+            openPreviousTopic
+        );
+
+    }
+
+
+    /* =====================================================
+       NEXT BUTTON
+       ===================================================== */
+
+    if (nextBtn) {
+
+        nextBtn.addEventListener(
+            "click",
+            openNextTopic
+        );
+
+    }
+
+
+    /* =====================================================
+       LANGUAGE SWITCH
+       ===================================================== */
+
+    function updateLanguageUI() {
+
+        if (!languageBtn) return;
+
+        languageBtn.textContent =
+            currentLanguage === "en"
+                ? "हिंदी"
+                : "English";
+
+
+        if (currentTopic) {
+
+            renderTopic(
+                currentTopic,
+                topicSearch
+                    ? topicSearch.value
+                    : ""
+            );
+
+        }
+
+    }
+
+
+    if (languageBtn) {
+
+        languageBtn.addEventListener(
+            "click",
+            () => {
+
+                currentLanguage =
+                    currentLanguage === "en"
+                        ? "hi"
+                        : "en";
+
+                updateLanguageUI();
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       CLICK HOME TOPIC CARDS
+       ===================================================== */
+
+    document.addEventListener(
+        "click",
+        event => {
+
+            const card =
+                event.target.closest(
+                    "[data-topic]"
+                );
+
+            if (!card) return;
+
+            const topicKey =
+                card.dataset.topic;
+
+            if (
+                topicKey &&
+                TOPIC_INFO[topicKey]
+            ) {
+
+                openTopic(topicKey);
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       CREATE ALL MISSING TOPICS
+       ===================================================== */
+
+    addAllMissingTopics();
+
+
+    /* =====================================================
+       FIX TOPIC CARDS
+       ===================================================== */
+
+    document
+        .querySelectorAll(
+            ".learning-card"
+        )
+        .forEach(card => {
+
+            const topicKey =
+                card.dataset.topic;
+
+            if (!topicKey) return;
+
+            if (!TOPIC_INFO[topicKey]) return;
+
+            card.addEventListener(
+                "click",
+                () => openTopic(topicKey)
+            );
+
+        });
+
+
+    /* =====================================================
+       INITIAL STATE
+       ===================================================== */
+
+    if (learningPage) {
+
+        learningPage.style.display =
+            "none";
+
+    }
+
+    if (homePage) {
+
+        homePage.style.display =
+            "";
+
+    }
+
+
+    console.log(
+        "================================="
+    );
+
+    console.log(
+        "ALL LEARNING HUB"
+    );
+
+    console.log(
+        "Final rendering engine loaded"
+    );
+
+    console.log(
+        "Topics:",
+        Object.keys(TOPIC_INFO).length
+    );
+
+    console.log(
+        "================================="
+    );
+
+});
+
+
+/* =========================================================
+   PART 10 END
+   ========================================================= */
