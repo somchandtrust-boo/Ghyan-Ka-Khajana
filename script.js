@@ -4960,3 +4960,1035 @@ console.log(
 /* =========================================================
    PART 7 END
    ========================================================= */
+/* =========================================================
+   PART 8
+   FOOD & VEGETABLES + A-Z ALPHABET
+   ========================================================= */
+
+
+/* =========================================================
+   FOOD & VEGETABLES
+   ========================================================= */
+
+const FOOD_VEGETABLES = [
+
+    {
+        name: "Apple",
+        hindi: "सेब",
+        icon: "🍎",
+        category: "Fruit",
+        hindiCategory: "फल",
+        pronunciation: "Ap-pul",
+        description: "Apple is a popular fruit that can be eaten fresh or used in many foods.",
+        hindiDescription: "सेब एक लोकप्रिय फल है जिसे ताज़ा खाया जाता है और कई खाद्य पदार्थों में उपयोग किया जाता है.",
+        example: "I eat an apple.",
+        hindiExample: "मैं एक सेब खाता हूँ."
+    },
+
+    {
+        name: "Banana",
+        hindi: "केला",
+        icon: "🍌",
+        category: "Fruit",
+        hindiCategory: "फल",
+        pronunciation: "Ba-na-na",
+        description: "Banana is a soft and naturally sweet fruit.",
+        hindiDescription: "केला नरम और प्राकृतिक रूप से मीठा फल है.",
+        example: "The banana is yellow when ripe.",
+        hindiExample: "पका हुआ केला पीला होता है."
+    },
+
+    {
+        name: "Mango",
+        hindi: "आम",
+        icon: "🥭",
+        category: "Fruit",
+        hindiCategory: "फल",
+        pronunciation: "Mang-go",
+        description: "Mango is a sweet tropical fruit and is widely enjoyed in India.",
+        hindiDescription: "आम एक मीठा उष्णकटिबंधीय फल है और भारत में बहुत पसंद किया जाता है.",
+        example: "Mango is called the king of fruits.",
+        hindiExample: "आम को फलों का राजा कहा जाता है."
+    },
+
+    {
+        name: "Orange",
+        hindi: "संतरा",
+        icon: "🍊",
+        category: "Fruit",
+        hindiCategory: "फल",
+        pronunciation: "Or-ange",
+        description: "Orange is a citrus fruit with juicy segments.",
+        hindiDescription: "संतरा एक खट्टा-मीठा रसदार फल है.",
+        example: "Orange has juicy segments.",
+        hindiExample: "संतरे में रसदार फाँकें होती हैं."
+    },
+
+    {
+        name: "Grapes",
+        hindi: "अंगूर",
+        icon: "🍇",
+        category: "Fruit",
+        hindiCategory: "फल",
+        pronunciation: "Grapes",
+        description: "Grapes are small fruits that grow in bunches.",
+        hindiDescription: "अंगूर छोटे फल होते हैं जो गुच्छों में उगते हैं.",
+        example: "Grapes grow in bunches.",
+        hindiExample: "अंगूर गुच्छों में उगते हैं."
+    },
+
+    {
+        name: "Watermelon",
+        hindi: "तरबूज",
+        icon: "🍉",
+        category: "Fruit",
+        hindiCategory: "फल",
+        pronunciation: "Wa-ter-mel-on",
+        description: "Watermelon is a large, juicy fruit commonly enjoyed during hot weather.",
+        hindiDescription: "तरबूज एक बड़ा और रसदार फल है जिसे गर्म मौसम में खूब खाया जाता है.",
+        example: "Watermelon is refreshing in summer.",
+        hindiExample: "गर्मी में तरबूज ताज़गी देता है."
+    },
+
+    {
+        name: "Papaya",
+        hindi: "पपीता",
+        icon: "🧡",
+        category: "Fruit",
+        hindiCategory: "फल",
+        pronunciation: "Pa-pa-ya",
+        description: "Papaya is a soft tropical fruit with orange flesh when ripe.",
+        hindiDescription: "पपीता एक नरम उष्णकटिबंधीय फल है जिसका गूदा पकने पर नारंगी होता है.",
+        example: "Papaya has soft orange flesh.",
+        hindiExample: "पपीते का गूदा नरम और नारंगी होता है."
+    },
+
+    {
+        name: "Guava",
+        hindi: "अमरूद",
+        icon: "🍐",
+        category: "Fruit",
+        hindiCategory: "फल",
+        pronunciation: "Gwa-va",
+        description: "Guava is a fragrant fruit that may have white or pink flesh.",
+        hindiDescription: "अमरूद सुगंधित फल है जिसका गूदा सफेद या गुलाबी हो सकता है.",
+        example: "Guava can be eaten fresh.",
+        hindiExample: "अमरूद को ताज़ा खाया जा सकता है."
+    },
+
+    {
+        name: "Pomegranate",
+        hindi: "अनार",
+        icon: "🔴",
+        category: "Fruit",
+        hindiCategory: "फल",
+        pronunciation: "Pom-e-gran-it",
+        description: "Pomegranate contains many juicy edible seeds called arils.",
+        hindiDescription: "अनार में बहुत से रसदार खाने योग्य दाने होते हैं.",
+        example: "Pomegranate has many juicy seeds.",
+        hindiExample: "अनार में बहुत से रसदार दाने होते हैं."
+    },
+
+    {
+        name: "Pineapple",
+        hindi: "अनानास",
+        icon: "🍍",
+        category: "Fruit",
+        hindiCategory: "फल",
+        pronunciation: "Pine-ap-pul",
+        description: "Pineapple is a tropical fruit with a rough outer skin and juicy flesh.",
+        hindiDescription: "अनानास उष्णकटिबंधीय फल है जिसकी बाहरी त्वचा खुरदरी और अंदर का गूदा रसदार होता है.",
+        example: "Pineapple has a spiky outer skin.",
+        hindiExample: "अनानास की बाहरी त्वचा काँटेदार होती है."
+    },
+
+    {
+        name: "Papaya",
+        hindi: "पपीता",
+        icon: "🥭",
+        category: "Fruit",
+        hindiCategory: "फल",
+        pronunciation: "Pa-pa-ya",
+        description: "Papaya is commonly eaten ripe and can also be used when unripe.",
+        hindiDescription: "पपीते को पका हुआ खाया जाता है और कच्चे पपीते का भी उपयोग किया जाता है.",
+        example: "Ripe papaya is soft.",
+        hindiExample: "पका पपीता नरम होता है."
+    },
+
+    {
+        name: "Coconut",
+        hindi: "नारियल",
+        icon: "🥥",
+        category: "Fruit",
+        hindiCategory: "फल",
+        pronunciation: "Co-co-nut",
+        description: "Coconut is a tropical fruit with a hard shell and useful edible flesh.",
+        hindiDescription: "नारियल उष्णकटिबंधीय फल है जिसकी बाहरी खोल कठोर होती है और अंदर खाने योग्य गूदा होता है.",
+        example: "Coconut water is a popular drink.",
+        hindiExample: "नारियल पानी एक लोकप्रिय पेय है."
+    },
+
+    {
+        name: "Carrot",
+        hindi: "गाजर",
+        icon: "🥕",
+        category: "Vegetable",
+        hindiCategory: "सब्जी",
+        pronunciation: "Car-rot",
+        description: "Carrot is a root vegetable that is commonly orange in colour.",
+        hindiDescription: "गाजर एक जड़ वाली सब्जी है जो सामान्यतः नारंगी रंग की होती है.",
+        example: "Carrots can be eaten raw or cooked.",
+        hindiExample: "गाजर को कच्चा या पकाकर खाया जा सकता है."
+    },
+
+    {
+        name: "Potato",
+        hindi: "आलू",
+        icon: "🥔",
+        category: "Vegetable",
+        hindiCategory: "सब्जी",
+        pronunciation: "Po-ta-to",
+        description: "Potato is an underground tuber widely used in cooking.",
+        hindiDescription: "आलू जमीन के नीचे उगने वाला कंद है जिसका उपयोग कई व्यंजनों में किया जाता है.",
+        example: "Potato is used in many Indian dishes.",
+        hindiExample: "आलू का उपयोग कई भारतीय व्यंजनों में किया जाता है."
+    },
+
+    {
+        name: "Tomato",
+        hindi: "टमाटर",
+        icon: "🍅",
+        category: "Vegetable",
+        hindiCategory: "सब्जी",
+        pronunciation: "To-ma-to",
+        description: "Tomato is widely used in salads, sauces and cooked dishes.",
+        hindiDescription: "टमाटर का उपयोग सलाद, सॉस और पके हुए व्यंजनों में व्यापक रूप से किया जाता है.",
+        example: "Tomato is used in many curries.",
+        hindiExample: "टमाटर का उपयोग कई सब्जियों में किया जाता है."
+    },
+
+    {
+        name: "Onion",
+        hindi: "प्याज",
+        icon: "🧅",
+        category: "Vegetable",
+        hindiCategory: "सब्जी",
+        pronunciation: "Un-yun",
+        description: "Onion is a bulb vegetable commonly used to add flavour to food.",
+        hindiDescription: "प्याज एक कंद वाली सब्जी है जिसका उपयोग भोजन में स्वाद बढ़ाने के लिए किया जाता है.",
+        example: "Onion is used in many recipes.",
+        hindiExample: "प्याज का उपयोग कई व्यंजनों में किया जाता है."
+    },
+
+    {
+        name: "Garlic",
+        hindi: "लहसुन",
+        icon: "🧄",
+        category: "Vegetable",
+        hindiCategory: "सब्जी",
+        pronunciation: "Gar-lick",
+        description: "Garlic is a bulb commonly used as a flavouring ingredient.",
+        hindiDescription: "लहसुन एक कंद है जिसका उपयोग भोजन में स्वाद और सुगंध के लिए किया जाता है.",
+        example: "Garlic adds flavour to food.",
+        hindiExample: "लहसुन भोजन में स्वाद बढ़ाता है."
+    },
+
+    {
+        name: "Ginger",
+        hindi: "अदरक",
+        icon: "🫚",
+        category: "Vegetable",
+        hindiCategory: "सब्जी",
+        pronunciation: "Jin-jer",
+        description: "Ginger is an underground stem commonly used as a spice and food ingredient.",
+        hindiDescription: "अदरक जमीन के अंदर उगने वाला तना है जिसका उपयोग मसाले और खाद्य सामग्री के रूप में होता है.",
+        example: "Ginger is commonly used in tea.",
+        hindiExample: "अदरक का उपयोग चाय में किया जाता है."
+    },
+
+    {
+        name: "Spinach",
+        hindi: "पालक",
+        icon: "🥬",
+        category: "Leafy Vegetable",
+        hindiCategory: "पत्तेदार सब्जी",
+        pronunciation: "Spin-ich",
+        description: "Spinach is a green leafy vegetable.",
+        hindiDescription: "पालक हरी पत्तेदार सब्जी है.",
+        example: "Spinach is a green leafy vegetable.",
+        hindiExample: "पालक हरी पत्तेदार सब्जी है."
+    },
+
+    {
+        name: "Cabbage",
+        hindi: "पत्तागोभी",
+        icon: "🥬",
+        category: "Vegetable",
+        hindiCategory: "सब्जी",
+        pronunciation: "Cab-bage",
+        description: "Cabbage is a leafy vegetable that forms a compact head.",
+        hindiDescription: "पत्तागोभी एक पत्तेदार सब्जी है जिसकी पत्तियाँ एक सिर के रूप में जुड़ी होती हैं.",
+        example: "Cabbage is used in salads and cooked dishes.",
+        hindiExample: "पत्तागोभी का उपयोग सलाद और पके हुए व्यंजनों में किया जाता है."
+    },
+
+    {
+        name: "Cauliflower",
+        hindi: "फूलगोभी",
+        icon: "🥦",
+        category: "Vegetable",
+        hindiCategory: "सब्जी",
+        pronunciation: "Call-i-flow-er",
+        description: "Cauliflower is a vegetable with a compact edible flower head.",
+        hindiDescription: "फूलगोभी एक ऐसी सब्जी है जिसमें खाने योग्य फूल जैसा सिर होता है.",
+        example: "Cauliflower is used in many Indian dishes.",
+        hindiExample: "फूलगोभी का उपयोग कई भारतीय व्यंजनों में किया जाता है."
+    },
+
+    {
+        name: "Broccoli",
+        hindi: "ब्रोकोली",
+        icon: "🥦",
+        category: "Vegetable",
+        hindiCategory: "सब्जी",
+        pronunciation: "Bro-co-lee",
+        description: "Broccoli is a green vegetable with edible flower buds.",
+        hindiDescription: "ब्रोकोली हरी सब्जी है जिसमें खाने योग्य फूल की कलियाँ होती हैं.",
+        example: "Broccoli has green flower buds.",
+        hindiExample: "ब्रोकोली में हरी फूल की कलियाँ होती हैं."
+    },
+
+    {
+        name: "Peas",
+        hindi: "मटर",
+        icon: "🫛",
+        category: "Vegetable",
+        hindiCategory: "सब्जी",
+        pronunciation: "Peez",
+        description: "Peas are small round seeds commonly eaten as a vegetable.",
+        hindiDescription: "मटर छोटे गोल दाने होते हैं जिन्हें सामान्यतः सब्जी के रूप में खाया जाता है.",
+        example: "Green peas are used in many dishes.",
+        hindiExample: "हरी मटर का उपयोग कई व्यंजनों में किया जाता है."
+    },
+
+    {
+        name: "Corn",
+        hindi: "मक्का",
+        icon: "🌽",
+        category: "Grain",
+        hindiCategory: "अनाज",
+        pronunciation: "Korn",
+        description: "Corn is a cereal crop that is eaten fresh or used to make many food products.",
+        hindiDescription: "मक्का एक अनाज की फसल है जिसे ताज़ा खाया जाता है और कई खाद्य पदार्थ बनाने में उपयोग किया जाता है.",
+        example: "Corn can be eaten boiled or roasted.",
+        hindiExample: "मक्का उबालकर या भूनकर खाया जा सकता है."
+    },
+
+    {
+        name: "Cucumber",
+        hindi: "खीरा",
+        icon: "🥒",
+        category: "Vegetable",
+        hindiCategory: "सब्जी",
+        pronunciation: "Cue-cum-ber",
+        description: "Cucumber is a crisp vegetable commonly eaten raw in salads.",
+        hindiDescription: "खीरा कुरकुरी सब्जी है जिसे अक्सर सलाद में कच्चा खाया जाता है.",
+        example: "Cucumber is commonly used in salads.",
+        hindiExample: "खीरे का उपयोग सलाद में किया जाता है."
+    },
+
+    {
+        name: "Brinjal",
+        hindi: "बैंगन",
+        icon: "🍆",
+        category: "Vegetable",
+        hindiCategory: "सब्जी",
+        pronunciation: "Brin-jal",
+        description: "Brinjal, also called eggplant, is a vegetable commonly used in Indian cooking.",
+        hindiDescription: "बैंगन एक सब्जी है जिसका भारतीय भोजन में व्यापक रूप से उपयोग होता है.",
+        example: "Brinjal can be cooked in many ways.",
+        hindiExample: "बैंगन को कई तरीकों से पकाया जा सकता है."
+    },
+
+    {
+        name: "Okra",
+        hindi: "भिंडी",
+        icon: "🌱",
+        category: "Vegetable",
+        hindiCategory: "सब्जी",
+        pronunciation: "Oh-kra",
+        description: "Okra is a green vegetable with edible pods.",
+        hindiDescription: "भिंडी हरी सब्जी है जिसमें खाने योग्य फलियाँ होती हैं.",
+        example: "Okra is commonly cooked as a vegetable.",
+        hindiExample: "भिंडी को सामान्यतः सब्जी के रूप में पकाया जाता है."
+    },
+
+    {
+        name: "Bottle Gourd",
+        hindi: "लौकी",
+        icon: "🥒",
+        category: "Vegetable",
+        hindiCategory: "सब्जी",
+        pronunciation: "Bot-tle Gourd",
+        description: "Bottle gourd is a light-coloured vegetable commonly used in Indian cooking.",
+        hindiDescription: "लौकी हल्के रंग की सब्जी है जिसका भारतीय भोजन में उपयोग होता है.",
+        example: "Bottle gourd is used in curries.",
+        hindiExample: "लौकी का उपयोग सब्जियों में किया जाता है."
+    },
+
+    {
+        name: "Bitter Gourd",
+        hindi: "करेला",
+        icon: "🥒",
+        category: "Vegetable",
+        hindiCategory: "सब्जी",
+        pronunciation: "Bit-ter Gourd",
+        description: "Bitter gourd is a vegetable known for its distinctive bitter taste.",
+        hindiDescription: "करेला अपनी विशेष कड़वी स्वाद के लिए जाना जाता है.",
+        example: "Bitter gourd has a naturally bitter taste.",
+        hindiExample: "करेले का स्वाद प्राकृतिक रूप से कड़वा होता है."
+    },
+
+    {
+        name: "Pumpkin",
+        hindi: "कद्दू",
+        icon: "🎃",
+        category: "Vegetable",
+        hindiCategory: "सब्जी",
+        pronunciation: "Pump-kin",
+        description: "Pumpkin is a large vegetable with firm flesh and seeds.",
+        hindiDescription: "कद्दू एक बड़ी सब्जी है जिसमें गूदा और बीज होते हैं.",
+        example: "Pumpkin is used in sweet and savoury dishes.",
+        hindiExample: "कद्दू का उपयोग मीठे और नमकीन दोनों व्यंजनों में किया जाता है."
+    },
+
+    {
+        name: "Radish",
+        hindi: "मूली",
+        icon: "🌱",
+        category: "Root Vegetable",
+        hindiCategory: "जड़ वाली सब्जी",
+        pronunciation: "Rad-ish",
+        description: "Radish is a root vegetable with a crisp texture.",
+        hindiDescription: "मूली कुरकुरी बनावट वाली जड़ वाली सब्जी है.",
+        example: "Radish is often eaten in salads.",
+        hindiExample: "मूली को अक्सर सलाद में खाया जाता है."
+    },
+
+    {
+        name: "Beetroot",
+        hindi: "चुकंदर",
+        icon: "🫜",
+        category: "Root Vegetable",
+        hindiCategory: "जड़ वाली सब्जी",
+        pronunciation: "Beet-root",
+        description: "Beetroot is a root vegetable with a deep red or purple colour.",
+        hindiDescription: "चुकंदर जड़ वाली सब्जी है जिसका रंग गहरा लाल या बैंगनी हो सकता है.",
+        example: "Beetroot can be added to salads.",
+        hindiExample: "चुकंदर को सलाद में मिलाया जा सकता है."
+    },
+
+    {
+        name: "Sweet Potato",
+        hindi: "शकरकंद",
+        icon: "🍠",
+        category: "Root Vegetable",
+        hindiCategory: "जड़ वाली सब्जी",
+        pronunciation: "Sweet Po-ta-to",
+        description: "Sweet potato is a starchy root vegetable with a naturally sweet taste.",
+        hindiDescription: "शकरकंद स्टार्चयुक्त जड़ वाली सब्जी है जिसका स्वाद प्राकृतिक रूप से मीठा होता है.",
+        example: "Sweet potato can be roasted or boiled.",
+        hindiExample: "शकरकंद को भून या उबालकर खाया जा सकता है."
+    },
+
+    {
+        name: "Mushroom",
+        hindi: "मशरूम",
+        icon: "🍄",
+        category: "Food",
+        hindiCategory: "खाद्य पदार्थ",
+        pronunciation: "Mush-room",
+        description: "Mushrooms are fungi used as food in many cuisines.",
+        hindiDescription: "मशरूम एक प्रकार का कवक है जिसका उपयोग कई व्यंजनों में भोजन के रूप में किया जाता है.",
+        example: "Mushrooms can be cooked in many ways.",
+        hindiExample: "मशरूम को कई तरीकों से पकाया जा सकता है."
+    },
+
+    {
+        name: "Rice",
+        hindi: "चावल",
+        icon: "🍚",
+        category: "Grain",
+        hindiCategory: "अनाज",
+        pronunciation: "Rice",
+        description: "Rice is an important cereal grain and staple food for many people.",
+        hindiDescription: "चावल एक महत्वपूर्ण अनाज और बहुत से लोगों का प्रमुख भोजन है.",
+        example: "Rice is eaten in many parts of India.",
+        hindiExample: "भारत के कई हिस्सों में चावल खाया जाता है."
+    },
+
+    {
+        name: "Wheat",
+        hindi: "गेहूँ",
+        icon: "🌾",
+        category: "Grain",
+        hindiCategory: "अनाज",
+        pronunciation: "Wheet",
+        description: "Wheat is an important cereal grain used to make flour and many foods.",
+        hindiDescription: "गेहूँ एक महत्वपूर्ण अनाज है जिससे आटा और कई खाद्य पदार्थ बनाए जाते हैं.",
+        example: "Wheat flour is used to make roti.",
+        hindiExample: "गेहूँ के आटे से रोटी बनाई जाती है."
+    },
+
+    {
+        name: "Lentils",
+        hindi: "दाल",
+        icon: "🥣",
+        category: "Pulse",
+        hindiCategory: "दाल",
+        pronunciation: "Len-tils",
+        description: "Lentils are edible seeds from legume plants and are widely used in Indian cooking.",
+        hindiDescription: "दालें दलहनी पौधों के खाने योग्य बीज हैं और भारतीय भोजन में व्यापक रूप से उपयोग होती हैं.",
+        example: "Dal is commonly eaten with rice or roti.",
+        hindiExample: "दाल को अक्सर चावल या रोटी के साथ खाया जाता है."
+    },
+
+    {
+        name: "Milk",
+        hindi: "दूध",
+        icon: "🥛",
+        category: "Dairy",
+        hindiCategory: "डेयरी",
+        pronunciation: "Milk",
+        description: "Milk is a common dairy food used directly and in many other foods.",
+        hindiDescription: "दूध एक सामान्य डेयरी खाद्य पदार्थ है जिसका सीधे और कई अन्य खाद्य पदार्थों में उपयोग होता है.",
+        example: "Many people drink milk.",
+        hindiExample: "बहुत से लोग दूध पीते हैं."
+    },
+
+    {
+        name: "Curd",
+        hindi: "दही",
+        icon: "🥣",
+        category: "Dairy",
+        hindiCategory: "डेयरी",
+        pronunciation: "Curd",
+        description: "Curd is a fermented dairy food commonly eaten in India.",
+        hindiDescription: "दही एक किण्वित डेयरी खाद्य पदार्थ है जिसे भारत में आमतौर पर खाया जाता है.",
+        example: "Curd is often served with meals.",
+        hindiExample: "दही को अक्सर भोजन के साथ परोसा जाता है."
+    },
+
+    {
+        name: "Paneer",
+        hindi: "पनीर",
+        icon: "🧀",
+        category: "Dairy",
+        hindiCategory: "डेयरी",
+        pronunciation: "Pa-neer",
+        description: "Paneer is a fresh cheese commonly used in Indian dishes.",
+        hindiDescription: "पनीर ताज़ा चीज़ है जिसका भारतीय व्यंजनों में व्यापक रूप से उपयोग होता है.",
+        example: "Paneer is used in many Indian curries.",
+        hindiExample: "पनीर का उपयोग कई भारतीय सब्जियों में किया जाता है."
+    }
+
+];
+
+
+
+/* =========================================================
+   FOOD SEARCH
+   ========================================================= */
+
+function searchFoodVegetables(query = "") {
+
+    const q = String(query).trim().toLowerCase();
+
+    if (!q) {
+        return FOOD_VEGETABLES;
+    }
+
+    return FOOD_VEGETABLES.filter(item => {
+
+        return (
+            item.name.toLowerCase().includes(q) ||
+            item.hindi.toLowerCase().includes(q) ||
+            item.category.toLowerCase().includes(q) ||
+            item.hindiCategory.toLowerCase().includes(q)
+        );
+
+    });
+
+}
+
+
+
+/* =========================================================
+   GET FOOD / VEGETABLE
+   ========================================================= */
+
+function getFoodVegetableData(item) {
+
+    if (!item) return null;
+
+    return FOOD_VEGETABLES.find(data =>
+        data.name === item.name ||
+        data.hindi === item.hindi
+    ) || item;
+
+}
+
+
+
+/* =========================================================
+   A-Z ALPHABET
+   ========================================================= */
+
+const ALPHABET = [
+
+    {
+        letter: "A",
+        name: "A",
+        hindi: "ए",
+        icon: "🍎",
+        word: "Apple",
+        hindiWord: "सेब",
+        pronunciation: "A — ए",
+        description: "A is the first letter of the English alphabet. A for Apple.",
+        hindiDescription: "A अंग्रेज़ी वर्णमाला का पहला अक्षर है। A for Apple यानी A से Apple.",
+        example: "A for Apple.",
+        hindiExample: "A से Apple — सेब."
+    },
+
+    {
+        letter: "B",
+        name: "B",
+        hindi: "बी",
+        icon: "⚽",
+        word: "Ball",
+        hindiWord: "गेंद",
+        pronunciation: "B — बी",
+        description: "B is the second letter of the English alphabet. B for Ball.",
+        hindiDescription: "B अंग्रेज़ी वर्णमाला का दूसरा अक्षर है। B for Ball यानी B से Ball.",
+        example: "B for Ball.",
+        hindiExample: "B से Ball — गेंद."
+    },
+
+    {
+        letter: "C",
+        name: "C",
+        hindi: "सी",
+        icon: "🐱",
+        word: "Cat",
+        hindiWord: "बिल्ली",
+        pronunciation: "C — सी",
+        description: "C is the third letter of the English alphabet. C for Cat.",
+        hindiDescription: "C अंग्रेज़ी वर्णमाला का तीसरा अक्षर है। C for Cat यानी C से Cat.",
+        example: "C for Cat.",
+        hindiExample: "C से Cat — बिल्ली."
+    },
+
+    {
+        letter: "D",
+        name: "D",
+        hindi: "डी",
+        icon: "🐶",
+        word: "Dog",
+        hindiWord: "कुत्ता",
+        pronunciation: "D — डी",
+        description: "D is the fourth letter of the English alphabet. D for Dog.",
+        hindiDescription: "D अंग्रेज़ी वर्णमाला का चौथा अक्षर है। D for Dog यानी D से Dog.",
+        example: "D for Dog.",
+        hindiExample: "D से Dog — कुत्ता."
+    },
+
+    {
+        letter: "E",
+        name: "E",
+        hindi: "ई",
+        icon: "🐘",
+        word: "Elephant",
+        hindiWord: "हाथी",
+        pronunciation: "E — ई",
+        description: "E is the fifth letter of the English alphabet. E for Elephant.",
+        hindiDescription: "E अंग्रेज़ी वर्णमाला का पाँचवाँ अक्षर है। E for Elephant यानी E से Elephant.",
+        example: "E for Elephant.",
+        hindiExample: "E से Elephant — हाथी."
+    },
+
+    {
+        letter: "F",
+        name: "F",
+        hindi: "एफ",
+        icon: "🐟",
+        word: "Fish",
+        hindiWord: "मछली",
+        pronunciation: "F — एफ",
+        description: "F is the sixth letter of the English alphabet. F for Fish.",
+        hindiDescription: "F अंग्रेज़ी वर्णमाला का छठा अक्षर है। F for Fish यानी F से Fish.",
+        example: "F for Fish.",
+        hindiExample: "F से Fish — मछली."
+    },
+
+    {
+        letter: "G",
+        name: "G",
+        hindi: "जी",
+        icon: "🦒",
+        word: "Giraffe",
+        hindiWord: "जिराफ",
+        pronunciation: "G — जी",
+        description: "G is the seventh letter of the English alphabet. G for Giraffe.",
+        hindiDescription: "G अंग्रेज़ी वर्णमाला का सातवाँ अक्षर है। G for Giraffe यानी G से Giraffe.",
+        example: "G for Giraffe.",
+        hindiExample: "G से Giraffe — जिराफ."
+    },
+
+    {
+        letter: "H",
+        name: "H",
+        hindi: "एच",
+        icon: "🏠",
+        word: "House",
+        hindiWord: "घर",
+        pronunciation: "H — एच",
+        description: "H is the eighth letter of the English alphabet. H for House.",
+        hindiDescription: "H अंग्रेज़ी वर्णमाला का आठवाँ अक्षर है। H for House यानी H से House.",
+        example: "H for House.",
+        hindiExample: "H से House — घर."
+    },
+
+    {
+        letter: "I",
+        name: "I",
+        hindi: "आई",
+        icon: "🍦",
+        word: "Ice Cream",
+        hindiWord: "आइसक्रीम",
+        pronunciation: "I — आई",
+        description: "I is the ninth letter of the English alphabet. I for Ice Cream.",
+        hindiDescription: "I अंग्रेज़ी वर्णमाला का नौवाँ अक्षर है। I for Ice Cream यानी I से Ice Cream.",
+        example: "I for Ice Cream.",
+        hindiExample: "I से Ice Cream — आइसक्रीम."
+    },
+
+    {
+        letter: "J",
+        name: "J",
+        hindi: "जे",
+        icon: "🧃",
+        word: "Juice",
+        hindiWord: "रस",
+        pronunciation: "J — जे",
+        description: "J is the tenth letter of the English alphabet. J for Juice.",
+        hindiDescription: "J अंग्रेज़ी वर्णमाला का दसवाँ अक्षर है। J for Juice यानी J से Juice.",
+        example: "J for Juice.",
+        hindiExample: "J से Juice — रस."
+    },
+
+    {
+        letter: "K",
+        name: "K",
+        hindi: "के",
+        icon: "🪁",
+        word: "Kite",
+        hindiWord: "पतंग",
+        pronunciation: "K — के",
+        description: "K is the eleventh letter of the English alphabet. K for Kite.",
+        hindiDescription: "K अंग्रेज़ी वर्णमाला का ग्यारहवाँ अक्षर है। K for Kite यानी K से Kite.",
+        example: "K for Kite.",
+        hindiExample: "K से Kite — पतंग."
+    },
+
+    {
+        letter: "L",
+        name: "L",
+        hindi: "एल",
+        icon: "🦁",
+        word: "Lion",
+        hindiWord: "शेर",
+        pronunciation: "L — एल",
+        description: "L is the twelfth letter of the English alphabet. L for Lion.",
+        hindiDescription: "L अंग्रेज़ी वर्णमाला का बारहवाँ अक्षर है। L for Lion यानी L से Lion.",
+        example: "L for Lion.",
+        hindiExample: "L से Lion — शेर."
+    },
+
+    {
+        letter: "M",
+        name: "M",
+        hindi: "एम",
+        icon: "🐒",
+        word: "Monkey",
+        hindiWord: "बंदर",
+        pronunciation: "M — एम",
+        description: "M is the thirteenth letter of the English alphabet. M for Monkey.",
+        hindiDescription: "M अंग्रेज़ी वर्णमाला का तेरहवाँ अक्षर है। M for Monkey यानी M से Monkey.",
+        example: "M for Monkey.",
+        hindiExample: "M से Monkey — बंदर."
+    },
+
+    {
+        letter: "N",
+        name: "N",
+        hindi: "एन",
+        icon: "👃",
+        word: "Nose",
+        hindiWord: "नाक",
+        pronunciation: "N — एन",
+        description: "N is the fourteenth letter of the English alphabet. N for Nose.",
+        hindiDescription: "N अंग्रेज़ी वर्णमाला का चौदहवाँ अक्षर है। N for Nose यानी N से Nose.",
+        example: "N for Nose.",
+        hindiExample: "N से Nose — नाक."
+    },
+
+    {
+        letter: "O",
+        name: "O",
+        hindi: "ओ",
+        icon: "🍊",
+        word: "Orange",
+        hindiWord: "संतरा",
+        pronunciation: "O — ओ",
+        description: "O is the fifteenth letter of the English alphabet. O for Orange.",
+        hindiDescription: "O अंग्रेज़ी वर्णमाला का पंद्रहवाँ अक्षर है। O for Orange यानी O से Orange.",
+        example: "O for Orange.",
+        hindiExample: "O से Orange — संतरा."
+    },
+
+    {
+        letter: "P",
+        name: "P",
+        hindi: "पी",
+        icon: "🦚",
+        word: "Peacock",
+        hindiWord: "मोर",
+        pronunciation: "P — पी",
+        description: "P is the sixteenth letter of the English alphabet. P for Peacock.",
+        hindiDescription: "P अंग्रेज़ी वर्णमाला का सोलहवाँ अक्षर है। P for Peacock यानी P से Peacock.",
+        example: "P for Peacock.",
+        hindiExample: "P से Peacock — मोर."
+    },
+
+    {
+        letter: "Q",
+        name: "Q",
+        hindi: "क्यू",
+        icon: "👑",
+        word: "Queen",
+        hindiWord: "रानी",
+        pronunciation: "Q — क्यू",
+        description: "Q is the seventeenth letter of the English alphabet. Q for Queen.",
+        hindiDescription: "Q अंग्रेज़ी वर्णमाला का सत्रहवाँ अक्षर है। Q for Queen यानी Q से Queen.",
+        example: "Q for Queen.",
+        hindiExample: "Q से Queen — रानी."
+    },
+
+    {
+        letter: "R",
+        name: "R",
+        hindi: "आर",
+        icon: "🐇",
+        word: "Rabbit",
+        hindiWord: "खरगोश",
+        pronunciation: "R — आर",
+        description: "R is the eighteenth letter of the English alphabet. R for Rabbit.",
+        hindiDescription: "R अंग्रेज़ी वर्णमाला का अठारहवाँ अक्षर है। R for Rabbit यानी R से Rabbit.",
+        example: "R for Rabbit.",
+        hindiExample: "R से Rabbit — खरगोश."
+    },
+
+    {
+        letter: "S",
+        name: "S",
+        hindi: "एस",
+        icon: "☀️",
+        word: "Sun",
+        hindiWord: "सूरज",
+        pronunciation: "S — एस",
+        description: "S is the nineteenth letter of the English alphabet. S for Sun.",
+        hindiDescription: "S अंग्रेज़ी वर्णमाला का उन्नीसवाँ अक्षर है। S for Sun यानी S से Sun.",
+        example: "S for Sun.",
+        hindiExample: "S से Sun — सूरज."
+    },
+
+    {
+        letter: "T",
+        name: "T",
+        hindi: "टी",
+        icon: "🐯",
+        word: "Tiger",
+        hindiWord: "बाघ",
+        pronunciation: "T — टी",
+        description: "T is the twentieth letter of the English alphabet. T for Tiger.",
+        hindiDescription: "T अंग्रेज़ी वर्णमाला का बीसवाँ अक्षर है। T for Tiger यानी T से Tiger.",
+        example: "T for Tiger.",
+        hindiExample: "T से Tiger — बाघ."
+    },
+
+    {
+        letter: "U",
+        name: "U",
+        hindi: "यू",
+        icon: "☂️",
+        word: "Umbrella",
+        hindiWord: "छाता",
+        pronunciation: "U — यू",
+        description: "U is the twenty-first letter of the English alphabet. U for Umbrella.",
+        hindiDescription: "U अंग्रेज़ी वर्णमाला का इक्कीसवाँ अक्षर है। U for Umbrella यानी U से Umbrella.",
+        example: "U for Umbrella.",
+        hindiExample: "U से Umbrella — छाता."
+    },
+
+    {
+        letter: "V",
+        name: "V",
+        hindi: "वी",
+        icon: "🚐",
+        word: "Van",
+        hindiWord: "वैन",
+        pronunciation: "V — वी",
+        description: "V is the twenty-second letter of the English alphabet. V for Van.",
+        hindiDescription: "V अंग्रेज़ी वर्णमाला का बाईसवाँ अक्षर है। V for Van यानी V से Van.",
+        example: "V for Van.",
+        hindiExample: "V से Van — वैन."
+    },
+
+    {
+        letter: "W",
+        name: "W",
+        hindi: "डब्ल्यू",
+        icon: "🍉",
+        word: "Watermelon",
+        hindiWord: "तरबूज",
+        pronunciation: "W — डब्ल्यू",
+        description: "W is the twenty-third letter of the English alphabet. W for Watermelon.",
+        hindiDescription: "W अंग्रेज़ी वर्णमाला का तेईसवाँ अक्षर है। W for Watermelon यानी W से Watermelon.",
+        example: "W for Watermelon.",
+        hindiExample: "W से Watermelon — तरबूज."
+    },
+
+    {
+        letter: "X",
+        name: "X",
+        hindi: "एक्स",
+        icon: "🎹",
+        word: "Xylophone",
+        hindiWord: "ज़ाइलोफोन",
+        pronunciation: "X — एक्स",
+        description: "X is the twenty-fourth letter of the English alphabet. X for Xylophone.",
+        hindiDescription: "X अंग्रेज़ी वर्णमाला का चौबीसवाँ अक्षर है। X for Xylophone.",
+        example: "X for Xylophone.",
+        hindiExample: "X से Xylophone — एक वाद्य यंत्र."
+    },
+
+    {
+        letter: "Y",
+        name: "Y",
+        hindi: "वाय",
+        icon: "🧶",
+        word: "Yo-yo",
+        hindiWord: "यो-यो",
+        pronunciation: "Y — वाय",
+        description: "Y is the twenty-fifth letter of the English alphabet. Y for Yo-yo.",
+        hindiDescription: "Y अंग्रेज़ी वर्णमाला का पच्चीसवाँ अक्षर है। Y for Yo-yo.",
+        example: "Y for Yo-yo.",
+        hindiExample: "Y से Yo-yo — यो-यो."
+    },
+
+    {
+        letter: "Z",
+        name: "Z",
+        hindi: "ज़ेड",
+        icon: "🦓",
+        word: "Zebra",
+        hindiWord: "ज़ेब्रा",
+        pronunciation: "Z — ज़ेड",
+        description: "Z is the twenty-sixth and final letter of the English alphabet. Z for Zebra.",
+        hindiDescription: "Z अंग्रेज़ी वर्णमाला का छब्बीसवाँ और अंतिम अक्षर है। Z for Zebra.",
+        example: "Z for Zebra.",
+        hindiExample: "Z से Zebra — ज़ेब्रा."
+    }
+
+];
+
+
+
+/* =========================================================
+   FOOD SEARCH HELPERS
+   ========================================================= */
+
+function searchFood(query = "") {
+    return searchFoodVegetables(query);
+}
+
+function getFoodData(item) {
+    return getFoodVegetableData(item);
+}
+
+
+
+/* =========================================================
+   ALPHABET SEARCH
+   ========================================================= */
+
+function searchAlphabet(query = "") {
+
+    const q = String(query).trim().toLowerCase();
+
+    if (!q) {
+        return ALPHABET;
+    }
+
+    return ALPHABET.filter(item => {
+
+        return (
+            item.letter.toLowerCase() === q ||
+            item.name.toLowerCase() === q ||
+            item.hindi.toLowerCase().includes(q) ||
+            item.word.toLowerCase().includes(q) ||
+            item.hindiWord.toLowerCase().includes(q)
+        );
+
+    });
+
+}
+
+
+
+/* =========================================================
+   GET ALPHABET DATA
+   ========================================================= */
+
+function getAlphabetData(item) {
+
+    if (!item) return null;
+
+    return ALPHABET.find(data =>
+        data.letter === item.letter ||
+        data.word === item.word ||
+        data.hindi === item.hindi
+    ) || item;
+
+}
+
+
+
+/* =========================================================
+   DEBUG COUNTS
+   ========================================================= */
+
+console.log(
+    "Food & Vegetables:",
+    FOOD_VEGETABLES.length
+);
+
+console.log(
+    "A-Z Alphabet:",
+    ALPHABET.length
+);
+
+
+/* =========================================================
+   PART 8 END
+   ========================================================= */
