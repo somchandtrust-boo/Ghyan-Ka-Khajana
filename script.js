@@ -3066,3 +3066,751 @@ console.log(
 /* =========================================================
    PART 5 END
    ========================================================= */
+/* =========================================================
+   PART 6
+   SEASONS + MONTHS + DAYS + TIME & CALENDAR
+   ========================================================= */
+
+
+/* =========================================================
+   SEASONS
+   ========================================================= */
+
+const SEASONS = [
+
+    {
+        name: "Spring",
+        hindi: "वसंत ऋतु",
+        icon: "🌸",
+        pronunciation: "Spring",
+        description:
+            "Spring is a season when many plants grow flowers and new leaves appear. In India, spring is generally associated with pleasant weather between winter and summer.",
+        hindiDescription:
+            "वसंत ऋतु में अनेक पौधों पर फूल खिलते हैं और नई पत्तियाँ आती हैं। भारत में वसंत को सामान्यतः सर्दी और गर्मी के बीच की सुहावनी ऋतु माना जाता है.",
+        example: "Flowers bloom during spring.",
+        hindiExample: "वसंत ऋतु में फूल खिलते हैं."
+    },
+
+    {
+        name: "Summer",
+        hindi: "ग्रीष्म ऋतु",
+        icon: "☀️",
+        pronunciation: "Sum-mer",
+        description:
+            "Summer is the hot season. Days are generally warmer and people often enjoy cold drinks, fruits and indoor activities.",
+        hindiDescription:
+            "ग्रीष्म ऋतु गर्मी का मौसम है। इस समय दिन सामान्यतः अधिक गर्म होते हैं और लोग ठंडे पेय, फलों तथा घर के अंदर की गतिविधियों का आनंद लेते हैं.",
+        example: "Summer days can be very hot.",
+        hindiExample: "गर्मी के दिन बहुत गर्म हो सकते हैं."
+    },
+
+    {
+        name: "Monsoon",
+        hindi: "वर्षा ऋतु",
+        icon: "🌧️",
+        pronunciation: "Mon-soon",
+        description:
+            "The monsoon season brings seasonal rainfall to many parts of India.",
+        hindiDescription:
+            "वर्षा ऋतु भारत के कई हिस्सों में मौसमी वर्षा लेकर आती है.",
+        example: "Farmers welcome the monsoon rains.",
+        hindiExample: "किसान मानसून की वर्षा का स्वागत करते हैं."
+    },
+
+    {
+        name: "Autumn",
+        hindi: "शरद ऋतु",
+        icon: "🍂",
+        pronunciation: "Aw-tum",
+        description:
+            "Autumn is traditionally associated with a transition after the rainy season and before winter in the Indian seasonal cycle.",
+        hindiDescription:
+            "भारतीय ऋतु चक्र में शरद ऋतु वर्षा ऋतु के बाद और सर्दी से पहले के समय से जुड़ी है.",
+        example: "The weather becomes clearer in autumn.",
+        hindiExample: "शरद ऋतु में मौसम अधिक साफ हो जाता है."
+    },
+
+    {
+        name: "Pre-Winter",
+        hindi: "हेमंत ऋतु",
+        icon: "🍁",
+        pronunciation: "Pre-win-ter",
+        description:
+            "Hemanta is traditionally considered a transition period leading toward winter in the Indian six-season cycle.",
+        hindiDescription:
+            "हेमंत ऋतु भारतीय छह-ऋतु चक्र में शीत ऋतु की ओर बढ़ने वाला संक्रमण काल माना जाता है.",
+        example: "Hemanta comes before the main winter season.",
+        hindiExample: "हेमंत मुख्य शीत ऋतु से पहले आता है."
+    },
+
+    {
+        name: "Winter",
+        hindi: "शीत ऋतु",
+        icon: "❄️",
+        pronunciation: "Win-ter",
+        description:
+            "Winter is the cold season. Temperatures are generally lower and people often wear warm clothes.",
+        hindiDescription:
+            "शीत ऋतु ठंड का मौसम है। इस समय तापमान सामान्यतः कम होता है और लोग गर्म कपड़े पहनते हैं.",
+        example: "People wear warm clothes in winter.",
+        hindiExample: "सर्दियों में लोग गर्म कपड़े पहनते हैं."
+    }
+
+];
+
+
+
+/* =========================================================
+   MONTHS
+   ========================================================= */
+
+const MONTHS = [
+
+    {
+        number: 1,
+        name: "January",
+        hindi: "जनवरी",
+        short: "Jan",
+        icon: "❄️",
+        days: 31,
+        pronunciation: "Jan-yoo-air-ee",
+        description:
+            "January is the first month of the Gregorian calendar and has 31 days.",
+        hindiDescription:
+            "जनवरी ग्रेगोरियन कैलेंडर का पहला महीना है और इसमें 31 दिन होते हैं.",
+        example: "January is the first month of the year.",
+        hindiExample: "जनवरी वर्ष का पहला महीना है."
+    },
+
+    {
+        number: 2,
+        name: "February",
+        hindi: "फरवरी",
+        short: "Feb",
+        icon: "💗",
+        days: 28,
+        leapDays: 29,
+        pronunciation: "Feb-roo-air-ee",
+        description:
+            "February is the second month. It has 28 days in a common year and 29 days in a leap year.",
+        hindiDescription:
+            "फरवरी दूसरा महीना है। सामान्य वर्ष में इसमें 28 दिन और लीप वर्ष में 29 दिन होते हैं.",
+        example: "February has 28 or 29 days.",
+        hindiExample: "फरवरी में 28 या 29 दिन होते हैं."
+    },
+
+    {
+        number: 3,
+        name: "March",
+        hindi: "मार्च",
+        short: "Mar",
+        icon: "🌸",
+        days: 31,
+        pronunciation: "March",
+        description:
+            "March is the third month of the year and has 31 days.",
+        hindiDescription:
+            "मार्च वर्ष का तीसरा महीना है और इसमें 31 दिन होते हैं.",
+        example: "Holi is often celebrated in March.",
+        hindiExample: "होली अक्सर मार्च में मनाई जाती है."
+    },
+
+    {
+        number: 4,
+        name: "April",
+        hindi: "अप्रैल",
+        short: "Apr",
+        icon: "🌼",
+        days: 30,
+        pronunciation: "Ay-pril",
+        description:
+            "April is the fourth month and has 30 days.",
+        hindiDescription:
+            "अप्रैल चौथा महीना है और इसमें 30 दिन होते हैं.",
+        example: "April has 30 days.",
+        hindiExample: "अप्रैल में 30 दिन होते हैं."
+    },
+
+    {
+        number: 5,
+        name: "May",
+        hindi: "मई",
+        short: "May",
+        icon: "☀️",
+        days: 31,
+        pronunciation: "May",
+        description:
+            "May is the fifth month and has 31 days.",
+        hindiDescription:
+            "मई पाँचवाँ महीना है और इसमें 31 दिन होते हैं.",
+        example: "May can be very warm in many parts of India.",
+        hindiExample: "भारत के कई हिस्सों में मई बहुत गर्म हो सकता है."
+    },
+
+    {
+        number: 6,
+        name: "June",
+        hindi: "जून",
+        short: "Jun",
+        icon: "🌧️",
+        days: 30,
+        pronunciation: "Joon",
+        description:
+            "June is the sixth month and has 30 days.",
+        hindiDescription:
+            "जून छठा महीना है और इसमें 30 दिन होते हैं.",
+        example: "The monsoon begins in some parts of India around June.",
+        hindiExample: "भारत के कुछ हिस्सों में जून के आसपास मानसून शुरू होता है."
+    },
+
+    {
+        number: 7,
+        name: "July",
+        hindi: "जुलाई",
+        short: "Jul",
+        icon: "🌧️",
+        days: 31,
+        pronunciation: "Joo-ly",
+        description:
+            "July is the seventh month and has 31 days.",
+        hindiDescription:
+            "जुलाई सातवाँ महीना है और इसमें 31 दिन होते हैं.",
+        example: "July has 31 days.",
+        hindiExample: "जुलाई में 31 दिन होते हैं."
+    },
+
+    {
+        number: 8,
+        name: "August",
+        hindi: "अगस्त",
+        short: "Aug",
+        icon: "🇮🇳",
+        days: 31,
+        pronunciation: "Aw-gust",
+        description:
+            "August is the eighth month and has 31 days.",
+        hindiDescription:
+            "अगस्त आठवाँ महीना है और इसमें 31 दिन होते हैं.",
+        example: "India celebrates Independence Day in August.",
+        hindiExample: "भारत अगस्त में स्वतंत्रता दिवस मनाता है."
+    },
+
+    {
+        number: 9,
+        name: "September",
+        hindi: "सितंबर",
+        short: "Sep",
+        icon: "🍃",
+        days: 30,
+        pronunciation: "Sep-tem-ber",
+        description:
+            "September is the ninth month and has 30 days.",
+        hindiDescription:
+            "सितंबर नौवाँ महीना है और इसमें 30 दिन होते हैं.",
+        example: "September has 30 days.",
+        hindiExample: "सितंबर में 30 दिन होते हैं."
+    },
+
+    {
+        number: 10,
+        name: "October",
+        hindi: "अक्टूबर",
+        short: "Oct",
+        icon: "🪔",
+        days: 31,
+        pronunciation: "Ok-to-ber",
+        description:
+            "October is the tenth month and has 31 days.",
+        hindiDescription:
+            "अक्टूबर दसवाँ महीना है और इसमें 31 दिन होते हैं.",
+        example: "Diwali is often celebrated in October or November.",
+        hindiExample: "दीवाली अक्सर अक्टूबर या नवंबर में मनाई जाती है."
+    },
+
+    {
+        number: 11,
+        name: "November",
+        hindi: "नवंबर",
+        short: "Nov",
+        icon: "🍂",
+        days: 30,
+        pronunciation: "No-vem-ber",
+        description:
+            "November is the eleventh month and has 30 days.",
+        hindiDescription:
+            "नवंबर ग्यारहवाँ महीना है और इसमें 30 दिन होते हैं.",
+        example: "November has 30 days.",
+        hindiExample: "नवंबर में 30 दिन होते हैं."
+    },
+
+    {
+        number: 12,
+        name: "December",
+        hindi: "दिसंबर",
+        short: "Dec",
+        icon: "🎄",
+        days: 31,
+        pronunciation: "De-sem-ber",
+        description:
+            "December is the twelfth and final month of the Gregorian calendar and has 31 days.",
+        hindiDescription:
+            "दिसंबर ग्रेगोरियन कैलेंडर का बारहवाँ और अंतिम महीना है और इसमें 31 दिन होते हैं.",
+        example: "December is the last month of the year.",
+        hindiExample: "दिसंबर वर्ष का अंतिम महीना है."
+    }
+
+];
+
+
+
+/* =========================================================
+   DAYS OF WEEK
+   ========================================================= */
+
+const DAYS = [
+
+    {
+        number: 1,
+        name: "Monday",
+        hindi: "सोमवार",
+        short: "Mon",
+        icon: "🌙",
+        pronunciation: "Mun-day",
+        description:
+            "Monday is commonly considered the first day of the working week in many countries.",
+        hindiDescription:
+            "सोमवार को कई देशों में कार्य सप्ताह का पहला दिन माना जाता है.",
+        example: "School starts on Monday.",
+        hindiExample: "स्कूल सोमवार से शुरू होता है."
+    },
+
+    {
+        number: 2,
+        name: "Tuesday",
+        hindi: "मंगलवार",
+        short: "Tue",
+        icon: "🔥",
+        pronunciation: "Tooz-day",
+        description:
+            "Tuesday is the second day of the standard Monday-to-Sunday week.",
+        hindiDescription:
+            "सोमवार से रविवार वाले सामान्य सप्ताह में मंगलवार दूसरा दिन है.",
+        example: "Tuesday comes after Monday.",
+        hindiExample: "मंगलवार सोमवार के बाद आता है."
+    },
+
+    {
+        number: 3,
+        name: "Wednesday",
+        hindi: "बुधवार",
+        short: "Wed",
+        icon: "🌿",
+        pronunciation: "Wenz-day",
+        description:
+            "Wednesday is the third day of the standard Monday-to-Sunday week.",
+        hindiDescription:
+            "सोमवार से रविवार वाले सामान्य सप्ताह में बुधवार तीसरा दिन है.",
+        example: "Wednesday comes in the middle of the working week.",
+        hindiExample: "बुधवार कार्य सप्ताह के बीच में आता है."
+    },
+
+    {
+        number: 4,
+        name: "Thursday",
+        hindi: "गुरुवार",
+        short: "Thu",
+        icon: "🌟",
+        pronunciation: "Thurz-day",
+        description:
+            "Thursday is the fourth day of the standard Monday-to-Sunday week.",
+        hindiDescription:
+            "सोमवार से रविवार वाले सामान्य सप्ताह में गुरुवार चौथा दिन है.",
+        example: "Thursday comes after Wednesday.",
+        hindiExample: "गुरुवार बुधवार के बाद आता है."
+    },
+
+    {
+        number: 5,
+        name: "Friday",
+        hindi: "शुक्रवार",
+        short: "Fri",
+        icon: "✨",
+        pronunciation: "Fry-day",
+        description:
+            "Friday is the fifth day of the standard Monday-to-Sunday week.",
+        hindiDescription:
+            "सोमवार से रविवार वाले सामान्य सप्ताह में शुक्रवार पाँचवाँ दिन है.",
+        example: "Friday comes before Saturday.",
+        hindiExample: "शुक्रवार शनिवार से पहले आता है."
+    },
+
+    {
+        number: 6,
+        name: "Saturday",
+        hindi: "शनिवार",
+        short: "Sat",
+        icon: "🪐",
+        pronunciation: "Sat-er-day",
+        description:
+            "Saturday is the sixth day of the standard Monday-to-Sunday week.",
+        hindiDescription:
+            "सोमवार से रविवार वाले सामान्य सप्ताह में शनिवार छठा दिन है.",
+        example: "Many people have a weekend break on Saturday.",
+        hindiExample: "कई लोगों की शनिवार को सप्ताहांत की छुट्टी होती है."
+    },
+
+    {
+        number: 7,
+        name: "Sunday",
+        hindi: "रविवार",
+        short: "Sun",
+        icon: "☀️",
+        pronunciation: "Sun-day",
+        description:
+            "Sunday is the seventh day of the standard Monday-to-Sunday week.",
+        hindiDescription:
+            "सोमवार से रविवार वाले सामान्य सप्ताह में रविवार सातवाँ दिन है.",
+        example: "Sunday is commonly a weekend day.",
+        hindiExample: "रविवार सामान्यतः सप्ताहांत का दिन होता है."
+    }
+
+];
+
+
+
+/* =========================================================
+   TIME & CALENDAR
+   ========================================================= */
+
+const CALENDAR_INFO = {
+
+    name: "Time & Calendar",
+
+    hindi: "समय और कैलेंडर",
+
+    icon: "🗓️",
+
+    pronunciation: "Time and Cal-en-dar",
+
+    description:
+        "A calendar helps us organize days, weeks, months and years. A clock helps us measure and read time.",
+
+    hindiDescription:
+        "कैलेंडर हमें दिन, सप्ताह, महीने और वर्षों को व्यवस्थित करने में मदद करता है। घड़ी समय को मापने और पढ़ने में मदद करती है.",
+
+    example:
+        "There are 12 months in a Gregorian calendar year.",
+
+    hindiExample:
+        "ग्रेगोरियन कैलेंडर के एक वर्ष में 12 महीने होते हैं."
+
+};
+
+
+
+/* =========================================================
+   TIME UNITS
+   ========================================================= */
+
+const TIME_UNITS = [
+
+    {
+        name: "Second",
+        hindi: "सेकंड",
+        icon: "⏱️",
+        value: "60 seconds = 1 minute",
+        hindiValue: "60 सेकंड = 1 मिनट",
+        description:
+            "A second is a basic unit used to measure time.",
+        hindiDescription:
+            "सेकंड समय मापने की एक मूल इकाई है."
+    },
+
+    {
+        name: "Minute",
+        hindi: "मिनट",
+        icon: "⏰",
+        value: "60 minutes = 1 hour",
+        hindiValue: "60 मिनट = 1 घंटा",
+        description:
+            "A minute contains 60 seconds.",
+        hindiDescription:
+            "एक मिनट में 60 सेकंड होते हैं."
+    },
+
+    {
+        name: "Hour",
+        hindi: "घंटा",
+        icon: "🕐",
+        value: "24 hours = 1 day",
+        hindiValue: "24 घंटे = 1 दिन",
+        description:
+            "An hour contains 60 minutes.",
+        hindiDescription:
+            "एक घंटे में 60 मिनट होते हैं."
+    },
+
+    {
+        name: "Day",
+        hindi: "दिन",
+        icon: "🌞",
+        value: "7 days = 1 week",
+        hindiValue: "7 दिन = 1 सप्ताह",
+        description:
+            "A day is divided into 24 hours.",
+        hindiDescription:
+            "एक दिन को 24 घंटों में बाँटा जाता है."
+    },
+
+    {
+        name: "Week",
+        hindi: "सप्ताह",
+        icon: "📅",
+        value: "7 days = 1 week",
+        hindiValue: "7 दिन = 1 सप्ताह",
+        description:
+            "A week contains seven days.",
+        hindiDescription:
+            "एक सप्ताह में सात दिन होते हैं."
+    },
+
+    {
+        name: "Month",
+        hindi: "महीना",
+        icon: "🗓️",
+        value: "12 months = 1 year",
+        hindiValue: "12 महीने = 1 वर्ष",
+        description:
+            "A month is a calendar period. Gregorian months have 28 to 31 days.",
+        hindiDescription:
+            "महीना कैलेंडर की एक समय अवधि है। ग्रेगोरियन कैलेंडर के महीनों में 28 से 31 दिन होते हैं."
+    },
+
+    {
+        name: "Year",
+        hindi: "वर्ष",
+        icon: "🌍",
+        value: "365 days in a common year",
+        hindiValue: "सामान्य वर्ष में 365 दिन",
+        description:
+            "A common Gregorian calendar year has 365 days. A leap year has 366 days.",
+        hindiDescription:
+            "सामान्य ग्रेगोरियन वर्ष में 365 दिन होते हैं। लीप वर्ष में 366 दिन होते हैं."
+    }
+
+];
+
+
+
+/* =========================================================
+   MONTH SEARCH
+   ========================================================= */
+
+function searchMonths(query = "") {
+
+    const q = String(query).trim().toLowerCase();
+
+    if (!q) {
+        return MONTHS;
+    }
+
+    return MONTHS.filter(item => {
+
+        return (
+            item.name.toLowerCase().includes(q) ||
+            item.hindi.toLowerCase().includes(q) ||
+            item.short.toLowerCase().includes(q)
+        );
+
+    });
+
+}
+
+
+
+/* =========================================================
+   DAY SEARCH
+   ========================================================= */
+
+function searchDays(query = "") {
+
+    const q = String(query).trim().toLowerCase();
+
+    if (!q) {
+        return DAYS;
+    }
+
+    return DAYS.filter(item => {
+
+        return (
+            item.name.toLowerCase().includes(q) ||
+            item.hindi.toLowerCase().includes(q) ||
+            item.short.toLowerCase().includes(q)
+        );
+
+    });
+
+}
+
+
+
+/* =========================================================
+   SEASON SEARCH
+   ========================================================= */
+
+function searchSeasons(query = "") {
+
+    const q = String(query).trim().toLowerCase();
+
+    if (!q) {
+        return SEASONS;
+    }
+
+    return SEASONS.filter(item => {
+
+        return (
+            item.name.toLowerCase().includes(q) ||
+            item.hindi.toLowerCase().includes(q)
+        );
+
+    });
+
+}
+
+
+
+/* =========================================================
+   CALENDAR SEARCH
+   ========================================================= */
+
+function searchCalendar(query = "") {
+
+    const q = String(query).trim().toLowerCase();
+
+    if (!q) {
+        return [
+            CALENDAR_INFO,
+            ...TIME_UNITS
+        ];
+    }
+
+    return [
+        CALENDAR_INFO,
+        ...TIME_UNITS
+    ].filter(item => {
+
+        return (
+            item.name.toLowerCase().includes(q) ||
+            item.hindi.toLowerCase().includes(q) ||
+            String(item.value || "").toLowerCase().includes(q) ||
+            String(item.hindiValue || "").toLowerCase().includes(q)
+        );
+
+    });
+
+}
+
+
+
+/* =========================================================
+   GET MONTH
+   ========================================================= */
+
+function getMonthData(month) {
+
+    if (!month) return null;
+
+    return MONTHS.find(item =>
+        item.number === month.number ||
+        item.name === month.name ||
+        item.hindi === month.hindi
+    ) || month;
+
+}
+
+
+
+/* =========================================================
+   GET DAY
+   ========================================================= */
+
+function getDayData(day) {
+
+    if (!day) return null;
+
+    return DAYS.find(item =>
+        item.number === day.number ||
+        item.name === day.name ||
+        item.hindi === day.hindi
+    ) || day;
+
+}
+
+
+
+/* =========================================================
+   GET SEASON
+   ========================================================= */
+
+function getSeasonData(season) {
+
+    if (!season) return null;
+
+    return SEASONS.find(item =>
+        item.name === season.name ||
+        item.hindi === season.hindi
+    ) || season;
+
+}
+
+
+
+/* =========================================================
+   GET CALENDAR DATA
+   ========================================================= */
+
+function getCalendarData(item) {
+
+    if (!item) return null;
+
+    if (item.name === CALENDAR_INFO.name) {
+        return CALENDAR_INFO;
+    }
+
+    return TIME_UNITS.find(unit =>
+        unit.name === item.name ||
+        unit.hindi === item.hindi
+    ) || item;
+
+}
+
+
+
+/* =========================================================
+   DEBUG COUNTS
+   ========================================================= */
+
+console.log(
+    "Seasons:",
+    SEASONS.length
+);
+
+console.log(
+    "Months:",
+    MONTHS.length
+);
+
+console.log(
+    "Days:",
+    DAYS.length
+);
+
+console.log(
+    "Time Units:",
+    TIME_UNITS.length
+);
+
+
+/* =========================================================
+   PART 6 END
+   ========================================================= */
