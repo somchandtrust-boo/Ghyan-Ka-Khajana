@@ -3814,3 +3814,1149 @@ console.log(
 /* =========================================================
    PART 6 END
    ========================================================= */
+/* =========================================================
+   PART 7
+   LANGUAGES + NUMBERS + GENERAL KNOWLEDGE
+   ========================================================= */
+
+
+/* =========================================================
+   LANGUAGES
+   ========================================================= */
+
+const LANGUAGES = [
+
+    {
+        name: "Hindi",
+        hindi: "हिंदी",
+        icon: "🗣️",
+        pronunciation: "Hin-dee",
+        region: "India",
+        hindiRegion: "भारत",
+        description:
+            "Hindi is one of the major languages of India and is widely spoken across many parts of the country.",
+        hindiDescription:
+            "हिंदी भारत की प्रमुख भाषाओं में से एक है और देश के कई हिस्सों में व्यापक रूप से बोली जाती है.",
+        example: "Namaste means Hello in Hindi.",
+        hindiExample: "नमस्ते हिंदी में अभिवादन का एक सामान्य शब्द है."
+    },
+
+    {
+        name: "English",
+        hindi: "अंग्रेज़ी",
+        icon: "🌍",
+        pronunciation: "Ing-glish",
+        region: "Worldwide",
+        hindiRegion: "विश्वभर",
+        description:
+            "English is an international language widely used in education, science, technology and communication.",
+        hindiDescription:
+            "अंग्रेज़ी एक अंतरराष्ट्रीय भाषा है जिसका उपयोग शिक्षा, विज्ञान, तकनीक और संचार में व्यापक रूप से होता है.",
+        example: "Hello is a common English greeting.",
+        hindiExample: "Hello अंग्रेज़ी में एक सामान्य अभिवादन है."
+    },
+
+    {
+        name: "Gujarati",
+        hindi: "गुजराती",
+        icon: "🪔",
+        pronunciation: "Goo-ja-ra-tee",
+        region: "Gujarat, India",
+        hindiRegion: "गुजरात, भारत",
+        description:
+            "Gujarati is an important language of Gujarat and is also spoken by Gujarati communities around the world.",
+        hindiDescription:
+            "गुजराती गुजरात की प्रमुख भाषा है और दुनिया भर के गुजराती समुदायों द्वारा भी बोली जाती है.",
+        example: "નમસ્તે is a Gujarati greeting.",
+        hindiExample: "નમસ્તે गुजराती में भी अभिवादन के लिए प्रयोग किया जाता है."
+    },
+
+    {
+        name: "Marathi",
+        hindi: "मराठी",
+        icon: "📖",
+        pronunciation: "Ma-ra-thee",
+        region: "Maharashtra, India",
+        hindiRegion: "महाराष्ट्र, भारत",
+        description:
+            "Marathi is the main language of Maharashtra.",
+        hindiDescription:
+            "मराठी महाराष्ट्र की प्रमुख भाषा है.",
+        example: "नमस्कार is a common Marathi greeting.",
+        hindiExample: "नमस्कार मराठी में सामान्य अभिवादन है."
+    },
+
+    {
+        name: "Bengali",
+        hindi: "बंगाली",
+        icon: "📚",
+        pronunciation: "Ben-ga-lee",
+        region: "West Bengal and Bangladesh",
+        hindiRegion: "पश्चिम बंगाल और बांग्लादेश",
+        description:
+            "Bengali is a major language spoken in eastern South Asia.",
+        hindiDescription:
+            "बंगाली पूर्वी दक्षिण एशिया की प्रमुख भाषाओं में से एक है.",
+        example: "নমস্কার is a Bengali greeting.",
+        hindiExample: "নমস্কার बंगाली में अभिवादन का एक शब्द है."
+    },
+
+    {
+        name: "Tamil",
+        hindi: "तमिल",
+        icon: "📜",
+        pronunciation: "Ta-mil",
+        region: "Tamil Nadu, India",
+        hindiRegion: "तमिलनाडु, भारत",
+        description:
+            "Tamil is a major language of southern India and has a very long literary tradition.",
+        hindiDescription:
+            "तमिल दक्षिण भारत की प्रमुख भाषा है और इसकी साहित्यिक परंपरा बहुत समृद्ध और प्राचीन है.",
+        example: "வணக்கம் is a Tamil greeting.",
+        hindiExample: "வணக்கம் तमिल में अभिवादन का शब्द है."
+    },
+
+    {
+        name: "Telugu",
+        hindi: "तेलुगु",
+        icon: "📘",
+        pronunciation: "Te-lu-goo",
+        region: "Andhra Pradesh and Telangana, India",
+        hindiRegion: "आंध्र प्रदेश और तेलंगाना, भारत",
+        description:
+            "Telugu is a major Dravidian language spoken mainly in Andhra Pradesh and Telangana.",
+        hindiDescription:
+            "तेलुगु एक प्रमुख द्रविड़ भाषा है जो मुख्य रूप से आंध्र प्रदेश और तेलंगाना में बोली जाती है.",
+        example: "నమస్కారం is a Telugu greeting.",
+        hindiExample: "నమస్కారం तेलुगु में अभिवादन का शब्द है."
+    },
+
+    {
+        name: "Kannada",
+        hindi: "कन्नड़",
+        icon: "📗",
+        pronunciation: "Kan-na-da",
+        region: "Karnataka, India",
+        hindiRegion: "कर्नाटक, भारत",
+        description:
+            "Kannada is the principal language of Karnataka.",
+        hindiDescription:
+            "कन्नड़ कर्नाटक की प्रमुख भाषा है.",
+        example: "ನಮಸ್ಕಾರ is a Kannada greeting.",
+        hindiExample: "ನಮಸ್ಕಾರ कन्नड़ में अभिवादन का शब्द है."
+    },
+
+    {
+        name: "Malayalam",
+        hindi: "मलयालम",
+        icon: "🌴",
+        pronunciation: "Ma-la-ya-lam",
+        region: "Kerala, India",
+        hindiRegion: "केरल, भारत",
+        description:
+            "Malayalam is the principal language of Kerala and is also spoken in parts of neighboring regions.",
+        hindiDescription:
+            "मलयालम केरल की प्रमुख भाषा है और आसपास के कुछ क्षेत्रों में भी बोली जाती है.",
+        example: "നമസ്കാരം is a Malayalam greeting.",
+        hindiExample: "നമസ്കാരം मलयालम में अभिवादन का शब्द है."
+    },
+
+    {
+        name: "Punjabi",
+        hindi: "पंजाबी",
+        icon: "🎵",
+        pronunciation: "Pun-ja-bee",
+        region: "Punjab and other regions",
+        hindiRegion: "पंजाब और अन्य क्षेत्र",
+        description:
+            "Punjabi is widely spoken in the Punjab region and by Punjabi communities around the world.",
+        hindiDescription:
+            "पंजाबी पंजाब क्षेत्र और दुनिया भर के पंजाबी समुदायों में व्यापक रूप से बोली जाती है.",
+        example: "ਸਤ ਸ੍ਰੀ ਅਕਾਲ is a common Punjabi greeting.",
+        hindiExample: "ਸਤ ਸ੍ਰੀ ਅਕਾਲ पंजाबी में सामान्य अभिवादन है."
+    },
+
+    {
+        name: "Urdu",
+        hindi: "उर्दू",
+        icon: "🖋️",
+        pronunciation: "Oor-doo",
+        region: "South Asia",
+        hindiRegion: "दक्षिण एशिया",
+        description:
+            "Urdu is an important South Asian language with a rich literary tradition.",
+        hindiDescription:
+            "उर्दू दक्षिण एशिया की एक महत्वपूर्ण भाषा है जिसकी साहित्यिक परंपरा समृद्ध है.",
+        example: "السلام علیکم is a common greeting in Urdu-speaking communities.",
+        hindiExample: "السلام علیکم उर्दू भाषी समुदायों में सामान्य अभिवादन है."
+    },
+
+    {
+        name: "Sanskrit",
+        hindi: "संस्कृत",
+        icon: "📜",
+        pronunciation: "Sun-skrit",
+        region: "India",
+        hindiRegion: "भारत",
+        description:
+            "Sanskrit is an ancient classical language of India with an extensive body of literature.",
+        hindiDescription:
+            "संस्कृत भारत की एक प्राचीन शास्त्रीय भाषा है जिसका विशाल साहित्यिक भंडार है.",
+        example: "नमः is a Sanskrit word.",
+        hindiExample: "नमः संस्कृत का एक शब्द है."
+    },
+
+    {
+        name: "Assamese",
+        hindi: "असमिया",
+        icon: "🌿",
+        pronunciation: "As-sa-meez",
+        region: "Assam, India",
+        hindiRegion: "असम, भारत",
+        description:
+            "Assamese is the principal language of Assam.",
+        hindiDescription:
+            "असमिया असम की प्रमुख भाषा है.",
+        example: "নমস্কাৰ is an Assamese greeting.",
+        hindiExample: "নমস্কাৰ असमिया में अभिवादन का शब्द है."
+    },
+
+    {
+        name: "Odia",
+        hindi: "ओड़िया",
+        icon: "📕",
+        pronunciation: "O-di-ya",
+        region: "Odisha, India",
+        hindiRegion: "ओडिशा, भारत",
+        description:
+            "Odia is the principal language of Odisha.",
+        hindiDescription:
+            "ओड़िया ओडिशा की प्रमुख भाषा है.",
+        example: "ନମସ୍କାର is an Odia greeting.",
+        hindiExample: "ନମସ୍କାର ओड़िया में अभिवादन का शब्द है."
+    },
+
+    {
+        name: "Kashmiri",
+        hindi: "कश्मीरी",
+        icon: "🏔️",
+        pronunciation: "Kash-mee-ree",
+        region: "Kashmir region",
+        hindiRegion: "कश्मीर क्षेत्र",
+        description:
+            "Kashmiri is a language spoken mainly in the Kashmir region.",
+        hindiDescription:
+            "कश्मीरी मुख्य रूप से कश्मीर क्षेत्र में बोली जाने वाली भाषा है.",
+        example: "Kashmiri has its own rich literary tradition.",
+        hindiExample: "कश्मीरी की अपनी समृद्ध साहित्यिक परंपरा है."
+    },
+
+    {
+        name: "Sindhi",
+        hindi: "सिंधी",
+        icon: "📖",
+        pronunciation: "Sin-dhee",
+        region: "South Asia",
+        hindiRegion: "दक्षिण एशिया",
+        description:
+            "Sindhi is an important language of the Sindhi community in South Asia.",
+        hindiDescription:
+            "सिंधी दक्षिण एशिया के सिंधी समुदाय की महत्वपूर्ण भाषा है.",
+        example: "Sindhi has a long literary tradition.",
+        hindiExample: "सिंधी की लंबी साहित्यिक परंपरा है."
+    },
+
+    {
+        name: "Konkani",
+        hindi: "कोंकणी",
+        icon: "🌴",
+        pronunciation: "Kon-ka-nee",
+        region: "Western coast of India",
+        hindiRegion: "भारत का पश्चिमी तट",
+        description:
+            "Konkani is spoken along parts of India's western coast.",
+        hindiDescription:
+            "कोंकणी भारत के पश्चिमी तट के कुछ हिस्सों में बोली जाती है.",
+        example: "Konkani is associated with the Konkan region.",
+        hindiExample: "कोंकणी का संबंध कोंकण क्षेत्र से है."
+    },
+
+    {
+        name: "Nepali",
+        hindi: "नेपाली",
+        icon: "🏔️",
+        pronunciation: "Ne-pa-lee",
+        region: "Nepal and parts of India",
+        hindiRegion: "नेपाल और भारत के कुछ क्षेत्र",
+        description:
+            "Nepali is the official language of Nepal and is also spoken in parts of India.",
+        hindiDescription:
+            "नेपाली नेपाल की आधिकारिक भाषा है और भारत के कुछ हिस्सों में भी बोली जाती है.",
+        example: "नमस्ते is commonly used in Nepali.",
+        hindiExample: "नमस्ते नेपाली में भी सामान्य अभिवादन है."
+    },
+
+    {
+        name: "Manipuri",
+        hindi: "मणिपुरी",
+        icon: "🌺",
+        pronunciation: "Ma-ni-poo-ree",
+        region: "Manipur, India",
+        hindiRegion: "मणिपुर, भारत",
+        description:
+            "Manipuri, also known as Meitei, is a major language of Manipur.",
+        hindiDescription:
+            "मणिपुरी, जिसे मैतेई भी कहा जाता है, मणिपुर की प्रमुख भाषाओं में से एक है.",
+        example: "Meitei is an important language of Manipur.",
+        hindiExample: "मैतेई मणिपुर की महत्वपूर्ण भाषा है."
+    },
+
+    {
+        name: "Maithili",
+        hindi: "मैथिली",
+        icon: "📚",
+        pronunciation: "My-thi-lee",
+        region: "Bihar and Jharkhand, India",
+        hindiRegion: "बिहार और झारखंड, भारत",
+        description:
+            "Maithili is an important language of the Mithila region.",
+        hindiDescription:
+            "मैथिली मिथिला क्षेत्र की एक महत्वपूर्ण भाषा है.",
+        example: "Maithili has a rich literary tradition.",
+        hindiExample: "मैथिली की समृद्ध साहित्यिक परंपरा है."
+    }
+
+];
+
+
+
+/* =========================================================
+   NUMBERS 1 - 100
+   ========================================================= */
+
+const NUMBER_WORDS = [
+    "",
+    "One",
+    "Two",
+    "Three",
+    "Four",
+    "Five",
+    "Six",
+    "Seven",
+    "Eight",
+    "Nine",
+    "Ten",
+    "Eleven",
+    "Twelve",
+    "Thirteen",
+    "Fourteen",
+    "Fifteen",
+    "Sixteen",
+    "Seventeen",
+    "Eighteen",
+    "Nineteen",
+    "Twenty",
+    "Twenty-One",
+    "Twenty-Two",
+    "Twenty-Three",
+    "Twenty-Four",
+    "Twenty-Five",
+    "Twenty-Six",
+    "Twenty-Seven",
+    "Twenty-Eight",
+    "Twenty-Nine",
+    "Thirty",
+    "Thirty-One",
+    "Thirty-Two",
+    "Thirty-Three",
+    "Thirty-Four",
+    "Thirty-Five",
+    "Thirty-Six",
+    "Thirty-Seven",
+    "Thirty-Eight",
+    "Thirty-Nine",
+    "Forty",
+    "Forty-One",
+    "Forty-Two",
+    "Forty-Three",
+    "Forty-Four",
+    "Forty-Five",
+    "Forty-Six",
+    "Forty-Seven",
+    "Forty-Eight",
+    "Forty-Nine",
+    "Fifty",
+    "Fifty-One",
+    "Fifty-Two",
+    "Fifty-Three",
+    "Fifty-Four",
+    "Fifty-Five",
+    "Fifty-Six",
+    "Fifty-Seven",
+    "Fifty-Eight",
+    "Fifty-Nine",
+    "Sixty",
+    "Sixty-One",
+    "Sixty-Two",
+    "Sixty-Three",
+    "Sixty-Four",
+    "Sixty-Five",
+    "Sixty-Six",
+    "Sixty-Seven",
+    "Sixty-Eight",
+    "Sixty-Nine",
+    "Seventy",
+    "Seventy-One",
+    "Seventy-Two",
+    "Seventy-Three",
+    "Seventy-Four",
+    "Seventy-Five",
+    "Seventy-Six",
+    "Seventy-Seven",
+    "Seventy-Eight",
+    "Seventy-Nine",
+    "Eighty",
+    "Eighty-One",
+    "Eighty-Two",
+    "Eighty-Three",
+    "Eighty-Four",
+    "Eighty-Five",
+    "Eighty-Six",
+    "Eighty-Seven",
+    "Eighty-Eight",
+    "Eighty-Nine",
+    "Ninety",
+    "Ninety-One",
+    "Ninety-Two",
+    "Ninety-Three",
+    "Ninety-Four",
+    "Ninety-Five",
+    "Ninety-Six",
+    "Ninety-Seven",
+    "Ninety-Eight",
+    "Ninety-Nine",
+    "One Hundred"
+];
+
+const HINDI_NUMBER_WORDS = [
+    "",
+    "एक",
+    "दो",
+    "तीन",
+    "चार",
+    "पाँच",
+    "छह",
+    "सात",
+    "आठ",
+    "नौ",
+    "दस",
+    "ग्यारह",
+    "बारह",
+    "तेरह",
+    "चौदह",
+    "पंद्रह",
+    "सोलह",
+    "सत्रह",
+    "अठारह",
+    "उन्नीस",
+    "बीस",
+    "इक्कीस",
+    "बाईस",
+    "तेईस",
+    "चौबीस",
+    "पच्चीस",
+    "छब्बीस",
+    "सत्ताईस",
+    "अट्ठाईस",
+    "उनतीस",
+    "तीस",
+    "इकतीस",
+    "बत्तीस",
+    "तैंतीस",
+    "चौंतीस",
+    "पैंतीस",
+    "छत्तीस",
+    "सैंतीस",
+    "अड़तीस",
+    "उनतालीस",
+    "चालीस",
+    "इकतालीस",
+    "बयालीस",
+    "तैंतालीस",
+    "चवालीस",
+    "पैंतालीस",
+    "छियालीस",
+    "सैंतालीस",
+    "अड़तालीस",
+    "उनचास",
+    "पचास",
+    "इक्यावन",
+    "बावन",
+    "तिरेपन",
+    "चौवन",
+    "पचपन",
+    "छप्पन",
+    "सत्तावन",
+    "अट्ठावन",
+    "उनसठ",
+    "साठ",
+    "इकसठ",
+    "बासठ",
+    "तिरसठ",
+    "चौंसठ",
+    "पैंसठ",
+    "छियासठ",
+    "सड़सठ",
+    "अड़सठ",
+    "उनहत्तर",
+    "सत्तर",
+    "इकहत्तर",
+    "बहत्तर",
+    "तिहत्तर",
+    "चौहत्तर",
+    "पचहत्तर",
+    "छिहत्तर",
+    "सतहत्तर",
+    "अठहत्तर",
+    "उनासी",
+    "अस्सी",
+    "इक्यासी",
+    "बयासी",
+    "तिरासी",
+    "चौरासी",
+    "पचासी",
+    "छियासी",
+    "सत्तासी",
+    "अट्ठासी",
+    "नवासी",
+    "नब्बे",
+    "इक्यानवे",
+    "बानवे",
+    "तिरानवे",
+    "चौरानवे",
+    "पंचानवे",
+    "छियानवे",
+    "सत्तानवे",
+    "अट्ठानवे",
+    "निन्यानवे",
+    "एक सौ"
+];
+
+
+
+/* =========================================================
+   CREATE NUMBERS 1 - 100
+   ========================================================= */
+
+const NUMBERS = Array.from(
+    { length: 100 },
+    (_, index) => {
+
+        const number = index + 1;
+
+        return {
+
+            number,
+
+            name: NUMBER_WORDS[number],
+
+            hindi: HINDI_NUMBER_WORDS[number],
+
+            icon:
+                number === 100
+                    ? "💯"
+                    : number % 10 === 0
+                        ? "🔟"
+                        : "🔢",
+
+            pronunciation:
+                NUMBER_WORDS[number],
+
+            description:
+                `${number} is the number ${NUMBER_WORDS[number]}.`,
+
+            hindiDescription:
+                `${number} को हिंदी में ${HINDI_NUMBER_WORDS[number]} कहते हैं.`,
+
+            example:
+                `Number ${number} = ${NUMBER_WORDS[number]}.`,
+
+            hindiExample:
+                `संख्या ${number} = ${HINDI_NUMBER_WORDS[number]}.`
+
+        };
+
+    }
+);
+
+
+
+/* =========================================================
+   MULTIPLICATION TABLES
+   ========================================================= */
+
+const TABLES = {
+
+    2: Array.from(
+        { length: 10 },
+        (_, index) => {
+
+            const n = index + 1;
+
+            return {
+                question: `2 × ${n}`,
+                answer: 2 * n,
+                hindi: `दो × ${n} = ${2 * n}`
+            };
+
+        }
+    ),
+
+    10: Array.from(
+        { length: 10 },
+        (_, index) => {
+
+            const n = index + 1;
+
+            return {
+                question: `10 × ${n}`,
+                answer: 10 * n,
+                hindi: `दस × ${n} = ${10 * n}`
+            };
+
+        }
+    )
+
+};
+
+
+
+/* =========================================================
+   GENERAL KNOWLEDGE
+   ========================================================= */
+
+const GENERAL_KNOWLEDGE = [
+
+    {
+        question: "What is the capital of India?",
+        hindiQuestion: "भारत की राजधानी क्या है?",
+        answer: "New Delhi",
+        hindiAnswer: "नई दिल्ली",
+        icon: "🏛️",
+        category: "India"
+    },
+
+    {
+        question: "What is the currency of India?",
+        hindiQuestion: "भारत की मुद्रा क्या है?",
+        answer: "Indian Rupee",
+        hindiAnswer: "भारतीय रुपया",
+        icon: "₹",
+        category: "India"
+    },
+
+    {
+        question: "What is the national animal of India?",
+        hindiQuestion: "भारत का राष्ट्रीय पशु कौन सा है?",
+        answer: "Royal Bengal Tiger",
+        hindiAnswer: "रॉयल बंगाल टाइगर",
+        icon: "🐅",
+        category: "India"
+    },
+
+    {
+        question: "What is the national bird of India?",
+        hindiQuestion: "भारत का राष्ट्रीय पक्षी कौन सा है?",
+        answer: "Indian Peacock",
+        hindiAnswer: "भारतीय मोर",
+        icon: "🦚",
+        category: "India"
+    },
+
+    {
+        question: "What is the national flower of India?",
+        hindiQuestion: "भारत का राष्ट्रीय फूल कौन सा है?",
+        answer: "Lotus",
+        hindiAnswer: "कमल",
+        icon: "🪷",
+        category: "India"
+    },
+
+    {
+        question: "How many states are there in India?",
+        hindiQuestion: "भारत में कितने राज्य हैं?",
+        answer: "28 states",
+        hindiAnswer: "28 राज्य",
+        icon: "🇮🇳",
+        category: "India"
+    },
+
+    {
+        question: "How many Union Territories are there in India?",
+        hindiQuestion: "भारत में कितने केंद्र शासित प्रदेश हैं?",
+        answer: "8 Union Territories",
+        hindiAnswer: "8 केंद्र शासित प्रदेश",
+        icon: "🗺️",
+        category: "India"
+    },
+
+    {
+        question: "How many days are there in a week?",
+        hindiQuestion: "एक सप्ताह में कितने दिन होते हैं?",
+        answer: "7 days",
+        hindiAnswer: "7 दिन",
+        icon: "📅",
+        category: "Time"
+    },
+
+    {
+        question: "How many months are there in a year?",
+        hindiQuestion: "एक वर्ष में कितने महीने होते हैं?",
+        answer: "12 months",
+        hindiAnswer: "12 महीने",
+        icon: "🗓️",
+        category: "Time"
+    },
+
+    {
+        question: "How many hours are there in a day?",
+        hindiQuestion: "एक दिन में कितने घंटे होते हैं?",
+        answer: "24 hours",
+        hindiAnswer: "24 घंटे",
+        icon: "⏰",
+        category: "Time"
+    },
+
+    {
+        question: "How many minutes are there in one hour?",
+        hindiQuestion: "एक घंटे में कितने मिनट होते हैं?",
+        answer: "60 minutes",
+        hindiAnswer: "60 मिनट",
+        icon: "⏱️",
+        category: "Time"
+    },
+
+    {
+        question: "How many seconds are there in one minute?",
+        hindiQuestion: "एक मिनट में कितने सेकंड होते हैं?",
+        answer: "60 seconds",
+        hindiAnswer: "60 सेकंड",
+        icon: "⏱️",
+        category: "Time"
+    },
+
+    {
+        question: "Which planet do we live on?",
+        hindiQuestion: "हम किस ग्रह पर रहते हैं?",
+        answer: "Earth",
+        hindiAnswer: "पृथ्वी",
+        icon: "🌍",
+        category: "Science"
+    },
+
+    {
+        question: "Which planet is closest to the Sun?",
+        hindiQuestion: "सूर्य के सबसे निकट कौन सा ग्रह है?",
+        answer: "Mercury",
+        hindiAnswer: "बुध",
+        icon: "☿️",
+        category: "Space"
+    },
+
+    {
+        question: "Which planet is known as the Red Planet?",
+        hindiQuestion: "लाल ग्रह किसे कहा जाता है?",
+        answer: "Mars",
+        hindiAnswer: "मंगल",
+        icon: "🔴",
+        category: "Space"
+    },
+
+    {
+        question: "Which is the largest planet in our Solar System?",
+        hindiQuestion: "हमारे सौरमंडल का सबसे बड़ा ग्रह कौन सा है?",
+        answer: "Jupiter",
+        hindiAnswer: "बृहस्पति",
+        icon: "🪐",
+        category: "Space"
+    },
+
+    {
+        question: "Which star is closest to Earth?",
+        hindiQuestion: "पृथ्वी के सबसे निकट कौन सा तारा है?",
+        answer: "The Sun",
+        hindiAnswer: "सूर्य",
+        icon: "☀️",
+        category: "Space"
+    },
+
+    {
+        question: "What is H₂O commonly called?",
+        hindiQuestion: "H₂O को सामान्यतः क्या कहा जाता है?",
+        answer: "Water",
+        hindiAnswer: "पानी",
+        icon: "💧",
+        category: "Science"
+    },
+
+    {
+        question: "Which organ pumps blood through the body?",
+        hindiQuestion: "शरीर में रक्त पंप करने वाला अंग कौन सा है?",
+        answer: "Heart",
+        hindiAnswer: "हृदय",
+        icon: "❤️",
+        category: "Human Body"
+    },
+
+    {
+        question: "Which organ helps us think?",
+        hindiQuestion: "सोचने में कौन सा अंग मदद करता है?",
+        answer: "Brain",
+        hindiAnswer: "मस्तिष्क",
+        icon: "🧠",
+        category: "Human Body"
+    },
+
+    {
+        question: "Which gas do humans need for breathing?",
+        hindiQuestion: "मनुष्य को साँस लेने के लिए किस गैस की आवश्यकता होती है?",
+        answer: "Oxygen",
+        hindiAnswer: "ऑक्सीजन",
+        icon: "🫁",
+        category: "Science"
+    },
+
+    {
+        question: "Which gas do plants use for photosynthesis?",
+        hindiQuestion: "पौधे प्रकाश संश्लेषण के लिए किस गैस का उपयोग करते हैं?",
+        answer: "Carbon dioxide",
+        hindiAnswer: "कार्बन डाइऑक्साइड",
+        icon: "🌱",
+        category: "Science"
+    },
+
+    {
+        question: "How many continents are commonly recognized?",
+        hindiQuestion: "सामान्यतः कितने महाद्वीप माने जाते हैं?",
+        answer: "7 continents",
+        hindiAnswer: "7 महाद्वीप",
+        icon: "🌎",
+        category: "Geography"
+    },
+
+    {
+        question: "How many oceans are commonly recognized?",
+        hindiQuestion: "सामान्यतः कितने महासागर माने जाते हैं?",
+        answer: "5 oceans",
+        hindiAnswer: "5 महासागर",
+        icon: "🌊",
+        category: "Geography"
+    },
+
+    {
+        question: "Which is the largest ocean?",
+        hindiQuestion: "सबसे बड़ा महासागर कौन सा है?",
+        answer: "Pacific Ocean",
+        hindiAnswer: "प्रशांत महासागर",
+        icon: "🌊",
+        category: "Geography"
+    },
+
+    {
+        question: "Which is the highest mountain above sea level?",
+        hindiQuestion: "समुद्र तल से सबसे ऊँचा पर्वत कौन सा है?",
+        answer: "Mount Everest",
+        hindiAnswer: "माउंट एवरेस्ट",
+        icon: "🏔️",
+        category: "Geography"
+    },
+
+    {
+        question: "Which is the largest mammal?",
+        hindiQuestion: "सबसे बड़ा स्तनधारी कौन सा है?",
+        answer: "Blue Whale",
+        hindiAnswer: "नीली व्हेल",
+        icon: "🐋",
+        category: "Animals"
+    },
+
+    {
+        question: "Which animal is known as the King of the Jungle?",
+        hindiQuestion: "किस जानवर को जंगल का राजा कहा जाता है?",
+        answer: "Lion",
+        hindiAnswer: "शेर",
+        icon: "🦁",
+        category: "Animals"
+    },
+
+    {
+        question: "Which bird is known for its colourful tail feathers?",
+        hindiQuestion: "कौन सा पक्षी अपने रंगीन पूँछ के पंखों के लिए जाना जाता है?",
+        answer: "Peacock",
+        hindiAnswer: "मोर",
+        icon: "🦚",
+        category: "Birds"
+    },
+
+    {
+        question: "What do bees make?",
+        hindiQuestion: "मधुमक्खियाँ क्या बनाती हैं?",
+        answer: "Honey",
+        hindiAnswer: "शहद",
+        icon: "🐝",
+        category: "Animals"
+    },
+
+    {
+        question: "Which sense organ helps us see?",
+        hindiQuestion: "कौन सा ज्ञानेंद्रिय हमें देखने में मदद करता है?",
+        answer: "Eyes",
+        hindiAnswer: "आँखें",
+        icon: "👁️",
+        category: "Human Body"
+    },
+
+    {
+        question: "Which sense organ helps us hear?",
+        hindiQuestion: "कौन सा ज्ञानेंद्रिय हमें सुनने में मदद करता है?",
+        answer: "Ears",
+        hindiAnswer: "कान",
+        icon: "👂",
+        category: "Human Body"
+    },
+
+    {
+        question: "Which sense organ helps us smell?",
+        hindiQuestion: "कौन सा ज्ञानेंद्रिय हमें सूँघने में मदद करता है?",
+        answer: "Nose",
+        hindiAnswer: "नाक",
+        icon: "👃",
+        category: "Human Body"
+    },
+
+    {
+        question: "Which sense organ helps us taste?",
+        hindiQuestion: "कौन सा ज्ञानेंद्रिय हमें स्वाद महसूस करने में मदद करता है?",
+        answer: "Tongue",
+        hindiAnswer: "जीभ",
+        icon: "👅",
+        category: "Human Body"
+    },
+
+    {
+        question: "Which sense organ helps us feel touch?",
+        hindiQuestion: "कौन सा अंग स्पर्श महसूस करने में मदद करता है?",
+        answer: "Skin",
+        hindiAnswer: "त्वचा",
+        icon: "🖐️",
+        category: "Human Body"
+    },
+
+    {
+        question: "What is the boiling point of water at sea level?",
+        hindiQuestion: "समुद्र तल पर पानी का क्वथनांक कितना होता है?",
+        answer: "100°C",
+        hindiAnswer: "100°C",
+        icon: "♨️",
+        category: "Science"
+    },
+
+    {
+        question: "What is the freezing point of water?",
+        hindiQuestion: "पानी का हिमांक कितना होता है?",
+        answer: "0°C",
+        hindiAnswer: "0°C",
+        icon: "🧊",
+        category: "Science"
+    },
+
+    {
+        question: "What is the natural satellite of Earth?",
+        hindiQuestion: "पृथ्वी का प्राकृतिक उपग्रह कौन सा है?",
+        answer: "Moon",
+        hindiAnswer: "चंद्रमा",
+        icon: "🌕",
+        category: "Space"
+    },
+
+    {
+        question: "How many sides does a triangle have?",
+        hindiQuestion: "त्रिभुज की कितनी भुजाएँ होती हैं?",
+        answer: "3 sides",
+        hindiAnswer: "3 भुजाएँ",
+        icon: "🔺",
+        category: "Mathematics"
+    },
+
+    {
+        question: "How many sides does a square have?",
+        hindiQuestion: "वर्ग की कितनी भुजाएँ होती हैं?",
+        answer: "4 sides",
+        hindiAnswer: "4 भुजाएँ",
+        icon: "⬜",
+        category: "Mathematics"
+    }
+
+];
+
+
+
+/* =========================================================
+   LANGUAGE SEARCH
+   ========================================================= */
+
+function searchLanguages(query = "") {
+
+    const q = String(query).trim().toLowerCase();
+
+    if (!q) {
+        return LANGUAGES;
+    }
+
+    return LANGUAGES.filter(item => {
+
+        return (
+            item.name.toLowerCase().includes(q) ||
+            item.hindi.toLowerCase().includes(q) ||
+            item.region.toLowerCase().includes(q) ||
+            item.hindiRegion.toLowerCase().includes(q)
+        );
+
+    });
+
+}
+
+
+
+/* =========================================================
+   NUMBER SEARCH
+   ========================================================= */
+
+function searchNumbers(query = "") {
+
+    const q = String(query).trim().toLowerCase();
+
+    if (!q) {
+        return NUMBERS;
+    }
+
+    return NUMBERS.filter(item => {
+
+        return (
+            String(item.number) === q ||
+            item.name.toLowerCase().includes(q) ||
+            item.hindi.includes(q)
+        );
+
+    });
+
+}
+
+
+
+/* =========================================================
+   GENERAL KNOWLEDGE SEARCH
+   ========================================================= */
+
+function searchGeneralKnowledge(query = "") {
+
+    const q = String(query).trim().toLowerCase();
+
+    if (!q) {
+        return GENERAL_KNOWLEDGE;
+    }
+
+    return GENERAL_KNOWLEDGE.filter(item => {
+
+        return (
+            item.question.toLowerCase().includes(q) ||
+            item.hindiQuestion.toLowerCase().includes(q) ||
+            item.answer.toLowerCase().includes(q) ||
+            item.hindiAnswer.toLowerCase().includes(q) ||
+            item.category.toLowerCase().includes(q)
+        );
+
+    });
+
+}
+
+
+
+/* =========================================================
+   GET LANGUAGE
+   ========================================================= */
+
+function getLanguageData(language) {
+
+    if (!language) return null;
+
+    return LANGUAGES.find(item =>
+        item.name === language.name ||
+        item.hindi === language.hindi
+    ) || language;
+
+}
+
+
+
+/* =========================================================
+   GET NUMBER
+   ========================================================= */
+
+function getNumberData(number) {
+
+    if (!number) return null;
+
+    return NUMBERS.find(item =>
+        item.number === number.number
+    ) || number;
+
+}
+
+
+
+/* =========================================================
+   GET GENERAL KNOWLEDGE
+   ========================================================= */
+
+function getGeneralKnowledgeData(item) {
+
+    if (!item) return null;
+
+    return GENERAL_KNOWLEDGE.find(data =>
+        data.question === item.question ||
+        data.hindiQuestion === item.hindiQuestion
+    ) || item;
+
+}
+
+
+
+/* =========================================================
+   DEBUG COUNTS
+   ========================================================= */
+
+console.log(
+    "Languages:",
+    LANGUAGES.length
+);
+
+console.log(
+    "Numbers:",
+    NUMBERS.length
+);
+
+console.log(
+    "Multiplication Tables:",
+    Object.keys(TABLES).join(", ")
+);
+
+console.log(
+    "General Knowledge:",
+    GENERAL_KNOWLEDGE.length
+);
+
+
+/* =========================================================
+   PART 7 END
+   ========================================================= */
