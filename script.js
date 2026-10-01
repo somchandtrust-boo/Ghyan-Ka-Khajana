@@ -38,7 +38,9 @@
 /* =========================================================
    GLOBAL
    ========================================================= */
-
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("./service-worker.js");
+}
 let currentLanguage = "en";
 let currentTopic = null;
 
